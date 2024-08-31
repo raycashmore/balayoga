@@ -5,7 +5,7 @@ import Nav from "@/app/_components/nav";
 export default function Page() {
 	return (
 		<>
-			<BannerImage imgSrc="/banner.webp" />
+			<BannerImage imgSrc="/banner.webp" align="right" />
 			<MainContent>
 				<Nav />
 				<h1>About</h1>

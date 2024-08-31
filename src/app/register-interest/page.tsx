@@ -6,7 +6,7 @@ import RegisterInterest from "@/app/register-interest/register-interest";
 export default function Page() {
 	return (
 		<>
-			<BannerImage imgSrc="/banner.webp" />
+			<BannerImage imgSrc="/IMG_3563.webp" />
 			<MainContent>
 				<Nav />
 				<RegisterInterest />

@@ -5,7 +5,7 @@ import Nav from "@/app/_components/nav";
 export default function Page() {
 	return (
 		<>
-			<BannerImage imgSrc="/banner.webp" />
+			<BannerImage imgSrc="/IMG_3691.webp" />
 			<MainContent>
 				<Nav />
 				<h1>Kids Yoga</h1>

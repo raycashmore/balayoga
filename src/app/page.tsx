@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function HomePage() {
 	return (
 		<>
-			<BannerImage imgSrc="/banner.webp" />
+			<BannerImage imgSrc="/banner.webp" align="right" />
 			<MainContent>
 				<div className="flex flex-col gap-2 text-3xl font-extralight text-white">
 					<Link href="about">About</Link>

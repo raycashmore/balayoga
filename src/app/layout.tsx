@@ -1,7 +1,7 @@
 import "@/styles/globals.css";
+import { type Metadata } from "next";
 
 import { Manrope } from "next/font/google";
-import { type Metadata } from "next";
 
 export const metadata: Metadata = {
 	title: "Bala Yoga",
@@ -15,11 +15,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
 	return (
 		<html lang="en" className={font.className}>
 			<body className="text-white">
-				<header className="absolute left-16 top-16">
-					<h1 className="text-4xl">BALA YOGA</h1>
-				</header>
+				<div className="flex min-h-screen flex-col lg:flex-row-reverse">{children}</div>
 
-				{children}
+				<header className="absolute left-16 top-16">
+					<h1 className="text-5xl font-extralight">BALA YOGA</h1>
+				</header>
 
 				<div
 					className="absolute left-[-75%] top-[-75%] -z-10 block h-[150vh] w-[150vw] rounded-full"

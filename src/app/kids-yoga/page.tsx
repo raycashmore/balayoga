@@ -1,16 +1,15 @@
-import Image from "next/image";
+import BannerImage from "@/app/_components/banner-image";
+import MainContent from "@/app/_components/main-content";
 import Link from "next/link";
 
 export default function Page() {
 	return (
-		<main className="flex h-screen flex-col lg:flex-row-reverse">
-			<div className="relative flex flex-1">
-				{/*<Image src="/banner.webp" alt="Banner" style={{ objectFit: "cover" }} objectPosition="right" />*/}
-			</div>
-			<div className="flex flex-1">
-				<h1>Kids Yoga</h1>
+		<>
+			<BannerImage imgSrc="/banner.webp" />
+			<MainContent>
 				<Link href="/">Home</Link>
-			</div>
-		</main>
+				<h1>Kids Yoga</h1>
+			</MainContent>
+		</>
 	);
 }

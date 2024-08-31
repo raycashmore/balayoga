@@ -7,9 +7,12 @@ export default function HomePage() {
 		<>
 			<BannerImage imgSrc="/banner.webp" />
 			<MainContent>
-				<Link href="adults-yoga">Adults</Link>
-				<Link href="kids-yoga">Kids</Link>
-				<Link href="register-interest">Register interest</Link>
+				<div className="flex flex-col gap-2 text-3xl font-extralight text-white">
+					<Link href="about">About</Link>
+					<Link href="adults-yoga">Adults</Link>
+					<Link href="kids-yoga">Kids</Link>
+					<Link href="register-interest">Register Interest</Link>
+				</div>
 			</MainContent>
 		</>
 	);

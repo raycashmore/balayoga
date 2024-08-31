@@ -3,9 +3,9 @@
 @tailwind utilities;
 
 :root {
-	--color-primary: #5137AC;
+	--color-background: #5137AC;
 }
 
 body {
-	background-color: var(--color-primary);
+	background-color: var(--color-background);
 }

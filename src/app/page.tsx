@@ -8,10 +8,18 @@ export default function HomePage() {
 			<BannerImage imgSrc="/banner.webp" align="right" />
 			<MainContent>
 				<div className="flex flex-col gap-2 text-3xl font-extralight text-white">
-					<Link href="about">About</Link>
-					<Link href="adults-yoga">Adults</Link>
-					<Link href="kids-yoga">Kids</Link>
-					<Link href="register-interest">Register Interest</Link>
+					<Link href="about" className="hover:underline">
+						About
+					</Link>
+					<Link href="adults-yoga" className="hover:underline">
+						Adults
+					</Link>
+					<Link href="kids-yoga" className="hover:underline">
+						Kids
+					</Link>
+					<Link href="register-interest" className="hover:underline">
+						Register Interest
+					</Link>
 				</div>
 			</MainContent>
 		</>

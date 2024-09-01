@@ -7,8 +7,8 @@ export default function Page() {
 		<>
 			<BannerImage imgSrc="/banner.webp" align="right" />
 			<MainContent>
+				<p className="text-white">Adults Yoga...</p>
 				<Nav />
-				<h1>Adults Yoga</h1>
 			</MainContent>
 		</>
 	);

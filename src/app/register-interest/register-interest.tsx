@@ -66,9 +66,9 @@ export default function RegisterInterest() {
 			<button
 				type="submit"
 				disabled={submitting}
-				className="rounded-md bg-[#988AD6] px-5 py-2.5 text-center text-sm font-medium opacity-80 hover:bg-white focus:outline-none focus:ring-4 focus:ring-blue-300 disabled:opacity-50 sm:w-auto"
+				className="rounded-md bg-[#ACA1DE] px-5 py-2.5 text-center text-sm font-medium opacity-80 hover:opacity-100 focus:outline-none focus:ring-4 focus:ring-blue-300 disabled:opacity-50 sm:w-auto"
 			>
-				Send
+				SEND
 			</button>
 		</form>
 	);

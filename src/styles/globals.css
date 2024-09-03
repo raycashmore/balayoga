@@ -4,8 +4,14 @@
 
 :root {
 	--color-background: #5137AC;
+	--color-text: #fff;
 }
 
 body {
 	background-color: var(--color-background);
+}
+
+p, li {
+	color: var(--color-text);
+	font-size: 14px;
 }

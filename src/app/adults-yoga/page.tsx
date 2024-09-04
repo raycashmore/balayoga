@@ -27,7 +27,7 @@ export default function Page() {
 				</p>
 				<p>Beginners and experienced welcomed. Variations and props are offered. Cost is $18 per class (drop in).</p>
 				<p>
-					To secure a spot, call 0435 440 496 or{" "}
+					To secure a spot,{" "}
 					<Link href="contact" className="underline">
 						send a message
 					</Link>

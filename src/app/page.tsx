@@ -12,11 +12,11 @@ export default function HomePage() {
 						<Link href="about" className="hover:underline">
 							About
 						</Link>
-						<Link href="kids-yoga" className="hover:underline">
-							Kids yoga
-						</Link>
 						<Link href="adults-yoga" className="hover:underline">
 							Adults yoga
+						</Link>
+						<Link href="kids-yoga" className="hover:underline">
+							Kids yoga
 						</Link>
 						<Link href="register-interest" className="hover:underline">
 							Register interest
@@ -24,14 +24,6 @@ export default function HomePage() {
 						<Link href="contact" className="hover:underline">
 							Contact
 						</Link>
-					</div>
-					<div className="mt-6 border-l-2 pl-3">
-						<p className="opacity-70">
-							<span className="text-xl">Bala:</span>
-							<br />A Sanskrit word meaning “young,” “powerful,” “strength of mind,” and “child-like,” among other things.
-							Embracing the essence of bala, we share the transformative practice of yoga with both kids and adults, fostering
-							strong bodies and a mindset of curiosity and inner balance.
-						</p>
 					</div>
 				</div>
 			</MainContent>

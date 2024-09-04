@@ -26,7 +26,7 @@ export default function ContactForm() {
 	) : (
 		<form onSubmit={onSubmit} className="flex min-w-[200px] max-w-[400px] flex-col gap-4">
 			<div>
-				<label htmlFor="name" className="text-md mb-2 text-sm text-white">
+				<label htmlFor="name" className="text-md mb-2 text-sm leading-8 text-white">
 					Your name
 				</label>
 				<input
@@ -40,7 +40,7 @@ export default function ContactForm() {
 			</div>
 
 			<div>
-				<label htmlFor="email" className="text-md mb-2 text-sm text-white">
+				<label htmlFor="email" className="text-md mb-2 text-sm leading-8 text-white">
 					Your email
 				</label>
 				<input
@@ -54,7 +54,7 @@ export default function ContactForm() {
 			</div>
 
 			<div>
-				<label htmlFor="message" className="text-md mb-2 text-sm text-white">
+				<label htmlFor="message" className="text-md mb-2 text-sm leading-8 text-white">
 					Message
 				</label>
 				<textarea

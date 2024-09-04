@@ -40,7 +40,7 @@ export default function RegisterInterest() {
 	) : (
 		<form onSubmit={onSubmit} className="flex min-w-[200px] max-w-[400px] flex-col gap-4">
 			<div>
-				<label htmlFor="name" className="text-md mb-2 text-sm text-white">
+				<label htmlFor="name" className="text-md mb-2 text-sm leading-8 text-white">
 					Your name
 				</label>
 				<input
@@ -54,7 +54,7 @@ export default function RegisterInterest() {
 			</div>
 
 			<div>
-				<label htmlFor="email" className="text-md mb-2 text-sm text-white">
+				<label htmlFor="email" className="text-md mb-2 text-sm leading-8 text-white">
 					Your email
 				</label>
 				<input
@@ -68,8 +68,8 @@ export default function RegisterInterest() {
 			</div>
 
 			<div>
-				<label htmlFor="email" className="text-md mb-2 text-sm text-white">
-					Select your prefer day(s) in Term 4:
+				<label htmlFor="email" className="text-md mb-2 text-sm leading-8 text-white">
+					Select your preferred day(s) for Kids yoga in Term 4:
 				</label>
 				<ul className="divide-y rounded-lg border border-gray-200 bg-white text-sm font-medium text-gray-900 opacity-80">
 					{days.map((day) => (
@@ -92,7 +92,7 @@ export default function RegisterInterest() {
 				</ul>
 			</div>
 			<div>
-				<label htmlFor="message" className="text-md mb-2 text-sm text-white">
+				<label htmlFor="message" className="text-md mb-2 text-sm leading-8 text-white">
 					Message
 				</label>
 				<textarea
@@ -101,6 +101,7 @@ export default function RegisterInterest() {
 					maxLength={500}
 					className="focus:text-red-60 text-md block w-full rounded-md border p-2.5 text-black opacity-80 focus:border-blue-500 focus:ring-blue-500"
 					onChange={(e) => setMessage(e.target.value)}
+					placeholder="Optional"
 				/>
 			</div>
 

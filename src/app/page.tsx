@@ -1,11 +1,15 @@
 import BannerImage from "@/app/_components/banner-image";
 import MainContent from "@/app/_components/main-content";
+import Title from "@/app/_components/title";
 import Link from "next/link";
 
 export default function HomePage() {
 	return (
 		<>
-			<BannerImage imgSrc="/IMG_3676.webp" align="right" />
+			<BannerImage imgSrc="/IMG_3676.webp" align="right" className="min-h-[360px]" />
+			<div className="visible absolute left-8 top-4 flex lg:hidden">
+				<Title />
+			</div>
 			<MainContent>
 				<div className="flex flex-1 flex-col">
 					<div className="flex flex-1 flex-col justify-center gap-2 text-3xl font-extralight text-white">

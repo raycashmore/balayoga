@@ -6,7 +6,7 @@ import Link from "next/link";
 export default function HomePage() {
 	return (
 		<>
-			<BannerImage imgSrc="/IMG_3676.webp" align="right" className="min-h-[360px]" />
+			<BannerImage imgSrc="/IMG_3676.webp" align="right" className="min-h-[320px]" />
 			<div className="visible absolute left-8 top-4 flex lg:hidden">
 				<Title />
 			</div>

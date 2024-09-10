@@ -18,7 +18,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
 	return (
 		<html lang="en" className={font.className}>
 			<GoogleTagManager gtmId="GTM-TMJ3SHG6" />
-			<body>
+			<body className="relative overflow-x-hidden">
 				<div className="flex min-h-dvh flex-col lg:flex-row-reverse">{children}</div>
 				<Glow />
 			</body>

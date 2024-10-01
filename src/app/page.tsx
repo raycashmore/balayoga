@@ -22,9 +22,6 @@ export default function HomePage() {
 						<Link href="kids-yoga" className="hover:underline">
 							Kids yoga
 						</Link>
-						<Link href="register-interest" className="hover:underline">
-							Register interest
-						</Link>
 						<Link href="contact" className="hover:underline">
 							Contact
 						</Link>

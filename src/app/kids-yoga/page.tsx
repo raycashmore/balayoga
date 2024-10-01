@@ -9,10 +9,40 @@ export default function Page() {
 			<BannerImage imgSrc="/IMG_3691.webp" />
 			<MainContent>
 				<Back />
+
+				<aside className="rounded-lg bg-white p-6 font-medium text-black opacity-80">
+					<p className="text-lg font-black text-black">TERM 4, 2024</p>
+					<p className="text-black">Primary school children aged 7 - 12</p>
+					<table className="my-4">
+						<tbody>
+							<tr>
+								<td>Time:</td>
+								<td>Thursday 4 - 5 pm</td>
+							</tr>
+							<tr>
+								<td className="pr-3">Location:</td>
+								<td>Hills Yoga Studio, 261 Old Northern Road, Castle Hill</td>
+							</tr>
+							<tr>
+								<td>Cost:</td>
+								<td>$140 for the term (7 weeks), $20 for trial</td>
+							</tr>
+						</tbody>
+					</table>
+					<p className="text-black">Active kids vouchers accepted.</p>
+					<p className="text-black">
+						To register for the term or book a trial,{" "}
+						<Link href="contact" className="underline">
+							send a message
+						</Link>
+						.
+					</p>
+				</aside>
+
 				<p>
 					Yoga is a powerful tool for fostering calmness and balance, therefore alleviating or preventing anxiety. Yoga teaches
 					self-awareness through mindfulness practices, empowering children to regulate their emotions. Yoga enhances focus and
-					concentration, offering a holistic approach to well-being.
+					concentration, offering a holistic approach to well-being.{" "}
 				</p>
 				<p>
 					Yoga meets many physical, emotional, cognitive, social and spiritual needs of our children today. Studies have shown
@@ -41,32 +71,6 @@ export default function Page() {
 						<li className="ml-8">Yoga games</li>
 						<li className="ml-8">Handouts with home practice </li>
 					</ul>
-				</div>
-				<div>
-					<p>
-						<strong>Term 3, 2024:</strong>
-					</p>
-					<p>
-						<strong>Primary school children aged 7-12</strong>
-					</p>
-					<p>
-						Thursday 4 - 5 pm at Hills Yoga Studio, 261 Old Northern Road, Castle Hill
-						<br />
-						Cost is $200 for 10 weeks (option to join anytime during the term)
-						<br />
-						Trial $20
-						<br />
-						Active kids vouchers accepted
-					</p>
-				</div>
-				<div>
-					<p>
-						<strong>Term 4, 2024: </strong>
-						<br />
-						<Link href="register-interest" className="underline">
-							Register your interest for your preferred days
-						</Link>
-					</p>
 				</div>
 			</MainContent>
 		</>

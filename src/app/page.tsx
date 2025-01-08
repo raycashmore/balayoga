@@ -20,7 +20,7 @@ export default function HomePage() {
 							Adults yoga
 						</Link>
 						<Link href="kids-yoga" className="hover:underline">
-							Kids yoga
+							Kids and teens yoga
 						</Link>
 						<Link href="contact" className="hover:underline">
 							Contact

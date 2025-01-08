@@ -20,16 +20,14 @@ export default function Page() {
 					your well-being. And you will love the relaxation part the most!
 				</p>
 				<p>
-					<span className="text-lg font-bold">Monday 12:30 – 1:30 pm</span>
-					<br />
-					Action Dance Academy, 5A Pioneer Ave, Thornleigh
-				</p>
-				<p>
 					<span className="text-lg font-bold">Wednesday 6:45 – 7:45 pm</span>
 					<br />
 					Hawkins Hall, 2 Sefton Rd, Thornleigh
 				</p>
-				<p>Beginners and experienced welcomed. Variations and props are offered. Cost is $18 per class (drop in).</p>
+				<p>
+					Beginners and experienced welcomed. Variations and props are offered. <br />
+					Cost is $18 per class (drop in).
+				</p>
 				<p>
 					To secure a spot,{" "}
 					<Link href="contact" className="underline">

@@ -1,13 +1,9 @@
-import Back from "@/app/_components/back";
-import BannerImage from "@/app/_components/banner-image";
-import MainContent from "@/app/_components/main-content";
+import Image from "next/image";
 
-export default function Page() {
+export function About() {
 	return (
-		<>
-			<BannerImage imgSrc="/IMG_3751.webp" align="center" />
-			<MainContent>
-				<Back />
+		<section className="flex flex-col gap-8 lg:flex-row lg:px-8">
+			<div className="flex basis-2/3 flex-col gap-4 text-lg">
 				<p>
 					My name is Romana and I have been practising yoga for over twenty years. Initially drawn to asanas for the physical
 					challenge, eventually discovering the wholesome world of yoga through pranayama and meditation. Yoga became a vital tool
@@ -29,7 +25,17 @@ export default function Page() {
 					them with tools to empower them to navigate life’s challenges with resilience, inner calm and strength. Through yoga,
 					children can develop the skills needed to cope with stress and thrive in all aspects of life.
 				</p>
-			</MainContent>
-		</>
+			</div>
+			<aside className="basis-1/3">
+				<Image
+					src="/IMG_3751.webp"
+					alt="Romana in a yoga pose"
+					width={200}
+					height={200}
+					style={{ width: "100%", height: "100%", borderRadius: "32px", objectFit: "cover" }}
+					unoptimized={true}
+				/>
+			</aside>
+		</section>
 	);
 }

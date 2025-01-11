@@ -9,8 +9,9 @@
 
 body {
 	background-color: var(--color-background);
+	font-size: 14px;
 }
 
-p, li {
-	color: var(--color-text);
+h2 {
+	font-size: 48px;
 }

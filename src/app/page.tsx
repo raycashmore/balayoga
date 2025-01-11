@@ -1,33 +1,23 @@
 import BannerImage from "@/app/_components/banner-image";
-import MainContent from "@/app/_components/main-content";
-import Title from "@/app/_components/title";
-import Link from "next/link";
+import Logo from "@/app/_components/logo";
+import Socials from "@/app/_components/socials";
+import { About } from "@/app/about";
+import { Adults } from "@/app/adults";
+import { Kids } from "@/app/kids";
 
 export default function HomePage() {
 	return (
-		<>
-			<BannerImage imgSrc="/IMG_3676.webp" align="right" className="min-h-[320px]" />
-			<div className="visible absolute left-8 top-4 flex lg:hidden">
-				<Title />
+		<main className="flex flex-col items-center gap-16">
+			<BannerImage imgSrc="/IMG_3676.webp" />
+			<div className="visible absolute left-[100px] top-[60px] flex w-[260px]">
+				<Logo />
 			</div>
-			<MainContent>
-				<div className="flex flex-1 flex-col">
-					<div className="flex flex-1 flex-col justify-center gap-2 text-3xl font-extralight text-white">
-						<Link href="about" className="hover:underline">
-							About
-						</Link>
-						<Link href="adults-yoga" className="hover:underline">
-							Adults yoga
-						</Link>
-						<Link href="kids-yoga" className="hover:underline">
-							Kids and teens yoga
-						</Link>
-						<Link href="contact" className="hover:underline">
-							Contact
-						</Link>
-					</div>
-				</div>
-			</MainContent>
-		</>
+			<div className="m-4 flex max-w-[1000px] flex-col gap-16">
+				<About />
+				<Kids />
+				<Adults />
+				<Socials />
+			</div>
+		</main>
 	);
 }

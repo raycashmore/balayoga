@@ -1,9 +1,8 @@
 import "@/styles/globals.css";
 import Glow from "@/app/_components/glow";
+import { bodyFont } from "@/styles/fonts";
 import { GoogleTagManager } from "@next/third-parties/google";
 import { type Metadata } from "next";
-
-import { Manrope } from "next/font/google";
 import { type ReactNode } from "react";
 
 export const metadata: Metadata = {
@@ -12,14 +11,12 @@ export const metadata: Metadata = {
 	icons: [{ rel: "icon", url: "/favicon.ico" }],
 };
 
-const font = Manrope({ subsets: ["latin"] });
-
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {
 	return (
-		<html lang="en" className={font.className}>
+		<html lang="en" className={bodyFont.className}>
 			<GoogleTagManager gtmId="GTM-TMJ3SHG6" />
-			<body className="relative overflow-x-hidden">
-				<div className="flex min-h-dvh flex-col lg:flex-row-reverse">{children}</div>
+			<body className="relative">
+				<div>{children}</div>
 				<Glow />
 			</body>
 		</html>

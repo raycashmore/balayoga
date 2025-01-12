@@ -1,126 +1,108 @@
 import { headerFont } from "@/styles/fonts";
-import Link from "next/link";
+import Image from "next/image";
 
 export function Kids() {
 	return (
-		<section className="rounded-[32px] bg-[#FBF9F5] p-8 text-[#1A1A1A] opacity-90">
+		<section className="flex flex-col gap-4 rounded-[32px] bg-[#FBF9F5] p-8 text-[#1A1A1A] opacity-90">
 			<h2 className={headerFont.className}>Kids and teens yoga</h2>
-			<p className="pb-2 text-xl font-black">Term 1, 2025</p>
-			<aside className="rounded-lg p-6 font-medium text-black opacity-80">
+
+			<div>
+				<p className="pb-2 text-xl font-black">Term 1, 2025</p>
+			</div>
+
+			<div className="flex flex-col gap-4">
 				<p className="font-black text-black">Program for 7-12 year olds: Building Inner Strength, Resilience, and Self-Belief</p>
-				<table className="my-4">
-					<tbody>
-						<tr>
-							<td>Time:</td>
-							<td>Monday 4 - 5 pm (from 10 February 2025)</td>
-						</tr>
-						<tr>
-							<td className="pr-3">Location:</td>
-							<td>Hills Yoga Studio, 261 Old Northern Road, Castle Hill</td>
-						</tr>
-						<tr>
-							<td>Cost:</td>
-							<td>$120 for the term (9 weeks), $20 trial</td>
-						</tr>
-					</tbody>
-				</table>
-				<p className="text-black">Active kids vouchers accepted.</p>
-				<p className="text-black">
-					To register for the term or book a trial,{" "}
-					<Link href="contact" className="underline">
-						send a message
-					</Link>
-					.
+				<p>
+					This program is designed for primary school children, helping them cultivate resilience and self-belief, and empowering
+					them with tools to help navigate challenges.{" "}
 				</p>
-			</aside>
-			<p>
-				This program is designed for primary school children, helping them cultivate resilience and self-belief, and empowering them
-				with tools to help navigate challenges.{" "}
-			</p>
-			<div>
-				<p className="pb-2">Program includes:</p>
-				<ul className="list-disc leading-6">
-					<li className="ml-8">Breathing exercises to calm the mind and increase focus</li>
-					<li className="ml-8">Breathing exercises to release anger and reduce tension</li>
-					<li className="ml-8">Mindfulness exercises to foster self-awareness and teach emotional self-regulation</li>
-					<li className="ml-8">Partner poses to build trust, connection and cooperation</li>
-					<li className="ml-8">Yoga games to burn off excess energy and prepare the body for relaxation</li>
-					<li className="ml-8">Visualisation and relaxation techniques to find the inner calm as a pathway to happiness</li>
-					<li className="ml-8">Yoga poses to develop physical strength, balance and flexibility</li>
-					<li className="ml-8">
-						Yoga therapy movements to promote bodily balance by improving organ function and addressing structural imbalances
-					</li>
-					<li className="ml-8">Affirmations to cultivate a positive mindset and boost self-confidence</li>
-				</ul>
+
+				<div>
+					<Image src="/kids.jpg" alt="" width={400} height={400} className="float-right m-8 rounded-xl" />
+					<p className="pb-2">Program includes:</p>
+					<ul className="list-disc leading-6">
+						<li className="ml-8">Breathing exercises to calm the mind and increase focus</li>
+						<li className="ml-8">Breathing exercises to release anger and reduce tension</li>
+						<li className="ml-8">Mindfulness exercises to foster self-awareness and teach emotional self-regulation</li>
+						<li className="ml-8">Partner poses to build trust, connection and cooperation</li>
+						<li className="ml-8">Yoga games to burn off excess energy and prepare the body for relaxation</li>
+						<li className="ml-8">Visualisation and relaxation techniques to find the inner calm as a pathway to happiness</li>
+						<li className="ml-8">Yoga poses to develop physical strength, balance and flexibility</li>
+						<li className="ml-8">
+							Yoga therapy movements to promote bodily balance by improving organ function and addressing structural
+							imbalances
+						</li>
+						<li className="ml-8">Affirmations to cultivate a positive mindset and boost self-confidence</li>
+					</ul>
+				</div>
+				<div>
+					<p className="pb-2">Bonuses:</p>
+					<ul className="list-disc leading-6">
+						<li className="ml-8">Weekly handouts for easy access to the techniques learned in the class</li>
+						<li className="ml-8">Weekly recipe for a nutritious after-school pick-me-up snack</li>
+					</ul>
+				</div>
+				<form action="https://book.squareup.com/classes/bro8gvstcef3zz/location/L2Y5ECFR9ASJT/classes">
+					<button
+						type="submit"
+						className="rounded-md bg-[#8C52FF] px-5 py-2.5 text-center text-sm font-medium text-white focus:outline-none focus:ring-4 focus:ring-blue-300 disabled:opacity-50 sm:w-auto"
+					>
+						Book classes
+					</button>
+				</form>
 			</div>
-			<div>
-				<p className="pb-2">Bonuses:</p>
-				<ul className="list-disc leading-6">
-					<li className="ml-8">Weekly handouts for easy access to the techniques learned in the class</li>
-					<li className="ml-8">Weekly recipe for a nutritious after-school pick-me-up snack</li>
-				</ul>
-			</div>
-			<aside className="mt-8 rounded-lg bg-white p-6 font-medium text-black opacity-80">
+
+			<div className="mt-4 flex flex-col gap-4">
 				<p className="font-black text-black">Program for 12-17 year olds: Building Resilience, Confidence, and Self-Acceptance </p>
-				<table className="my-4">
-					<tbody>
-						<tr>
-							<td>Time:</td>
-							<td>Monday 5:15 - 6:15 pm (from 10 February 2025)</td>
-						</tr>
-						<tr>
-							<td className="pr-3">Location:</td>
-							<td>Hills Yoga Studio, 261 Old Northern Road, Castle Hill</td>
-						</tr>
-						<tr>
-							<td>Cost:</td>
-							<td>$120 for the term (9 weeks), $20 trial</td>
-						</tr>
-					</tbody>
-				</table>
-				<p className="text-black">Active kids vouchers accepted.</p>
-				<p className="text-black">
-					To register for the term or book a trial,{" "}
-					<Link href="contact" className="underline">
-						send a message
-					</Link>
-					.
+				<p>
+					Empower your teens with this program designed to build resilience, confidence, and self-acceptance. This transformative
+					journey equips teens with tools to navigate stress, peer pressure, and the digital world while fostering a positive
+					self-image and strong interpersonal connections.{" "}
 				</p>
-			</aside>
-			<p>
-				Empower your teens with this program designed to build resilience, confidence, and self-acceptance. This transformative
-				journey equips teens with tools to navigate stress, peer pressure, and the digital world while fostering a positive
-				self-image and strong interpersonal connections.
-			</p>
-			<div>
-				<p className="pb-2">Program includes:</p>
-				<ul className="list-disc leading-6">
-					<li className="ml-8">Breathing exercises to reduce stress and anxiety by calming the body and mind</li>
-					<li className="ml-8">Mindfulness techniques to promote emotional self-regulation</li>
-					<li className="ml-8">
-						Concentration and meditation practices to strengthen the brain’s frontal lobes, making teens resilient to negative
-						influences of technology and peer pressure
-					</li>
-					<li className="ml-8">Partner yoga poses to build trust, cooperation, and connection</li>
-					<li className="ml-8">
-						Reflection activities to foster self-love and self-belief by recognising their unique strengths
-					</li>
-					<li className="ml-8">Affirmations and gratitude practices to support positive body image and boost self-esteem</li>
-					<li className="ml-8">Yoga poses to develop physical strength, balance and flexibility</li>
-					<li className="ml-8">
-						Yoga therapy movements to promote bodily balance by improving organ function and addressing structural imbalances
-					</li>
-				</ul>
+				<div>
+					<Image src="/teens.jpg" alt="" width={400} height={400} className="float-right m-8 rounded-xl" />
+					<p className="pb-2">Program includes:</p>
+					<ul className="list-disc leading-6">
+						<li className="ml-8">Breathing exercises to reduce stress and anxiety by calming the body and mind</li>
+						<li className="ml-8">Mindfulness techniques to promote emotional self-regulation</li>
+						<li className="ml-8">
+							Concentration and meditation practices to strengthen the brain’s frontal lobes, making teens resilient to
+							negative influences of technology and peer pressure
+						</li>
+						<li className="ml-8">Partner yoga poses to build trust, cooperation, and connection</li>
+						<li className="ml-8">
+							Reflection activities to foster self-love and self-belief by recognising their unique strengths
+						</li>
+						<li className="ml-8">Affirmations and gratitude practices to support positive body image and boost self-esteem</li>
+						<li className="ml-8">Yoga poses to develop physical strength, balance and flexibility</li>
+						<li className="ml-8">
+							Yoga therapy movements to promote bodily balance by improving organ function and addressing structural
+							imbalances
+						</li>
+					</ul>
+				</div>
+				<div>
+					<p className="pb-2">Bonuses:</p>
+					<ul className="list-disc leading-6">
+						<li className="ml-8">
+							My Wellbeing Journal as a personal space for reflections and introspections throughout the program and beyond
+						</li>
+						<li className="ml-8">Weekly handouts for easy access to the techniques learned in the class</li>
+					</ul>
+				</div>
+
+				{/*<form action="https://square.link/u/5f3YQcpB">*/}
+				<form action="https://book.squareup.com/classes/bro8gvstcef3zz/location/L2Y5ECFR9ASJT/classes">
+					<button
+						type="submit"
+						className="rounded-md bg-[#8C52FF] px-5 py-2.5 text-center text-sm font-medium text-white focus:outline-none focus:ring-4 focus:ring-blue-300 disabled:opacity-50 sm:w-auto"
+					>
+						Book classes
+					</button>
+				</form>
 			</div>
-			<div>
-				<p className="pb-2">Bonuses:</p>
-				<ul className="list-disc leading-6">
-					<li className="ml-8">
-						My Wellbeing Journal as a personal space for reflections and introspections throughout the program and beyond
-					</li>
-					<li className="ml-8">Weekly handouts for easy access to the techniques learned in the class</li>
-				</ul>
-			</div>
+
+			{/*<script src="https://app.squareup.com/appointments/buyer/widget/9o2g7qr7u1979a/L2Y5ECFR9ASJT.js"></script>*/}
 		</section>
 	);
 }

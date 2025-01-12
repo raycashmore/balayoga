@@ -1,9 +1,8 @@
 import { headerFont } from "@/styles/fonts";
-import Link from "next/link";
 
 export function Adults() {
 	return (
-		<section className="rounded-[32px] bg-[#fff] p-8 text-[#1A1A1A] opacity-80">
+		<section className="flex flex-col gap-4 rounded-[32px] bg-[#fff] p-8 text-[#1A1A1A] opacity-80">
 			<h2 className={headerFont.className}>Adults yoga</h2>
 			<p>
 				Develop a stronger body and mind with our adult yoga classes that will allow you to slow down and focus on yourself. Join
@@ -14,20 +13,14 @@ export function Adults() {
 				Each week focuses on stretching and strengthening different parts of the body, alongside breathing exercises to enhance your
 				well-being. And you will love the relaxation part the most!{" "}
 			</p>
-			<p>
-				<span className="text-lg font-bold">Wednesday 6:45 – 7:45 pm</span> <br /> Hawkins Hall, 2 Sefton Rd, Thornleigh{" "}
-			</p>
-			<p>
-				Beginners and experienced welcomed. Variations and props are offered. <br /> Cost is $18 per class (drop in).{" "}
-			</p>
-			<p>
-				To secure a spot,{" "}
-				<Link href="contact" className="underline">
-					{" "}
-					send a message{" "}
-				</Link>{" "}
-				.{" "}
-			</p>
+			<form action="https://book.squareup.com/classes/bro8gvstcef3zz/location/L2Y5ECFR9ASJT/classes">
+				<button
+					type="submit"
+					className="rounded-md bg-[#8C52FF] px-5 py-2.5 text-center text-sm font-medium text-white focus:outline-none focus:ring-4 focus:ring-blue-300 disabled:opacity-50 sm:w-auto"
+				>
+					Book classes
+				</button>
+			</form>
 		</section>
 	);
 }

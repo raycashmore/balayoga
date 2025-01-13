@@ -26,7 +26,7 @@ export default function Page() {
 							</tr>
 							<tr>
 								<td>Cost:</td>
-								<td>$120 for the term (9 weeks), $20 trial</td>
+								<td>$180 for the term (9 weeks), $20 trial</td>
 							</tr>
 						</tbody>
 					</table>
@@ -83,7 +83,7 @@ export default function Page() {
 							</tr>
 							<tr>
 								<td>Cost:</td>
-								<td>$120 for the term (9 weeks), $20 trial</td>
+								<td>$180 for the term (9 weeks), $20 trial</td>
 							</tr>
 						</tbody>
 					</table>

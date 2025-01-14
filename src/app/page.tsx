@@ -5,6 +5,7 @@ import { Adults } from "@/app/adults";
 import { Header } from "@/app/header";
 import { Kids } from "@/app/kids";
 import { Schools } from "@/app/schools";
+import { Testimonials } from "@/app/testimonials";
 
 export default function HomePage() {
 	return (
@@ -16,6 +17,7 @@ export default function HomePage() {
 					<Kids />
 					<Adults />
 					<Schools />
+					<Testimonials />
 					<Socials />
 				</main>
 			</div>

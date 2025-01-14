@@ -10,7 +10,7 @@ export default function Glow() {
 			<div
 				className="absolute inset-0 -z-10 min-h-screen"
 				style={{
-					background: "radial-gradient(circle at 100% 25%, rgba(236, 194, 126, 0.4), rgba(236, 194, 126, 0) 60%)",
+					background: "radial-gradient(circle at 100% 25%, rgba(236, 194, 126, 0.5), rgba(236, 194, 126, 0) 30%)",
 				}}
 			/>
 		</div>

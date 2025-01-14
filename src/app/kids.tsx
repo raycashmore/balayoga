@@ -9,7 +9,7 @@ export function Kids() {
 	const [teensExpanded, setTeensExpanded] = useState(false);
 
 	return (
-		<section className="flex flex-col gap-4 rounded-[32px] bg-[#FBF9F5] p-8 text-[#1A1A1A] opacity-90">
+		<section className="flex flex-col gap-4 rounded-[32px] bg-[#fff] p-8 text-[#1A1A1A] opacity-90">
 			<h2 className={headerFont.className}>Kids and teens yoga</h2>
 
 			<div>

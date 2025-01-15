@@ -9,39 +9,36 @@ export function Kids() {
 	const [teensExpanded, setTeensExpanded] = useState(false);
 
 	return (
-		<section className="flex flex-col gap-4 rounded-[32px] bg-[#fff] p-8 text-[#1A1A1A] opacity-90">
-			<h2 className={headerFont.className}>Kids and teens yoga</h2>
-
+		<section className="flex flex-col gap-4 rounded-[32px] bg-[#fff] bg-opacity-70 p-8 text-[#1A1A1A]">
+			<h2 className={`${headerFont.className} pb-2 leading-none`}>Kids and teens yoga</h2>
 			<div>
-				<p className="pb-2 text-xl font-black">Term 1, 2025</p>
-			</div>
-
-			<div>
-				<p className="py-2 font-black text-black">
-					Program for 7-12 year olds: <br />
-					Building Inner Strength, Resilience, and Self-Belief
-				</p>
 				<Image
 					src="/kids.jpg"
 					alt=""
-					width={320}
-					height={320}
+					width={350}
+					height={350}
 					className="float-none m-0 mt-0 rounded-xl pb-4 md:float-right md:m-8 md:mt-2 md:pb-0"
 				/>
+				<p className="py-2 text-base font-bold">
+					Program for 7-12 year olds: <br />
+					Building Inner Strength, Resilience, and Self-Belief
+				</p>
 				<p className="py-3">
 					This program is designed for primary school children, helping them cultivate resilience and self-belief, and empowering
 					them with tools to help navigate challenges.
 				</p>
 
 				{!kidsExpanded && (
-					<a onClick={() => setKidsExpanded(true)} className="mt-2 text-[#2763D3] underline">
-						Program includes...
-					</a>
+					<p className="my-2">
+						<a onClick={() => setKidsExpanded(true)} className="text-[#2763D3] underline">
+							Program includes...
+						</a>
+					</p>
 				)}
 
 				{kidsExpanded && (
 					<>
-						<div>
+						<div className="my-2">
 							<p className="pb-2">
 								<a onClick={() => setKidsExpanded(false)}>Program includes:</a>
 							</p>
@@ -82,17 +79,16 @@ export function Kids() {
 			</div>
 
 			<div className="mt-4 md:mt-0">
-				<p className="py-2 font-black text-black">
-					Program for 12-17 year olds: <br />
-					Building Resilience, Confidence, and Self-Acceptance
-				</p>
 				<Image
 					src="/teens.jpg"
 					alt=""
-					width={320}
-					height={320}
+					width={350}
+					height={350}
 					className="float-none m-0 mt-0 rounded-xl pb-4 md:float-right md:m-8 md:mt-2 md:pb-0"
 				/>
+				<p className="py-2 text-base font-bold">
+					Program for 12-17 year olds: <br /> Building Resilience, Confidence, and Self-Acceptance
+				</p>
 				<p className="py-3">
 					Empower your teens with this program designed to build resilience, confidence, and self-acceptance. This transformative
 					journey equips teens with tools to navigate stress, peer pressure, and the digital world while fostering a positive
@@ -100,13 +96,15 @@ export function Kids() {
 				</p>
 				<div>
 					{!teensExpanded && (
-						<a onClick={() => setTeensExpanded(true)} className="mt-2 text-[#2763D3] underline">
-							Program includes...
-						</a>
+						<p className="my-2">
+							<a onClick={() => setTeensExpanded(true)} className="text-[#2763D3] underline">
+								Program includes...
+							</a>
+						</p>
 					)}
 
 					{teensExpanded && (
-						<>
+						<div className="my-2">
 							<p className="pb-2">
 								<a onClick={() => setTeensExpanded(false)}>Program includes:</a>
 							</p>
@@ -138,7 +136,7 @@ export function Kids() {
 								</li>
 								<li className="ml-8">Weekly handouts for easy access to the techniques learned in the class</li>
 							</ul>
-						</>
+						</div>
 					)}
 				</div>
 

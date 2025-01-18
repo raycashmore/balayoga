@@ -7,7 +7,7 @@ import { type ReactNode } from "react";
 export const metadata: Metadata = {
 	title: "Bala Yoga",
 	description: "Mindfulness and Wellbeing",
-	icons: [{ rel: "icon", url: "/favicon.ico" }],
+	icons: [{ rel: "icon", url: "/favicon.png" }],
 };
 
 export default function RootLayout({ children }: Readonly<{ children: ReactNode }>) {

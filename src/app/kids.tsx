@@ -21,7 +21,7 @@ export function Kids() {
 				</p>
 				<p className="py-3">
 					This program is designed for primary school children (7 - 12 years old), supporting their mental, physical and emotional
-					health, providing them with tools to thrive in today's busy world.
+					health, providing them with tools to thrive in today&apos;s busy world.
 				</p>
 				<table className="my-2">
 					<tbody>

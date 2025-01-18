@@ -1,7 +1,7 @@
 import Glow from "@/app/_components/glow";
-import Socials from "@/app/_components/socials";
 import { About } from "@/app/about";
 import { Adults } from "@/app/adults";
+import { Contact } from "@/app/contact";
 import { Header } from "@/app/header";
 import { Kids } from "@/app/kids";
 
@@ -16,9 +16,12 @@ export default function HomePage() {
 					<Adults />
 					{/*<Schools />*/}
 					{/*<Testimonials />*/}
-					{/*<Contact />*/}
-					<Socials />
 				</main>
+				<footer className="flex w-full justify-center bg-[#402B87]">
+					<div className="m-4 flex max-w-[1000px] flex-col">
+						<Contact />
+					</div>
+				</footer>
 			</div>
 			<Glow />
 		</>

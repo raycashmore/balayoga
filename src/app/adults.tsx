@@ -12,10 +12,10 @@ export function Adults() {
 				</aside>
 				<div className="flex-[1]">
 					<p className="pb-4">
-						Develop a stronger body and mind with our adult yoga classes that will allow you to slow down and focus on yourself.
-						Join our Hatha yoga classes where we hold postures for a few rounds of breath to improve the whole body strength,
-						balance and flexibility. Feel recharged and more connected to yourself through mindfulness practices and breathing
-						exercises.
+						Develop a stronger body and mind with Hatha yoga classes that will allow you to slow down and focus on yourself. We
+						hold postures for a few rounds of breath to improve the whole body strength, balance and flexibility. Feel recharged
+						and more connected to yourself through mindfulness practices and breathing exercises. Options are offered throughout
+						the class allowing you to choose more beginner or advanced practice to suit your needs.
 					</p>
 					<p className="pb-4">
 						Each week focuses on stretching and strengthening different parts of the body, alongside breathing exercises to

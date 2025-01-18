@@ -35,10 +35,9 @@ export function Contact() {
 			<div className="flex flex-col justify-center gap-8 p-8 text-[#fff] opacity-80">
 				<h2 className={`${headerFont.className} text-center text-[32px]`}>Get in touch</h2>
 
-				<div className="max-w-[600px] text-justify">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna
-					aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis
-					aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
+				<div className="flex max-w-[600px] flex-col gap-2 text-center">
+					<p>If you would like to find out more about what I offer, please send me a message.</p>
+					<p>I would love to be part of your yoga journey!</p>
 				</div>
 
 				<button

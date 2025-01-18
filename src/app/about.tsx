@@ -15,21 +15,24 @@ export function About() {
 			</aside>
 			<div className="text-lg md:basis-2/3">
 				<p className="pb-4">
-					My name is Romana, and I have been practising yoga for over twenty years. Initially drawn to asanas for the physical
-					challenge, I soon discovered the deeper benefits of pranayama and meditation. Yoga has become a vital tool for finding
-					inner peace, helping me manage the demands of a corporate career and motherhood while becoming the best version of
-					myself.
+					My name is Romana and I have been practising yoga for over twenty years. Initially drawn to asanas for the physical
+					challenge, eventually discovering the wholesome world of yoga through pranayama and meditation. Yoga has become a vital
+					tool for finding inner peace in this busy world, helping me to be the best version of myself.
 				</p>
 				<p className="pb-4">
-					Bala, a Sanskrit word meaning young, powerful, and childlike, reflects the essence of my yoga practice. I share yoga
-					with both children and adults, fostering strong bodies, curious minds, and inner balance. My mission is to empower
-					children with tools to navigate life’s challenges with resilience, calm, and strength, equipping them to thrive in all
-					areas of life.
+					Bala is a Sanskrit word meaning young, powerful, strength of mind, and child-like, among other things. Embracing the
+					essence of bala, I share the transformative practice of yoga with both kids and adults, fostering strong bodies and a
+					mindset of curiosity and inner balance.
+				</p>
+				<p className="pb-4">
+					Inspired to teach yoga more than a decade ago, I completed 350 hours of Yoga Teacher Training with Inspire Yoga and
+					Wellbeing in 2023 and later, the Zenergy Kids Yoga Teacher Training, Foundation and Advanced, as well as Yoga Therapy
+					Training for kids.
 				</p>
 				<p>
-					To support this vision, I completed 350 hours of Yoga Teacher Training with Inspire Yoga and Wellbeing in 2023, followed
-					by Zenergy Kids Yoga Teacher Training, Foundation, and Advanced courses. I am now expanding my expertise through Yoga
-					Therapy Training for children, continually refining my ability to guide others on their yoga journey.
+					My mission is to cultivate self-belief and a strong sense of self in children through the practice of yoga. By providing
+					them with tools to empower them to navigate life’s challenges with resilience, inner calm and strength. Through yoga,
+					children can develop the skills needed to cope with stress and thrive in all areas of life.
 				</p>
 			</div>
 		</section>

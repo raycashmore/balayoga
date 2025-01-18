@@ -21,7 +21,8 @@ export function Adults() {
 						Each week focuses on stretching and strengthening different parts of the body, alongside breathing exercises to
 						enhance your well-being. And you will love the relaxation part the most!
 					</p>
-					<form action="https://book.squareup.com/classes/bro8gvstcef3zz/location/L2Y5ECFR9ASJT/classes">
+					<p className="pb-4">Every Wednesday at 6:45 - 7:45 pm at Hawkins Hall, Thornleigh.</p>
+					<form action="https://app.squareup.com/appointments/book/classes/bro8gvstcef3zz/L2Y5ECFR9ASJT/classes">
 						<button
 							type="submit"
 							className="rounded-md bg-[#8C52FF] px-5 py-2.5 text-center text-sm font-medium text-white focus:outline-none focus:ring-4 focus:ring-blue-300 disabled:opacity-50 sm:w-auto"

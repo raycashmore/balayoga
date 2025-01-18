@@ -2,151 +2,95 @@
 
 import { headerFont } from "@/styles/fonts";
 import Image from "next/image";
-import { useState } from "react";
 
 export function Kids() {
-	const [kidsExpanded, setKidsExpanded] = useState(false);
-	const [teensExpanded, setTeensExpanded] = useState(false);
-
 	return (
 		<section className="flex flex-col gap-4 rounded-[32px] bg-[#fff] bg-opacity-70 p-8 text-[#1A1A1A]">
 			<h2 className={`${headerFont.className} pb-2 leading-none`}>Kids and teens yoga</h2>
 			<div>
 				<Image
-					src="/kids.jpg"
+					src="/kids-yoga.webp"
 					alt=""
 					width={350}
 					height={350}
 					className="float-none m-0 mt-0 rounded-xl pb-4 md:float-right md:m-8 md:mt-2 md:pb-0"
 				/>
 				<p className="py-2 text-base font-bold">
-					Program for 7-12 year olds: <br />
-					Building Inner Strength, Resilience, and Self-Belief
+					Program for kids in term 1, 2025
+					<br /> Building Inner Strength, Resilience, and Self-Belief
 				</p>
 				<p className="py-3">
-					This program is designed for primary school children, helping them cultivate resilience and self-belief, and empowering
-					them with tools to help navigate challenges.
+					This program is designed for primary school children (7 - 12 years old), supporting their mental, physical and emotional
+					health, providing them with tools to thrive in today's busy world.
 				</p>
-
-				{!kidsExpanded && (
-					<p className="my-2">
-						<a onClick={() => setKidsExpanded(true)} className="text-[#2763D3] underline">
-							Program includes...
-						</a>
-					</p>
-				)}
-
-				{kidsExpanded && (
-					<>
-						<div className="my-2">
-							<p className="pb-2">
-								<a onClick={() => setKidsExpanded(false)}>Program includes:</a>
-							</p>
-							<ul className="list-disc leading-6">
-								<li className="ml-8">Breathing exercises to calm the mind and increase focus</li>
-								<li className="ml-8">Breathing exercises to release anger and reduce tension</li>
-								<li className="ml-8">Mindfulness exercises to foster self-awareness and teach emotional self-regulation</li>
-								<li className="ml-8">Partner poses to build trust, connection and cooperation</li>
-								<li className="ml-8">Yoga games to burn off excess energy and prepare the body for relaxation</li>
-								<li className="ml-8">
-									Visualisation and relaxation techniques to find the inner calm as a pathway to happiness
-								</li>
-								<li className="ml-8">Yoga poses to develop physical strength, balance and flexibility</li>
-								<li className="ml-8">
-									Yoga therapy movements to promote bodily balance by improving organ function and addressing structural
-									imbalances
-								</li>
-								<li className="ml-8">Affirmations to cultivate a positive mindset and boost self-confidence</li>
-							</ul>
-						</div>
-						<div>
-							<p className="py-3">Bonuses:</p>
-							<ul className="list-disc leading-6">
-								<li className="ml-8">Weekly handouts for easy access to the techniques learned in the class</li>
-								<li className="ml-8">Weekly recipe for a nutritious after-school pick-me-up snack</li>
-							</ul>
-						</div>
-					</>
-				)}
-				<form action="https://book.squareup.com/classes/bro8gvstcef3zz/location/L2Y5ECFR9ASJT/classes" className="mt-4">
+				<table className="my-2">
+					<tbody>
+						<tr>
+							<td>Time:</td>
+							<td>Monday 4 - 5 pm starting 10 February 2025</td>
+						</tr>
+						<tr>
+							<td className="pr-3">Location:</td>
+							<td>Hills Yoga, 261 Old Northern Road, Castle Hill</td>
+						</tr>
+						<tr>
+							<td>Cost:</td>
+							<td>$180</td>
+						</tr>
+					</tbody>
+				</table>
+				<form action="https://app.squareup.com/appointments/book/classes/bro8gvstcef3zz/L2Y5ECFR9ASJT/classes" className="mt-4">
 					<button
 						type="submit"
 						className="rounded-md bg-[#8C52FF] px-5 py-2.5 text-center text-sm font-medium text-white focus:outline-none focus:ring-4 focus:ring-blue-300 disabled:opacity-50 sm:w-auto"
 					>
-						Book classes
+						Book trial
 					</button>
 				</form>
 			</div>
 
 			<div className="mt-4 md:mt-0">
 				<Image
-					src="/teens.jpg"
+					src="/teens-yoga.webp"
 					alt=""
 					width={350}
 					height={350}
 					className="float-none m-0 mt-0 rounded-xl pb-4 md:float-right md:m-8 md:mt-2 md:pb-0"
 				/>
 				<p className="py-2 text-base font-bold">
-					Program for 12-17 year olds: <br /> Building Resilience, Confidence, and Self-Acceptance
+					Program for teens in term 1, 2025
+					<br />
+					Building Resilience, Confidence, and Self-Acceptance
 				</p>
 				<p className="py-3">
 					Empower your teens with this program designed to build resilience, confidence, and self-acceptance. This transformative
 					journey equips teens with tools to navigate stress, peer pressure, and the digital world while fostering a positive
 					self-image and strong interpersonal connections.
 				</p>
-				<div>
-					{!teensExpanded && (
-						<p className="my-2">
-							<a onClick={() => setTeensExpanded(true)} className="text-[#2763D3] underline">
-								Program includes...
-							</a>
-						</p>
-					)}
-
-					{teensExpanded && (
-						<div className="my-2">
-							<p className="pb-2">
-								<a onClick={() => setTeensExpanded(false)}>Program includes:</a>
-							</p>
-							<ul className="list-disc leading-6">
-								<li className="ml-8">Breathing exercises to reduce stress and anxiety by calming the body and mind</li>
-								<li className="ml-8">Mindfulness techniques to promote emotional self-regulation</li>
-								<li className="ml-8">
-									Concentration and meditation practices to strengthen the brain’s frontal lobes, making teens resilient
-									to negative influences of technology and peer pressure
-								</li>
-								<li className="ml-8">Partner yoga poses to build trust, cooperation, and connection</li>
-								<li className="ml-8">
-									Reflection activities to foster self-love and self-belief by recognising their unique strengths
-								</li>
-								<li className="ml-8">
-									Affirmations and gratitude practices to support positive body image and boost self-esteem
-								</li>
-								<li className="ml-8">Yoga poses to develop physical strength, balance and flexibility</li>
-								<li className="ml-8">
-									Yoga therapy movements to promote bodily balance by improving organ function and addressing structural
-									imbalances
-								</li>
-							</ul>
-							<p className="py-3">Bonuses:</p>
-							<ul className="list-disc leading-6">
-								<li className="ml-8">
-									My Wellbeing Journal as a personal space for reflections and introspections throughout the program and
-									beyond
-								</li>
-								<li className="ml-8">Weekly handouts for easy access to the techniques learned in the class</li>
-							</ul>
-						</div>
-					)}
-				</div>
+				<table className="my-2">
+					<tbody>
+						<tr>
+							<td>Time:</td>
+							<td>Monday 5:15 - 6:15 pm starting 10 February 2025</td>
+						</tr>
+						<tr>
+							<td className="pr-3">Location:</td>
+							<td>Hills Yoga, 261 Old Northern Road, Castle Hill</td>
+						</tr>
+						<tr>
+							<td>Cost:</td>
+							<td>$180</td>
+						</tr>
+					</tbody>
+				</table>
 
 				{/*<form action="https://square.link/u/5f3YQcpB">*/}
-				<form action="https://book.squareup.com/classes/bro8gvstcef3zz/location/L2Y5ECFR9ASJT/classes" className="mt-4">
+				<form action="https://app.squareup.com/appointments/book/classes/bro8gvstcef3zz/L2Y5ECFR9ASJT/classes" className="mt-4">
 					<button
 						type="submit"
 						className="rounded-md bg-[#8C52FF] px-5 py-2.5 text-center text-sm font-medium text-white focus:outline-none focus:ring-4 focus:ring-blue-300 disabled:opacity-50 sm:w-auto"
 					>
-						Book classes
+						Book trial
 					</button>
 				</form>
 			</div>

@@ -1,33 +1,29 @@
-import BannerImage from "@/app/_components/banner-image";
-import MainContent from "@/app/_components/main-content";
-import Title from "@/app/_components/title";
-import Link from "next/link";
+import Glow from "@/app/_components/glow";
+import { About } from "@/app/about";
+import { Adults } from "@/app/adults";
+import { Contact } from "@/app/contact";
+import { Header } from "@/app/header";
+import { Kids } from "@/app/kids";
 
 export default function HomePage() {
 	return (
 		<>
-			<BannerImage imgSrc="/IMG_3676.webp" align="right" className="min-h-[320px]" />
-			<div className="visible absolute left-8 top-4 flex lg:hidden">
-				<Title />
-			</div>
-			<MainContent>
-				<div className="flex flex-1 flex-col">
-					<div className="flex flex-1 flex-col justify-center gap-2 text-3xl font-extralight text-white">
-						<Link href="about" className="hover:underline">
-							About
-						</Link>
-						<Link href="adults-yoga" className="hover:underline">
-							Adults yoga
-						</Link>
-						<Link href="kids-yoga" className="hover:underline">
-							Kids and teens yoga
-						</Link>
-						<Link href="contact" className="hover:underline">
-							Contact
-						</Link>
+			<div className="flex flex-col items-center gap-8 lg:gap-12">
+				<Header />
+				<main className="m-4 flex max-w-[1000px] flex-col gap-8 lg:gap-12">
+					<About />
+					<Kids />
+					<Adults />
+					{/*<Schools />*/}
+					{/*<Testimonials />*/}
+				</main>
+				<footer className="flex w-full justify-center bg-[#402B87]">
+					<div className="m-4 flex max-w-[1000px] flex-col">
+						<Contact />
 					</div>
-				</div>
-			</MainContent>
+				</footer>
+			</div>
+			<Glow />
 		</>
 	);
 }

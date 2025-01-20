@@ -6,6 +6,7 @@ import Image from "next/image";
 export function Kids() {
 	return (
 		<section className="flex flex-col gap-4 rounded-[32px] bg-[#fff] bg-opacity-70 p-8 text-[#1A1A1A]">
+			<a id="kids-yoga" />
 			<h2 className={`${headerFont.className} pb-2 leading-none`}>Kids and teens yoga</h2>
 			<div>
 				<Image

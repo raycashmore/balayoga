@@ -10,7 +10,27 @@ const config = {
 		return [
 			{
 				source: "/register-interest",
-				destination: "/kids-yoga",
+				destination: "/#kids-yoga",
+				permanent: true,
+			},
+			{
+				source: "/about",
+				destination: "/#about",
+				permanent: true,
+			},
+			{
+				source: "/adults-yoga",
+				destination: "/#adults-yoga",
+				permanent: true,
+			},
+			{
+				source: "/contact",
+				destination: "/#contact",
+				permanent: true,
+			},
+			{
+				source: "/kids-yoga",
+				destination: "/#kids-yoga",
 				permanent: true,
 			},
 		];

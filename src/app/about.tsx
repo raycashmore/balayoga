@@ -3,6 +3,7 @@ import Image from "next/image";
 export function About() {
 	return (
 		<section className="gap-8 pb-6 md:flex md:flex-row lg:px-8">
+			<a id="about" />
 			<aside className="float-left md:basis-1/3">
 				<Image
 					src="/IMG_3751.webp"

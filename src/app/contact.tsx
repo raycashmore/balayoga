@@ -32,7 +32,7 @@ export function Contact() {
 
 	return (
 		<>
-			<div className="flex flex-col justify-center gap-8 p-8 text-[#fff] opacity-80">
+			<div className="flex flex-col justify-center gap-8 p-8 pt-4 text-[#fff] opacity-80">
 				<a id="contact" />
 				<h2 className={`${headerFont.className} text-center text-[32px]`}>Get in touch</h2>
 

@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export function Adults() {
 	return (
-		<section className="flex flex-col gap-4 rounded-[32px] bg-[#fff] bg-opacity-70 p-8 text-[#1A1A1A]">
+		<section className="flex flex-col gap-4 rounded-[32px] bg-[#fff] bg-opacity-70 p-8 pb-12 text-[#1A1A1A] md:px-12">
 			<a id="adults-yoga" />
 			<h2 className={`${headerFont.className} pb-4 leading-none`}>Adults yoga</h2>
 
@@ -23,7 +23,10 @@ export function Adults() {
 						enhance your well-being. And you will love the relaxation part the most!
 					</p>
 					<p className="pb-4">Every Wednesday at 6:45 - 7:45 pm at Hawkins Hall, Thornleigh.</p>
-					<form action="https://app.squareup.com/appointments/book/classes/bro8gvstcef3zz/L2Y5ECFR9ASJT/classes">
+					<form
+						action="https://app.squareup.com/appointments/book/classes/bro8gvstcef3zz/L2Y5ECFR9ASJT/classes"
+						className="flex justify-center sm:justify-start"
+					>
 						<button
 							type="submit"
 							className="rounded-md bg-[#8C52FF] px-5 py-2.5 text-center text-sm font-medium text-white focus:outline-none focus:ring-4 focus:ring-blue-300 disabled:opacity-50 sm:w-auto"

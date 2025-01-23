@@ -2,9 +2,9 @@ import Image from "next/image";
 
 export function About() {
 	return (
-		<section className="gap-8 pb-6 md:flex md:flex-row lg:px-8">
+		<section className="px-2 pb-6 md:flex md:flex-row md:px-12">
 			<a id="about" />
-			<aside className="float-left md:basis-1/3">
+			<aside className="float-left pt-2 md:basis-1/3 md:pt-0">
 				<Image
 					src="/IMG_3751.webp"
 					alt="Romana in a yoga pose"
@@ -14,11 +14,11 @@ export function About() {
 					className="mb-4 mr-6 rounded-lg md:mb-0 md:mr-0 md:h-full md:w-full md:rounded-[32px] md:object-cover"
 				/>
 			</aside>
-			<div className="text-lg md:basis-2/3">
+			<div className="text-lg md:basis-2/3 md:pl-8">
 				<p className="pb-4">
 					My name is Romana and I have been practising yoga for over twenty years. Initially drawn to asanas for the physical
 					challenge, eventually discovering the wholesome world of yoga through pranayama and meditation. Yoga has become a vital
-					tool for finding inner peace in this busy world, helping me to be the best version of myself.
+					tool for finding inner peace in this busy world.
 				</p>
 				<p className="pb-4">
 					Bala is a Sanskrit word meaning young, powerful, strength of mind, and child-like, among other things. Embracing the

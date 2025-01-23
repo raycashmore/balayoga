@@ -5,9 +5,9 @@ import Image from "next/image";
 
 export function Kids() {
 	return (
-		<section className="flex flex-col gap-4 rounded-[32px] bg-[#fff] bg-opacity-70 p-8 text-[#1A1A1A]">
+		<section className="flex flex-col gap-4 rounded-[32px] bg-[#fff] bg-opacity-70 p-8 text-[#1A1A1A] md:px-12">
 			<a id="kids-yoga" />
-			<h2 className={`${headerFont.className} pb-2 leading-none`}>Kids and teens yoga</h2>
+			<h2 className={`${headerFont.className} pb-2 leading-tight`}>Kids and teens yoga</h2>
 			<div>
 				<Image
 					src="/kids-yoga.webp"
@@ -27,20 +27,23 @@ export function Kids() {
 				<table className="my-2">
 					<tbody>
 						<tr>
-							<td>Time:</td>
+							<td className="align-top">Time:</td>
 							<td>Monday 4 - 5 pm starting 10 February 2025</td>
 						</tr>
 						<tr>
-							<td className="pr-3">Location:</td>
+							<td className="pr-3 align-top">Location:</td>
 							<td>Hills Yoga, 261 Old Northern Road, Castle Hill</td>
 						</tr>
 						<tr>
-							<td>Cost:</td>
+							<td className="align-top">Cost:</td>
 							<td>$180</td>
 						</tr>
 					</tbody>
 				</table>
-				<form action="https://app.squareup.com/appointments/book/classes/bro8gvstcef3zz/L2Y5ECFR9ASJT/classes" className="mt-4">
+				<form
+					action="https://app.squareup.com/appointments/book/classes/bro8gvstcef3zz/L2Y5ECFR9ASJT/classes"
+					className="mt-4 flex justify-center sm:justify-start"
+				>
 					<button
 						type="submit"
 						className="rounded-md bg-[#8C52FF] px-5 py-2.5 text-center text-sm font-medium text-white focus:outline-none focus:ring-4 focus:ring-blue-300 disabled:opacity-50 sm:w-auto"
@@ -71,22 +74,25 @@ export function Kids() {
 				<table className="my-2">
 					<tbody>
 						<tr>
-							<td>Time:</td>
+							<td className="align-top">Time:</td>
 							<td>Monday 5:15 - 6:15 pm starting 10 February 2025</td>
 						</tr>
 						<tr>
-							<td className="pr-3">Location:</td>
+							<td className="pr-3 align-top">Location:</td>
 							<td>Hills Yoga, 261 Old Northern Road, Castle Hill</td>
 						</tr>
 						<tr>
-							<td>Cost:</td>
+							<td className="align-top">Cost:</td>
 							<td>$180</td>
 						</tr>
 					</tbody>
 				</table>
 
 				{/*<form action="https://square.link/u/5f3YQcpB">*/}
-				<form action="https://app.squareup.com/appointments/book/classes/bro8gvstcef3zz/L2Y5ECFR9ASJT/classes" className="mt-4">
+				<form
+					action="https://app.squareup.com/appointments/book/classes/bro8gvstcef3zz/L2Y5ECFR9ASJT/classes"
+					className="mt-4 flex justify-center sm:justify-start"
+				>
 					<button
 						type="submit"
 						className="rounded-md bg-[#8C52FF] px-5 py-2.5 text-center text-sm font-medium text-white focus:outline-none focus:ring-4 focus:ring-blue-300 disabled:opacity-50 sm:w-auto"

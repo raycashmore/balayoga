@@ -28,15 +28,16 @@ export function Kids() {
 					<tbody>
 						<tr>
 							<td className="align-top">Time:</td>
-							<td>Monday 4 - 5 pm starting 10 February 2025</td>
+							<td>Monday 4 - 5 pm</td>
 						</tr>
 						<tr>
 							<td className="pr-3 align-top">Location:</td>
-							<td>Hills Yoga, 261 Old Northern Road, Castle Hill</td>
-						</tr>
-						<tr>
-							<td className="align-top">Cost:</td>
-							<td>$180</td>
+							<td>
+								Hills Yoga,{" "}
+								<a href="https://maps.app.goo.gl/KPU2hASqv25omecUA" target="_blank" className="underline">
+									261 Old Northern Road, Castle Hill
+								</a>
+							</td>
 						</tr>
 					</tbody>
 				</table>
@@ -75,15 +76,16 @@ export function Kids() {
 					<tbody>
 						<tr>
 							<td className="align-top">Time:</td>
-							<td>Monday 5:15 - 6:15 pm starting 10 February 2025</td>
+							<td>Monday 5:15 - 6:15 pm</td>
 						</tr>
 						<tr>
 							<td className="pr-3 align-top">Location:</td>
-							<td>Hills Yoga, 261 Old Northern Road, Castle Hill</td>
-						</tr>
-						<tr>
-							<td className="align-top">Cost:</td>
-							<td>$180</td>
+							<td>
+								Hills Yoga,{" "}
+								<a href="https://maps.app.goo.gl/KPU2hASqv25omecUA" target="_blank" className="underline">
+									261 Old Northern Road, Castle Hill
+								</a>
+							</td>
 						</tr>
 					</tbody>
 				</table>
@@ -101,8 +103,6 @@ export function Kids() {
 					</button>
 				</form>
 			</div>
-
-			{/*<script src="https://app.squareup.com/appointments/buyer/widget/9o2g7qr7u1979a/L2Y5ECFR9ASJT.js"></script>*/}
 		</section>
 	);
 }

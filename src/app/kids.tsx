@@ -7,7 +7,10 @@ export function Kids() {
 	return (
 		<section className="flex flex-col gap-4 rounded-[32px] bg-[#fff] bg-opacity-70 p-8 text-[#1A1A1A] md:px-12">
 			<a id="kids-yoga" />
-			<h2 className={`${headerFont.className} pb-2 leading-tight`}>Kids and teens yoga</h2>
+			<div className="flex items-center gap-6">
+				<h2 className={`${headerFont.className} pb-2 leading-tight`}>Kids and teens yoga</h2>
+				<Image src="/activekids-logo.webp" alt="Active kids approved provider" width={100} height={100} />
+			</div>
 			<div>
 				<Image
 					src="/kids-yoga.webp"

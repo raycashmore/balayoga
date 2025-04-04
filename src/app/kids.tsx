@@ -20,7 +20,7 @@ export function Kids() {
 					className="float-none m-0 mt-0 rounded-xl pb-4 md:float-right md:m-8 md:mt-2 md:pb-0"
 				/>
 				<p className="py-2 text-base font-bold">
-					Program for kids in term 1, 2025
+					Program for kids in term 2, 2025
 					<br /> Building Inner Strength, Resilience, and Self-Belief
 				</p>
 				<p className="py-3">
@@ -66,7 +66,7 @@ export function Kids() {
 					className="float-none m-0 mt-0 rounded-xl pb-4 md:float-right md:m-8 md:mt-2 md:pb-0"
 				/>
 				<p className="py-2 text-base font-bold">
-					Program for teens in term 1, 2025
+					Program for teens in term 2, 2025
 					<br />
 					Building Resilience, Confidence, and Self-Acceptance
 				</p>

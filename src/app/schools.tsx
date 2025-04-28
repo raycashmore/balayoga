@@ -8,8 +8,8 @@ export function Schools() {
 	const [contactDialogVisible, setContactDialogVisible] = useState(false);
 
 	return (
-		<section className="flex flex-col gap-4 rounded-[32px] bg-[#fff] bg-opacity-70 p-8 pb-12 text-[#1A1A1A] md:px-12">
-			<h2 className={headerFont.className}>Yoga and mindfulness at schools</h2>
+		<section className="flex flex-col gap-4 rounded-[32px] bg-[#FBF9F5] bg-opacity-70 p-8 pb-12 text-[#1A1A1A] md:px-12">
+			<h2 className={`${headerFont.className} leading-tight`}>Yoga and mindfulness at schools</h2>
 			<p>
 				With <strong>anxiety increasingly affecting</strong> children and adolescents, yoga offers a powerful way to{" "}
 				<strong>foster calmness and balance</strong>, helping to alleviate and prevent stress. Through mindfulness practices, yoga
@@ -30,13 +30,15 @@ export function Schools() {
 				that meets the unique needs of your students - both in content and session length.{" "}
 				<strong>Let’s bring the benefits of yoga into your school community!</strong>
 			</p>
-			<button
-				onClick={() => setContactDialogVisible(true)}
-				type="submit"
-				className="self-start rounded-md bg-[#8C52FF] px-5 py-2.5 text-center text-sm font-medium text-white focus:outline-none focus:ring-4 focus:ring-blue-300 disabled:opacity-50 sm:w-auto"
-			>
-				Send a message
-			</button>
+			<div className="mt-2 flex justify-center sm:justify-start">
+				<button
+					onClick={() => setContactDialogVisible(true)}
+					type="submit"
+					className="self-start rounded-md bg-[#8C52FF] px-5 py-2.5 text-center text-sm font-medium text-white focus:outline-none focus:ring-4 focus:ring-blue-300 disabled:opacity-50 sm:w-auto"
+				>
+					Send a message
+				</button>
+			</div>
 
 			<ContactDialog visible={contactDialogVisible} onClose={() => setContactDialogVisible(false)} />
 		</section>

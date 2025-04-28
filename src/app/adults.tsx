@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export function Adults() {
 	return (
-		<section className="flex flex-col gap-4 rounded-[32px] bg-[#fff] bg-opacity-70 p-8 pb-12 text-[#1A1A1A] md:px-12">
+		<section className="flex flex-col gap-4 rounded-[32px] bg-[#DBE2F0] bg-opacity-80 p-8 pb-12 text-[#1A1A1A] md:px-12">
 			<a id="adults-yoga" />
 			<h2 className={`${headerFont.className} pb-4 leading-none`}>Adults yoga</h2>
 

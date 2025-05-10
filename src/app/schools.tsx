@@ -8,28 +8,31 @@ export function Schools() {
 	const [contactDialogVisible, setContactDialogVisible] = useState(false);
 
 	return (
-		<section className="flex flex-col gap-4 rounded-[32px] bg-[#FBF9F5] bg-opacity-70 p-8 pb-12 text-[#1A1A1A] md:px-12">
+		<section className="flex flex-col rounded-[32px] bg-[#FBF9F5] bg-opacity-70 p-8 pb-12 text-[#1A1A1A] md:px-12">
 			<h2 className={`${headerFont.className} leading-tight`}>Yoga and mindfulness at schools</h2>
-			<p>
-				With <strong>anxiety increasingly affecting</strong> children and adolescents, yoga offers a powerful way to{" "}
-				<strong>foster calmness and balance</strong>, helping to alleviate and prevent stress. Through mindfulness practices, yoga
-				teaches self-awareness, empowering children to regulate their emotions. It enhances <strong>focus and concentration</strong>
-				, providing a <strong>holistic approach to well-being</strong>.
-			</p>
-			<p>
-				Yoga meets the physical, emotional, cognitive, social, and spiritual needs of today’s children. Studies show that{" "}
-				<strong>regular yoga practice improves both mental and physical health</strong>, making it a valuable addition to the school
-				environment.
-			</p>
-			<p>
-				Mindfulness and movement-based learning encourage students to explore the <strong>connection between body and mind</strong>,
-				improving self-awareness, emotional regulation, and overall well-being.
-			</p>
-			<p>
-				Whether your school is looking to introduce regular yoga classes or occasional incursions, I can create a tailored program
-				that meets the unique needs of your students - both in content and session length.{" "}
-				<strong>Let’s bring the benefits of yoga into your school community!</strong>
-			</p>
+			<div>
+				<p>
+					With <strong>anxiety increasingly affecting</strong> children and adolescents, yoga offers a powerful way to{" "}
+					<strong>foster calmness and balance</strong>, helping to alleviate and prevent stress. Through mindfulness practices,
+					yoga teaches self-awareness, empowering children to regulate their emotions. It enhances{" "}
+					<strong>focus and concentration</strong>, providing a <strong>holistic approach to well-being</strong>.
+				</p>
+				<p>
+					Yoga meets the physical, emotional, cognitive, social, and spiritual needs of today’s children. Studies show that{" "}
+					<strong>regular yoga practice improves both mental and physical health</strong>, making it a valuable addition to the
+					school environment.
+				</p>
+				<p>
+					Mindfulness and movement-based learning encourage students to explore the{" "}
+					<strong>connection between body and mind</strong>, improving self-awareness, emotional regulation, and overall
+					well-being.
+				</p>
+				<p>
+					Whether your school is looking to introduce regular yoga classes or occasional incursions, I can create a tailored
+					program that meets the unique needs of your students - both in content and session length.{" "}
+					<strong>Let’s bring the benefits of yoga into your school community!</strong>
+				</p>
+			</div>
 			<div className="mt-2 flex justify-center sm:justify-start">
 				<button
 					onClick={() => setContactDialogVisible(true)}

@@ -12,17 +12,17 @@ export function Adults() {
 					<Image src="/s2.webp" alt="" width={200} height={200} className="h-auto w-48 rounded-xl object-cover" />
 				</aside>
 				<div className="flex-[1]">
-					<p className="pb-4">
+					<p>
 						Develop a stronger body and mind with Hatha yoga classes that will allow you to slow down and focus on yourself. We
 						hold postures for a few rounds of breath to improve the whole body strength, balance and flexibility. Feel recharged
 						and more connected to yourself through mindfulness practices and breathing exercises. Options are offered throughout
 						the class allowing you to choose more beginner or advanced practice to suit your needs.
 					</p>
-					<p className="pb-4">
+					<p>
 						Each week focuses on stretching and strengthening different parts of the body, alongside breathing exercises to
 						enhance your well-being. And you will love the relaxation part the most!
 					</p>
-					<p className="pb-4">
+					<p>
 						Every Wednesday at 6:45 - 7:45 pm at{" "}
 						<a href="https://maps.app.goo.gl/JNVHnHpJ9aSz9Gku9" target="_blank" className="underline">
 							Hawkins Hall, Thornleigh

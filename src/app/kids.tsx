@@ -19,11 +19,11 @@ export function Kids() {
 					height={350}
 					className="float-none m-0 mt-0 rounded-xl pb-4 md:float-right md:m-8 md:mt-2 md:pb-0"
 				/>
-				<p className="py-2 text-base font-bold">
+				<p className="text-base font-bold">
 					Program for kids in term 2, 2025
 					<br /> Building Inner Strength, Resilience, and Self-Belief
 				</p>
-				<p className="py-3">
+				<p>
 					This program is designed for primary school children (7 - 12 years old), supporting their mental, physical and emotional
 					health, providing them with tools to thrive in today&apos;s fast-paced world.
 				</p>
@@ -65,12 +65,12 @@ export function Kids() {
 					height={350}
 					className="float-none m-0 mt-0 rounded-xl pb-4 md:float-right md:m-8 md:mt-2 md:pb-0"
 				/>
-				<p className="py-2 text-base font-bold">
+				<p className="text-base font-bold">
 					Program for teens in term 2, 2025
 					<br />
 					Building Resilience, Confidence, and Self-Acceptance
 				</p>
-				<p className="py-3">
+				<p>
 					Empower your teens with this program designed to build resilience, confidence, and self-acceptance. This transformative
 					journey equips teens with tools to navigate stress, peer pressure, and the digital world while fostering a positive
 					self-image and strong interpersonal connections.

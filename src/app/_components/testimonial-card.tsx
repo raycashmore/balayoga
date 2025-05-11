@@ -11,9 +11,9 @@ export function TestimonialCard({ testimonial }: TestimonialCardProps) {
 	const [isExpanded, setIsExpanded] = useState(false);
 	return (
 		<div
-			className={`relative overflow-hidden rounded-[32px] bg-gradient-to-bl from-transparent from-25% via-[#DBE2F0]/10 to-[#DBE2F0]/20 px-12 py-6 backdrop-blur-sm transition-all duration-300`}
+			className={`relative overflow-hidden rounded-[32px] bg-gradient-to-bl from-transparent from-25% via-[#DBE2F0]/10 to-[#DBE2F0]/20 px-6 py-6 backdrop-blur-sm transition-all duration-300 md:px-12`}
 		>
-			<div className="mb-6 mt-3">
+			<div className="my-3">
 				<h3 className={`${headerFont.className} mb-6 text-xl font-bold text-white md:text-xl`}>&quot;{quote}&quot;</h3>
 
 				<div className="relative z-10 leading-relaxed text-white/90">{isExpanded ? fullContent : truncatedContent}</div>

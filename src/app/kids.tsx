@@ -5,10 +5,10 @@ import Image from "next/image";
 
 export function Kids() {
 	return (
-		<section className="flex flex-col gap-4 rounded-[32px] bg-[#fff] bg-opacity-70 p-8 text-[#1A1A1A] md:px-12">
+		<section className="flex flex-col gap-4 rounded-[32px] bg-[#fff] bg-opacity-70 p-6 text-[#1A1A1A] md:px-12">
 			<a id="kids-yoga" />
 			<div className="flex items-center gap-6">
-				<h2 className={`${headerFont.className} pb-2 leading-tight`}>Kids and teens yoga</h2>
+				<h2 className={`${headerFont.className} pb-2 text-center leading-tight sm:text-left`}>Kids and teens yoga</h2>
 				<Image src="/activekids-logo.webp" alt="Active kids approved provider" width={100} height={100} />
 			</div>
 			<div>
@@ -17,7 +17,7 @@ export function Kids() {
 					alt=""
 					width={350}
 					height={350}
-					className="float-none m-0 mt-0 rounded-xl pb-4 md:float-right md:m-8 md:mt-2 md:pb-0"
+					className="float-none m-0 mt-0 justify-self-center rounded-xl pb-4 sm:justify-self-start md:float-right md:m-8 md:mt-2 md:pb-0"
 				/>
 				<p className="text-base font-bold">
 					Program for kids in term 2, 2025
@@ -63,7 +63,7 @@ export function Kids() {
 					alt=""
 					width={350}
 					height={350}
-					className="float-none m-0 mt-0 rounded-xl pb-4 md:float-right md:m-8 md:mt-2 md:pb-0"
+					className="float-none m-0 mt-0 justify-self-center rounded-xl pb-4 sm:justify-self-start md:float-right md:m-8 md:mt-2 md:pb-0"
 				/>
 				<p className="text-base font-bold">
 					Program for teens in term 2, 2025

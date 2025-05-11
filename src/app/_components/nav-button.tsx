@@ -14,9 +14,9 @@ export const NavButton: React.FC<NavButtonProps> = ({ direction, onClick, disabl
 			aria-label={direction === "prev" ? "Previous testimonial" : "Next testimonial"}
 			className={`flex h-10 w-10 items-center justify-center rounded-full ${
 				disabled
-					? "cursor-not-allowed bg-gray-200 text-gray-400 opacity-5"
-					: "bg-purple-100 text-purple-700 hover:bg-purple-200 active:bg-purple-300"
-			} opacity-20 transition-all duration-200 hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2`}
+					? "cursor-not-allowed bg-gray-200 text-gray-400 opacity-0 hover:opacity-0"
+					: "bg-purple-100 text-purple-700 opacity-50 hover:bg-purple-200 active:bg-purple-300"
+			} transition-all duration-200 hover:opacity-100 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2`}
 		>
 			{direction === "prev" ? (
 				<svg

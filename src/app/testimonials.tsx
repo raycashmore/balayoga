@@ -120,8 +120,8 @@ export function Testimonials() {
 	return (
 		<section className="">
 			<a id="testimonials" />
-			<div className="pb-4 text-white">
-				<h2 className={`${headerFont.className} py-4 pb-2 pl-12 leading-tight`}>Testimonials</h2>
+			<div className="pb-4 text-center text-white sm:text-left">
+				<h2 className={`${headerFont.className} py-4 pb-2 pl-6 leading-tight md:pl-12`}>Testimonials</h2>
 			</div>
 			<div className="mx-auto max-w-7xl">
 				<div className="relative">

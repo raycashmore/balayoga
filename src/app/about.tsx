@@ -14,7 +14,7 @@ export function About() {
 					className="mb-4 mr-6 rounded-lg md:mb-0 md:mr-0 md:h-full md:w-full md:rounded-[32px] md:object-cover"
 				/>
 			</aside>
-			<div className="text-lg md:basis-2/3 md:pl-8">
+			<div className="text-lg text-white md:basis-2/3 md:pl-8 md:text-black">
 				<p>
 					My name is Romana and I have been practising yoga for over twenty years. Initially drawn to asanas for the physical
 					challenge, eventually discovering the wholesome world of yoga through pranayama and meditation. Yoga has become a vital

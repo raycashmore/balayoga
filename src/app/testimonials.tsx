@@ -140,13 +140,7 @@ export function Testimonials() {
 			</div>
 			<div className="mx-auto max-w-7xl">
 				<div className="relative">
-					<div
-						className="touch-none overflow-visible"
-						style={{
-							WebkitOverflowScrolling: "touch",
-							overscrollBehavior: "none",
-						}}
-					>
+					<div className="overflow-visible">
 						<div
 							className="transform-testimonial gap-8 transition-transform duration-500 ease-in-out md:flex"
 							style={

@@ -14,18 +14,18 @@ export function About() {
 					className="mb-4 mr-6 rounded-lg md:mb-0 md:mr-0 md:h-full md:w-full md:rounded-[32px] md:object-cover"
 				/>
 			</aside>
-			<div className="text-lg md:basis-2/3 md:pl-8">
-				<p className="pb-4">
+			<div className="text-lg text-white md:basis-2/3 md:pl-8 md:text-black">
+				<p>
 					My name is Romana and I have been practising yoga for over twenty years. Initially drawn to asanas for the physical
 					challenge, eventually discovering the wholesome world of yoga through pranayama and meditation. Yoga has become a vital
 					tool for finding inner peace in this busy world.
 				</p>
-				<p className="pb-4">
+				<p>
 					Bala is a Sanskrit word meaning young, powerful, strength of mind, and child-like, among other things. Embracing the
 					essence of bala, I share the transformative practice of yoga with both kids and adults, fostering strong bodies and a
 					mindset of curiosity and inner balance.
 				</p>
-				<p className="pb-4">
+				<p>
 					Inspired to teach yoga more than a decade ago, I completed 350 hours of Yoga Teacher Training with Inspire Yoga and
 					Wellbeing in 2023 and later, the Zenergy Kids Yoga Teacher Training, Foundation and Advanced, as well as Yoga Therapy
 					Training for kids.

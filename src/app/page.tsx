@@ -5,6 +5,7 @@ import { Contact } from "@/app/contact";
 import { Header } from "@/app/header";
 import { Kids } from "@/app/kids";
 import { Schools } from "@/app/schools";
+import { Testimonials } from "@/app/testimonials";
 
 export default function HomePage() {
 	return (
@@ -16,7 +17,7 @@ export default function HomePage() {
 					<Kids />
 					<Schools />
 					<Adults />
-					{/*<Testimonials />*/}
+					<Testimonials />
 				</main>
 				<footer className="flex w-full justify-center bg-[#402B87]">
 					<div className="m-4 flex max-w-[1000px] flex-col">

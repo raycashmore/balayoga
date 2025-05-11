@@ -3,6 +3,7 @@
 import { NavButton } from "@/app/_components/nav-button";
 import { PositionIndicator } from "@/app/_components/position-indicator";
 import { TestimonialCard } from "@/app/_components/testimonial-card";
+import { useSwipeGestures } from "@/app/_hooks/useSwipeGestures";
 import { headerFont } from "@/styles/fonts";
 import React, { type ReactNode, useState } from "react";
 
@@ -15,6 +16,20 @@ export type Testimonial = {
 
 export function Testimonials() {
 	const [activeIndex, setActiveIndex] = useState(0);
+
+	const { isDragging } = useSwipeGestures({
+		onSwipeLeft: () => {
+			if (activeIndex < testimonials.length - 1) {
+				handleNext();
+			}
+		},
+		onSwipeRight: () => {
+			if (activeIndex > 0) {
+				handlePrev();
+			}
+		},
+		threshold: 50,
+	});
 
 	const testimonials: Testimonial[] = [
 		{
@@ -125,7 +140,13 @@ export function Testimonials() {
 			</div>
 			<div className="mx-auto max-w-7xl">
 				<div className="relative">
-					<div className="overflow-visible">
+					<div
+						className="touch-none overflow-visible"
+						style={{
+							WebkitOverflowScrolling: "touch",
+							overscrollBehavior: "none",
+						}}
+					>
 						<div
 							className="transform-testimonial gap-8 transition-transform duration-500 ease-in-out md:flex"
 							style={

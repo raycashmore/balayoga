@@ -3,7 +3,7 @@ import Instagram from "@/app/_components/instagram";
 
 export default function Socials() {
 	return (
-		<div className="mt-6 flex gap-2">
+		<div className="mt-6 flex justify-center gap-2 md:justify-start">
 			<a href="https://www.facebook.com/balayogamindfulnessandwellbeing" target="_blank">
 				<Facebook />
 			</a>

@@ -19,7 +19,7 @@ export function ContactDialog({ visible, onClose }: ContactDialogProps) {
 		return () => {
 			window.removeEventListener("keydown", handleKeyDown);
 		};
-	}, [visible]);
+	}, [onClose, visible]);
 
 	if (!visible) return null;
 

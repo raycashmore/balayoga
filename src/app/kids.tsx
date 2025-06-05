@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export function Kids() {
 	return (
-		<section className="flex flex-col gap-4 rounded-[32px] bg-[#fff] bg-opacity-70 p-6 text-[#1A1A1A] md:px-12">
+		<section className="flex flex-col gap-4 rounded-[32px] bg-[#fff] bg-opacity-70 p-6 pt-2 text-[#1A1A1A] md:px-12">
 			<a id="kids-yoga" />
 			<div className="flex items-center gap-6">
 				<h2 className={`${headerFont.className} pb-2 text-center leading-tight sm:text-left`}>Kids and teens yoga</h2>

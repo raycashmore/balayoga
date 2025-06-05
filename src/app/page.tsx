@@ -1,6 +1,7 @@
 import Glow from "@/app/_components/glow";
 import { About } from "@/app/about";
 import { Adults } from "@/app/adults";
+import { Badge } from "@/app/badge";
 import { Contact } from "@/app/contact";
 import { Header } from "@/app/header";
 import { Kids } from "@/app/kids";
@@ -20,8 +21,13 @@ export default function HomePage() {
 					<Testimonials />
 				</main>
 				<footer className="flex w-full justify-center bg-[#402B87]">
-					<div className="m-4 flex max-w-[1000px] flex-col">
-						<Contact />
+					<div className="space-between my-12 flex max-w-[1000px] flex-col gap-4 px-8 md:flex-row md:px-12">
+						<div className="flex-1">
+							<Contact />
+						</div>
+						<div className="basis-1/2 pt-6">
+							<Badge />
+						</div>
 					</div>
 				</footer>
 			</div>

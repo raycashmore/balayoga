@@ -8,7 +8,8 @@ export function Schools() {
 	const [contactDialogVisible, setContactDialogVisible] = useState(false);
 
 	return (
-		<section className="flex flex-col rounded-[32px] bg-[#FBF9F5] bg-opacity-70 p-6 pb-12 text-[#1A1A1A] md:px-12">
+		<section className="flex flex-col gap-2 rounded-[32px] bg-[#FBF9F5] bg-opacity-70 p-6 pb-8 text-[#1A1A1A] md:px-12">
+			<a id="schools" />
 			<h2 className={`${headerFont.className} text-center leading-tight md:text-left`}>Yoga and mindfulness at schools</h2>
 			<div>
 				<p>

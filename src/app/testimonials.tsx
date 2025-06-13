@@ -86,7 +86,7 @@ export function Testimonials() {
 					<p>
 						Romana is an outstanding, kind and thoughtful yoga teacher who makes her students feel welcome and respected during
 						the classes. Whilst including a variety of challenging poses and activities, her sessions are always fun and
-						enjoyable (for all students). She has my taught my daughter many useful techniques on how to relieve stress, how to
+						enjoyable (for all students). She has taught my daughter many useful techniques on how to relieve stress, how to
 						improve memory and how to remain calm and focused. She always ensures that her students thrive to achieve their
 						personal best and sets a wide range of opportunities for them....
 					</p>

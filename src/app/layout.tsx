@@ -15,8 +15,10 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
 	return (
 		<html lang="en" className={bodyFont.className}>
 			<GoogleTagManager gtmId="GTM-TMJ3SHG6" />
-			<body className="relative">{children}</body>
-			<Analytics />
+			<body className="relative">
+				{children}
+				<Analytics />
+			</body>
 		</html>
 	);
 }

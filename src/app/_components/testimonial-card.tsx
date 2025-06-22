@@ -1,3 +1,5 @@
+"use client";
+
 import { type Testimonial } from "@/app/testimonials";
 import { headerFont } from "@/styles/fonts";
 import React, { useState } from "react";

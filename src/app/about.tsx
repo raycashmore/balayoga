@@ -11,6 +11,7 @@ export function About() {
 					width={200}
 					height={200}
 					unoptimized={true}
+					priority
 					className="mb-4 mr-6 rounded-lg md:mb-0 md:mr-0 md:h-full md:w-full md:rounded-[32px] md:object-cover"
 				/>
 			</aside>

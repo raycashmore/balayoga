@@ -58,49 +58,6 @@ export function Kids() {
 				</form>
 			</div>
 
-			<div>
-				<Image
-					src="/kids-yoga-holiday-workshop.webp"
-					alt=""
-					width={350}
-					height={350}
-					className="float-none m-0 mt-0 justify-self-center rounded-xl sm:justify-self-start md:float-right md:m-8 md:mt-2 md:pb-0"
-				/>
-				<p className="text-base font-bold">Winter Holiday Kids Yoga Workshop</p>
-				<p>
-					This 2-hour workshop is specially designed for primary school children aged 7-12. It offers the perfect blend of
-					movement, creativity, and mindfulness – supporting kids to feel calm, confident, and connected from the inside out.
-				</p>
-				<table className="my-2">
-					<tbody>
-						<tr>
-							<td className="align-top">Time:</td>
-							<td>Tuesday 15 July 9:30 - 11:30am</td>
-						</tr>
-						<tr>
-							<td className="pr-3 align-top">Location:</td>
-							<td>
-								Hills Yoga,{" "}
-								<a href="https://maps.app.goo.gl/KPU2hASqv25omecUA" target="_blank" className="underline">
-									261 Old Northern Road, Castle Hill
-								</a>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-				<form
-					action="https://app.squareup.com/appointments/book/classes/bro8gvstcef3zz/L2Y5ECFR9ASJT/classes"
-					className="mt-4 flex justify-center sm:justify-start"
-				>
-					<button
-						type="submit"
-						className="rounded-md bg-[#8C52FF] px-5 py-2.5 text-center text-sm font-medium text-white focus:outline-none focus:ring-4 focus:ring-blue-300 disabled:opacity-50 sm:w-auto"
-					>
-						Book now
-					</button>
-				</form>
-			</div>
-
 			<div className="mt-4 md:mt-0">
 				<Image
 					src="/teens-yoga.webp"

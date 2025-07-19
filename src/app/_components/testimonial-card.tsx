@@ -1,6 +1,6 @@
 "use client";
 
-import { type Testimonial } from "@/app/testimonials";
+import type { Testimonial } from "@/app/(frontend)/testimonials";
 import { headerFont } from "@/styles/fonts";
 import React, { useState } from "react";
 
@@ -23,7 +23,7 @@ export function TestimonialCard({ testimonial }: TestimonialCardProps) {
 				<div className="flex justify-end">
 					<button
 						onClick={() => setIsExpanded((value) => !value)}
-						className="mt-2 rounded-md px-2 font-medium text-white transition-colors hover:text-white/80 focus:outline-none focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-purple-600"
+						className="mt-2 rounded-md px-2 font-medium text-white transition-colors hover:text-white/80 focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-purple-600 focus:outline-none"
 					>
 						{isExpanded ? "Read less" : "Read more"}
 					</button>

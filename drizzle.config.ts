@@ -7,5 +7,4 @@ export default {
 	dbCredentials: {
 		url: env.DATABASE_URL,
 	},
-	tablesFilter: ["latest-t3-app_*"],
 } satisfies Config;

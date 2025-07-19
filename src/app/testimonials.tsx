@@ -17,7 +17,7 @@ export type Testimonial = {
 export function Testimonials() {
 	const [activeIndex, setActiveIndex] = useState(0);
 
-	const { isDragging } = useSwipeGestures({
+	useSwipeGestures({
 		onSwipeLeft: () => {
 			if (activeIndex < testimonials.length - 1) {
 				handleNext();

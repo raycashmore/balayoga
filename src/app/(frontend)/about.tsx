@@ -12,7 +12,7 @@ export function About() {
 					height={200}
 					unoptimized={true}
 					priority
-					className="mb-4 mr-6 rounded-lg md:mb-0 md:mr-0 md:h-full md:w-full md:rounded-[32px] md:object-cover"
+					className="mr-6 mb-4 rounded-lg md:mr-0 md:mb-0 md:h-full md:w-full md:rounded-[32px] md:object-cover"
 				/>
 			</aside>
 			<div className="text-lg text-white md:basis-2/3 md:pl-8 md:text-black">

@@ -21,7 +21,7 @@ export function Contact() {
 				<button
 					onClick={() => setContactDialogVisible(true)}
 					type="submit"
-					className="self-center rounded-md bg-[#2B80E9] px-5 py-2.5 text-sm font-medium text-white focus:outline-none focus:ring-4 focus:ring-blue-300 disabled:opacity-50 sm:w-auto md:self-start"
+					className="self-center rounded-md bg-[#2B80E9] px-5 py-2.5 text-sm font-medium text-white focus:ring-4 focus:ring-blue-300 focus:outline-none disabled:opacity-50 sm:w-auto md:self-start"
 				>
 					Send a message
 				</button>

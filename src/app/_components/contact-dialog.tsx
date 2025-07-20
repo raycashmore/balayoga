@@ -24,7 +24,7 @@ export function ContactDialog({ visible, onClose }: ContactDialogProps) {
 	if (!visible) return null;
 
 	return (
-		<div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 backdrop-blur-sm" onClick={onClose}>
+		<div className="bg-opacity-50 fixed inset-0 z-50 flex items-center justify-center bg-black backdrop-blur-sm" onClick={onClose}>
 			<div
 				tabIndex={-1}
 				aria-hidden="true"
@@ -32,7 +32,7 @@ export function ContactDialog({ visible, onClose }: ContactDialogProps) {
 				onClick={(e) => e.stopPropagation()}
 			>
 				<div className="relative max-h-full w-full max-w-md p-4 pb-0">
-					<button className="absolute right-3 top-[-5px] rounded-full bg-gray-100 p-2 hover:bg-gray-300" onClick={onClose}>
+					<button className="absolute top-[-5px] right-3 rounded-full bg-gray-100 p-2 hover:bg-gray-300" onClick={onClose}>
 						<svg
 							xmlns="http://www.w3.org/2000/svg"
 							className="h-4 w-4 text-gray-600"

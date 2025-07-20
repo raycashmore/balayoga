@@ -8,7 +8,7 @@ export function Schools() {
 	const [contactDialogVisible, setContactDialogVisible] = useState(false);
 
 	return (
-		<section className="flex flex-col gap-2 rounded-[32px] bg-[#FBF9F5] bg-opacity-70 p-6 pb-8 text-[#1A1A1A] md:px-12">
+		<section className="bg-opacity-70 flex flex-col gap-2 rounded-[32px] bg-[#FBF9F5] p-6 pb-8 text-[#1A1A1A] md:px-12">
 			<a id="schools" />
 			<h2 className={`${headerFont.className} text-center leading-tight md:text-left`}>Yoga and mindfulness at schools</h2>
 			<div>
@@ -38,7 +38,7 @@ export function Schools() {
 				<button
 					onClick={() => setContactDialogVisible(true)}
 					type="submit"
-					className="self-start rounded-md bg-[#8C52FF] px-5 py-2.5 text-center text-sm font-medium text-white focus:outline-none focus:ring-4 focus:ring-blue-300 disabled:opacity-50 sm:w-auto"
+					className="self-start rounded-md bg-[#8C52FF] px-5 py-2.5 text-center text-sm font-medium text-white focus:ring-4 focus:ring-blue-300 focus:outline-none disabled:opacity-50 sm:w-auto"
 				>
 					Send a message
 				</button>

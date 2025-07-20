@@ -1,11 +1,12 @@
 @import "tailwindcss";
 
 :root {
-	--color-background: #5137AC;
+	--color-background: #5137ac;
 	--color-text: #fff;
 }
 
-html, body {
+html,
+body {
 	overflow-x: hidden;
 }
 
@@ -19,19 +20,19 @@ h2 {
 }
 
 @layer base {
-  p {
-    @apply my-4;
-  }
+	p {
+		@apply my-4;
+	}
 }
 
 @media (min-width: 768px) {
-  .transform-testimonial {
-    transform: translateX(calc(-1 * var(--active-index) * 100% + var(--active-index) * 30%)) !important;
-  }
+	.transform-testimonial {
+		transform: translateX(calc(-1 * var(--active-index) * 100% + var(--active-index) * 30%)) !important;
+	}
 }
 
 @media (max-width: 767px) {
-  .transform-testimonial {
-    transform: translateX(calc(-1 * var(--active-index) * 100% + var(--active-index) * -5%)) !important;
-  }
+	.transform-testimonial {
+		transform: translateX(calc(-1 * var(--active-index) * 100% + var(--active-index) * -5%)) !important;
+	}
 }

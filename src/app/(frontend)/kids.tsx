@@ -5,7 +5,7 @@ import Image from "next/image";
 
 export function Kids() {
 	return (
-		<section className="flex flex-col gap-10 rounded-[32px] bg-[#fff] bg-opacity-70 p-6 pt-2 text-[#1A1A1A] md:gap-2 md:px-12">
+		<section className="bg-opacity-70 flex flex-col gap-10 rounded-[32px] bg-[#fff] p-6 pt-2 text-[#1A1A1A] md:gap-2 md:px-12">
 			<a id="kids-yoga" />
 			<div className="flex items-center gap-6">
 				<h2 className={`${headerFont.className} pb-2 text-center leading-tight sm:text-left`}>Kids and teens yoga</h2>
@@ -51,7 +51,7 @@ export function Kids() {
 				>
 					<button
 						type="submit"
-						className="rounded-md bg-[#8C52FF] px-5 py-2.5 text-center text-sm font-medium text-white focus:outline-none focus:ring-4 focus:ring-blue-300 disabled:opacity-50 sm:w-auto"
+						className="rounded-md bg-[#8C52FF] px-5 py-2.5 text-center text-sm font-medium text-white focus:ring-4 focus:ring-blue-300 focus:outline-none disabled:opacity-50 sm:w-auto"
 					>
 						Book now
 					</button>
@@ -101,7 +101,7 @@ export function Kids() {
 				>
 					<button
 						type="submit"
-						className="rounded-md bg-[#8C52FF] px-5 py-2.5 text-center text-sm font-medium text-white focus:outline-none focus:ring-4 focus:ring-blue-300 disabled:opacity-50 sm:w-auto"
+						className="rounded-md bg-[#8C52FF] px-5 py-2.5 text-center text-sm font-medium text-white focus:ring-4 focus:ring-blue-300 focus:outline-none disabled:opacity-50 sm:w-auto"
 					>
 						Book now
 					</button>

@@ -24,20 +24,16 @@ export const videosRouter = createTRPCRouter({
 	}),
 
 	// Get video by ID
-	getById: publicProcedure
-		.input(z.object({ id: z.number().int().positive() }))
-		.query(async ({ ctx, input }) => {
-			const video = await ctx.db.select().from(videos).where(eq(videos.id, input.id));
-			return video[0] ?? null;
-		}),
+	getById: publicProcedure.input(z.object({ id: z.number().int().positive() })).query(async ({ ctx, input }) => {
+		const video = await ctx.db.select().from(videos).where(eq(videos.id, input.id));
+		return video[0] ?? null;
+	}),
 
 	// Get video by Bunny Stream ID
-	getByBunnyStreamId: publicProcedure
-		.input(z.object({ bunnyStreamId: z.string().min(1) }))
-		.query(async ({ ctx, input }) => {
-			const video = await ctx.db.select().from(videos).where(eq(videos.bunnyStreamId, input.bunnyStreamId));
-			return video[0] ?? null;
-		}),
+	getByBunnyStreamId: publicProcedure.input(z.object({ bunnyStreamId: z.string().min(1) })).query(async ({ ctx, input }) => {
+		const video = await ctx.db.select().from(videos).where(eq(videos.bunnyStreamId, input.bunnyStreamId));
+		return video[0] ?? null;
+	}),
 
 	// Get public videos
 	getPublic: publicProcedure.query(async ({ ctx }) => {
@@ -66,17 +62,17 @@ export const videosRouter = createTRPCRouter({
 
 	// Get public and free videos (for general browsing)
 	getPublicAndFree: publicProcedure.query(async ({ ctx }) => {
-		return await ctx.db.select().from(videos).where(and(
-			eq(videos.isPublic, true),
-			eq(videos.isPaid, false)
-		));
+		return await ctx.db
+			.select()
+			.from(videos)
+			.where(and(eq(videos.isPublic, true), eq(videos.isPaid, false)));
 	}),
 
 	// Create a new video
-	create: publicProcedure
-		.input(createVideoSchema)
-		.mutation(async ({ ctx, input }) => {
-			const result = await ctx.db.insert(videos).values({
+	create: publicProcedure.input(createVideoSchema).mutation(async ({ ctx, input }) => {
+		const result = await ctx.db
+			.insert(videos)
+			.values({
 				title: input.title,
 				description: input.description,
 				thumbnailUrl: input.thumbnailUrl,
@@ -84,94 +80,85 @@ export const videosRouter = createTRPCRouter({
 				isPublic: input.isPublic,
 				isPaid: input.isPaid,
 				isPartOfPackage: input.isPartOfPackage,
-			}).returning();
-			return result[0];
-		}),
+			})
+			.returning();
+		return result[0];
+	}),
 
 	// Update a video
-	update: publicProcedure
-		.input(updateVideoSchema)
-		.mutation(async ({ ctx, input }) => {
-			const { id, ...updateData } = input;
-			const result = await ctx.db
-				.update(videos)
-				.set({
-					...updateData,
-					updatedAt: new Date(),
-				})
-				.where(eq(videos.id, id))
-				.returning();
-			return result[0] ?? null;
-		}),
+	update: publicProcedure.input(updateVideoSchema).mutation(async ({ ctx, input }) => {
+		const { id, ...updateData } = input;
+		const result = await ctx.db
+			.update(videos)
+			.set({
+				...updateData,
+				updatedAt: new Date(),
+			})
+			.where(eq(videos.id, id))
+			.returning();
+		return result[0] ?? null;
+	}),
 
 	// Delete a video
-	delete: publicProcedure
-		.input(z.object({ id: z.number().int().positive() }))
-		.mutation(async ({ ctx, input }) => {
-			const result = await ctx.db.delete(videos).where(eq(videos.id, input.id)).returning();
-			return result[0] ?? null;
-		}),
+	delete: publicProcedure.input(z.object({ id: z.number().int().positive() })).mutation(async ({ ctx, input }) => {
+		const result = await ctx.db.delete(videos).where(eq(videos.id, input.id)).returning();
+		return result[0] ?? null;
+	}),
 
 	// Toggle public status
-	togglePublic: publicProcedure
-		.input(z.object({ id: z.number().int().positive() }))
-		.mutation(async ({ ctx, input }) => {
-			const video = await ctx.db.select().from(videos).where(eq(videos.id, input.id));
-			if (!video[0]) return null;
+	togglePublic: publicProcedure.input(z.object({ id: z.number().int().positive() })).mutation(async ({ ctx, input }) => {
+		const video = await ctx.db.select().from(videos).where(eq(videos.id, input.id));
+		if (!video[0]) return null;
 
-			const result = await ctx.db
-				.update(videos)
-				.set({
-					isPublic: !video[0].isPublic,
-					updatedAt: new Date(),
-				})
-				.where(eq(videos.id, input.id))
-				.returning();
-			return result[0];
-		}),
+		const result = await ctx.db
+			.update(videos)
+			.set({
+				isPublic: !video[0].isPublic,
+				updatedAt: new Date(),
+			})
+			.where(eq(videos.id, input.id))
+			.returning();
+		return result[0];
+	}),
 
 	// Toggle paid status
-	togglePaid: publicProcedure
-		.input(z.object({ id: z.number().int().positive() }))
-		.mutation(async ({ ctx, input }) => {
-			const video = await ctx.db.select().from(videos).where(eq(videos.id, input.id));
-			if (!video[0]) return null;
+	togglePaid: publicProcedure.input(z.object({ id: z.number().int().positive() })).mutation(async ({ ctx, input }) => {
+		const video = await ctx.db.select().from(videos).where(eq(videos.id, input.id));
+		if (!video[0]) return null;
 
-			const result = await ctx.db
-				.update(videos)
-				.set({
-					isPaid: !video[0].isPaid,
-					updatedAt: new Date(),
-				})
-				.where(eq(videos.id, input.id))
-				.returning();
-			return result[0];
-		}),
+		const result = await ctx.db
+			.update(videos)
+			.set({
+				isPaid: !video[0].isPaid,
+				updatedAt: new Date(),
+			})
+			.where(eq(videos.id, input.id))
+			.returning();
+		return result[0];
+	}),
 
 	// Toggle package status
-	togglePackage: publicProcedure
-		.input(z.object({ id: z.number().int().positive() }))
-		.mutation(async ({ ctx, input }) => {
-			const video = await ctx.db.select().from(videos).where(eq(videos.id, input.id));
-			if (!video[0]) return null;
+	togglePackage: publicProcedure.input(z.object({ id: z.number().int().positive() })).mutation(async ({ ctx, input }) => {
+		const video = await ctx.db.select().from(videos).where(eq(videos.id, input.id));
+		if (!video[0]) return null;
 
-			const result = await ctx.db
-				.update(videos)
-				.set({
-					isPartOfPackage: !video[0].isPartOfPackage,
-					updatedAt: new Date(),
-				})
-				.where(eq(videos.id, input.id))
-				.returning();
-			return result[0];
-		}),
+		const result = await ctx.db
+			.update(videos)
+			.set({
+				isPartOfPackage: !video[0].isPartOfPackage,
+				updatedAt: new Date(),
+			})
+			.where(eq(videos.id, input.id))
+			.returning();
+		return result[0];
+	}),
 
 	// Get video statistics
 	getStats: publicProcedure.query(async ({ ctx }) => {
 		const allVideos = await ctx.db.select().from(videos);
-		const publicVideos = allVideos.filter(v => v.isPublic);
-		const paidVideos = allVideos.filter(v => v.isPaid);
-		const packageVideos = allVideos.filter(v => v.isPartOfPackage);
+		const publicVideos = allVideos.filter((v) => v.isPublic);
+		const paidVideos = allVideos.filter((v) => v.isPaid);
+		const packageVideos = allVideos.filter((v) => v.isPartOfPackage);
 
 		return {
 			total: allVideos.length,

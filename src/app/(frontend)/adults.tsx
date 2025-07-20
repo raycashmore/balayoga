@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export function Adults() {
 	return (
-		<section className="flex flex-col gap-4 rounded-[32px] bg-[#DBE2F0] bg-opacity-80 p-6 pb-12 text-[#1A1A1A] md:px-12">
+		<section className="bg-opacity-80 flex flex-col gap-4 rounded-[32px] bg-[#DBE2F0] p-6 pb-12 text-[#1A1A1A] md:px-12">
 			<a id="adults-yoga" />
 			<h2 className={`${headerFont.className} pb-4 text-center leading-none md:text-left`}>Adults yoga</h2>
 
@@ -35,7 +35,7 @@ export function Adults() {
 					>
 						<button
 							type="submit"
-							className="rounded-md bg-[#8C52FF] px-5 py-2.5 text-center text-sm font-medium text-white focus:outline-none focus:ring-4 focus:ring-blue-300 disabled:opacity-50 sm:w-auto"
+							className="rounded-md bg-[#8C52FF] px-5 py-2.5 text-center text-sm font-medium text-white focus:ring-4 focus:ring-blue-300 focus:outline-none disabled:opacity-50 sm:w-auto"
 						>
 							Book now
 						</button>

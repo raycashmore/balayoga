@@ -35,19 +35,15 @@ export const yogaLessonsRouter = createTRPCRouter({
 	}),
 
 	// Get yoga lesson by ID
-	getById: publicProcedure
-		.input(z.object({ id: z.number().int().positive() }))
-		.query(async ({ ctx, input }) => {
-			const lesson = await ctx.db.select().from(yogaLessons).where(eq(yogaLessons.id, input.id));
-			return lesson[0] ?? null;
-		}),
+	getById: publicProcedure.input(z.object({ id: z.number().int().positive() })).query(async ({ ctx, input }) => {
+		const lesson = await ctx.db.select().from(yogaLessons).where(eq(yogaLessons.id, input.id));
+		return lesson[0] ?? null;
+	}),
 
 	// Get yoga lessons by category
-	getByCategory: publicProcedure
-		.input(z.object({ category: z.string().min(1) }))
-		.query(async ({ ctx, input }) => {
-			return await ctx.db.select().from(yogaLessons).where(eq(yogaLessons.category, input.category));
-		}),
+	getByCategory: publicProcedure.input(z.object({ category: z.string().min(1) })).query(async ({ ctx, input }) => {
+		return await ctx.db.select().from(yogaLessons).where(eq(yogaLessons.category, input.category));
+	}),
 
 	// Get yoga lessons by difficulty
 	getByDifficulty: publicProcedure
@@ -57,11 +53,9 @@ export const yogaLessonsRouter = createTRPCRouter({
 		}),
 
 	// Get yoga lessons by instructor
-	getByInstructor: publicProcedure
-		.input(z.object({ instructor: z.string().min(1) }))
-		.query(async ({ ctx, input }) => {
-			return await ctx.db.select().from(yogaLessons).where(eq(yogaLessons.instructor, input.instructor));
-		}),
+	getByInstructor: publicProcedure.input(z.object({ instructor: z.string().min(1) })).query(async ({ ctx, input }) => {
+		return await ctx.db.select().from(yogaLessons).where(eq(yogaLessons.instructor, input.instructor));
+	}),
 
 	// Get free yoga lessons
 	getFree: publicProcedure.query(async ({ ctx }) => {
@@ -69,10 +63,10 @@ export const yogaLessonsRouter = createTRPCRouter({
 	}),
 
 	// Create a new yoga lesson
-	create: publicProcedure
-		.input(createYogaLessonSchema)
-		.mutation(async ({ ctx, input }) => {
-			const result = await ctx.db.insert(yogaLessons).values({
+	create: publicProcedure.input(createYogaLessonSchema).mutation(async ({ ctx, input }) => {
+		const result = await ctx.db
+			.insert(yogaLessons)
+			.values({
 				title: input.title,
 				description: input.description,
 				instructor: input.instructor,
@@ -86,49 +80,44 @@ export const yogaLessonsRouter = createTRPCRouter({
 				isFree: input.isFree,
 				price: input.price,
 				createdBy: input.createdBy,
-			}).returning();
-			return result[0];
-		}),
+			})
+			.returning();
+		return result[0];
+	}),
 
 	// Update a yoga lesson
-	update: publicProcedure
-		.input(updateYogaLessonSchema)
-		.mutation(async ({ ctx, input }) => {
-			const { id, ...updateData } = input;
-			const result = await ctx.db
-				.update(yogaLessons)
-				.set({
-					...updateData,
-					updatedAt: new Date(),
-				})
-				.where(eq(yogaLessons.id, id))
-				.returning();
-			return result[0] ?? null;
-		}),
+	update: publicProcedure.input(updateYogaLessonSchema).mutation(async ({ ctx, input }) => {
+		const { id, ...updateData } = input;
+		const result = await ctx.db
+			.update(yogaLessons)
+			.set({
+				...updateData,
+				updatedAt: new Date(),
+			})
+			.where(eq(yogaLessons.id, id))
+			.returning();
+		return result[0] ?? null;
+	}),
 
 	// Delete a yoga lesson
-	delete: publicProcedure
-		.input(z.object({ id: z.number().int().positive() }))
-		.mutation(async ({ ctx, input }) => {
-			const result = await ctx.db.delete(yogaLessons).where(eq(yogaLessons.id, input.id)).returning();
-			return result[0] ?? null;
-		}),
+	delete: publicProcedure.input(z.object({ id: z.number().int().positive() })).mutation(async ({ ctx, input }) => {
+		const result = await ctx.db.delete(yogaLessons).where(eq(yogaLessons.id, input.id)).returning();
+		return result[0] ?? null;
+	}),
 
 	// Toggle published status
-	togglePublished: publicProcedure
-		.input(z.object({ id: z.number().int().positive() }))
-		.mutation(async ({ ctx, input }) => {
-			const lesson = await ctx.db.select().from(yogaLessons).where(eq(yogaLessons.id, input.id));
-			if (!lesson[0]) return null;
+	togglePublished: publicProcedure.input(z.object({ id: z.number().int().positive() })).mutation(async ({ ctx, input }) => {
+		const lesson = await ctx.db.select().from(yogaLessons).where(eq(yogaLessons.id, input.id));
+		if (!lesson[0]) return null;
 
-			const result = await ctx.db
-				.update(yogaLessons)
-				.set({
-					isPublished: !lesson[0].isPublished,
-					updatedAt: new Date(),
-				})
-				.where(eq(yogaLessons.id, input.id))
-				.returning();
-			return result[0];
-		}),
+		const result = await ctx.db
+			.update(yogaLessons)
+			.set({
+				isPublished: !lesson[0].isPublished,
+				updatedAt: new Date(),
+			})
+			.where(eq(yogaLessons.id, input.id))
+			.returning();
+		return result[0];
+	}),
 });

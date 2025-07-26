@@ -4,6 +4,7 @@ import { About } from "@/app/about";
 import { Adults } from "@/app/adults";
 import { Badge } from "@/app/badge";
 import { Contact } from "@/app/contact";
+import { Family } from "@/app/family";
 import { Header } from "@/app/header";
 import { Kids } from "@/app/kids";
 import { Schools } from "@/app/schools";
@@ -17,6 +18,7 @@ export default function HomePage() {
 				<main className="m-2 flex max-w-[1000px] flex-col gap-8 md:m-4 lg:gap-12">
 					<About />
 					<Kids />
+					<Family />
 					<Schools />
 					<Adults />
 					<Testimonials />

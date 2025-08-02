@@ -9,6 +9,7 @@
     "lint": "next lint",
     "start": "next start",
     "check": "next lint && tsc --noEmit",
+    "db:start": "./start-database.sh",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
     "db:push": "drizzle-kit push",

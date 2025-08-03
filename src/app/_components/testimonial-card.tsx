@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import type { Testimonial } from "@/app/(frontend)/testimonials";
-import { headerFont } from "@/styles/fonts";
-import React, { useState } from "react";
+import type { Testimonial } from '@/app/(frontend)/testimonials';
+import { headerFont } from '@/styles/fonts';
+import React, { useState } from 'react';
 
 type TestimonialCardProps = {
 	testimonial: Testimonial;
@@ -25,7 +25,7 @@ export function TestimonialCard({ testimonial }: TestimonialCardProps) {
 						onClick={() => setIsExpanded((value) => !value)}
 						className="mt-2 rounded-md px-2 font-medium text-white transition-colors hover:text-white/80 focus:ring-2 focus:ring-white/50 focus:ring-offset-2 focus:ring-offset-purple-600 focus:outline-none"
 					>
-						{isExpanded ? "Read less" : "Read more"}
+						{isExpanded ? 'Read less' : 'Read more'}
 					</button>
 				</div>
 			</div>

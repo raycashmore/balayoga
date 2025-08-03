@@ -1,5 +1,5 @@
-import ContactForm from "@/app/_components/contact-form";
-import { useEffect } from "react";
+import ContactForm from '@/app/_components/contact-form';
+import { useEffect } from 'react';
 
 export type ContactDialogProps = {
 	visible: boolean;
@@ -9,15 +9,15 @@ export type ContactDialogProps = {
 export function ContactDialog({ visible, onClose }: ContactDialogProps) {
 	useEffect(() => {
 		const handleKeyDown = (event: KeyboardEvent) => {
-			if (event.key === "Escape") {
+			if (event.key === 'Escape') {
 				onClose();
 			}
 		};
 		if (visible) {
-			window.addEventListener("keydown", handleKeyDown);
+			window.addEventListener('keydown', handleKeyDown);
 		}
 		return () => {
-			window.removeEventListener("keydown", handleKeyDown);
+			window.removeEventListener('keydown', handleKeyDown);
 		};
 	}, [onClose, visible]);
 

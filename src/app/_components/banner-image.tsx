@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from 'next/image';
 
 export type BannerImageProps = {
 	imgSrc: string;
@@ -12,8 +12,8 @@ export default function BannerImage({ imgSrc }: BannerImageProps) {
 				alt="Image of children and their yoga teacher"
 				fill
 				style={{
-					objectFit: "cover",
-					objectPosition: "bottom",
+					objectFit: 'cover',
+					objectPosition: 'bottom'
 				}}
 				priority
 			/>

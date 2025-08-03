@@ -1,5 +1,5 @@
-import { headerFont } from "@/styles/fonts";
-import Image from "next/image";
+import { headerFont } from '@/styles/fonts';
+import Image from 'next/image';
 
 export function Adults() {
 	return (
@@ -23,7 +23,7 @@ export function Adults() {
 						enhance your well-being. And you will love the relaxation part the most!
 					</p>
 					<p>
-						Every Wednesday at 6:45 - 7:45 pm at{" "}
+						Every Wednesday at 6:45 - 7:45 pm at{' '}
 						<a href="https://maps.app.goo.gl/JNVHnHpJ9aSz9Gku9" target="_blank" className="underline">
 							Hawkins Hall, Thornleigh
 						</a>

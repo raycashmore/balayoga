@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { ContactDialog } from "@/app/_components/contact-dialog";
-import { headerFont } from "@/styles/fonts";
-import { useState } from "react";
+import { ContactDialog } from '@/app/_components/contact-dialog';
+import { headerFont } from '@/styles/fonts';
+import { useState } from 'react';
 
 export function Schools() {
 	const [contactDialogVisible, setContactDialogVisible] = useState(false);
@@ -13,24 +13,24 @@ export function Schools() {
 			<h2 className={`${headerFont.className} text-center leading-tight md:text-left`}>Yoga and mindfulness at schools</h2>
 			<div>
 				<p>
-					With <strong>anxiety increasingly affecting</strong> children and adolescents, yoga offers a powerful way to{" "}
+					With <strong>anxiety increasingly affecting</strong> children and adolescents, yoga offers a powerful way to{' '}
 					<strong>foster calmness and balance</strong>, helping to alleviate and prevent stress. Through mindfulness practices,
-					yoga teaches self-awareness, empowering children to regulate their emotions. It enhances{" "}
+					yoga teaches self-awareness, empowering children to regulate their emotions. It enhances{' '}
 					<strong>focus and concentration</strong>, providing a <strong>holistic approach to well-being</strong>.
 				</p>
 				<p>
-					Yoga meets the physical, emotional, cognitive, social, and spiritual needs of today’s children. Studies show that{" "}
+					Yoga meets the physical, emotional, cognitive, social, and spiritual needs of today’s children. Studies show that{' '}
 					<strong>regular yoga practice improves both mental and physical health</strong>, making it a valuable addition to the
 					school environment.
 				</p>
 				<p>
-					Mindfulness and movement-based learning encourage students to explore the{" "}
+					Mindfulness and movement-based learning encourage students to explore the{' '}
 					<strong>connection between body and mind</strong>, improving self-awareness, emotional regulation, and overall
 					well-being.
 				</p>
 				<p>
 					Whether your school is looking to introduce regular yoga classes or occasional incursions, I can create a tailored
-					program that meets the unique needs of your students - both in content and session length.{" "}
+					program that meets the unique needs of your students - both in content and session length.{' '}
 					<strong>Let’s bring the benefits of yoga into your school community!</strong>
 				</p>
 			</div>

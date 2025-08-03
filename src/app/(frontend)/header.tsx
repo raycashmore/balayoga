@@ -1,5 +1,5 @@
-import BannerImage from "@/app/_components/banner-image";
-import Logo from "@/app/_components/logo";
+import BannerImage from '@/app/_components/banner-image';
+import Logo from '@/app/_components/logo';
 
 export function Header() {
 	return (

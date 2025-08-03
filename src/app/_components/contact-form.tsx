@@ -1,20 +1,20 @@
-"use client";
+'use client';
 
-import { useFormspark } from "@formspark/use-formspark";
-import { type FormEvent, useEffect, useRef, useState } from "react";
+import { useFormspark } from '@formspark/use-formspark';
+import { type FormEvent, useEffect, useRef, useState } from 'react';
 
-const FORMSPARK_FORM_ID = "G9aAoos7Y";
+const FORMSPARK_FORM_ID = 'G9aAoos7Y';
 
 export default function ContactForm({ isOpen }: { isOpen: boolean }) {
 	const [submit, submitting] = useFormspark({
-		formId: FORMSPARK_FORM_ID,
+		formId: FORMSPARK_FORM_ID
 	});
 
 	const nameRef = useRef<HTMLInputElement>(null);
 
-	const [name, setName] = useState("");
-	const [email, setEmail] = useState("");
-	const [message, setMessage] = useState("");
+	const [name, setName] = useState('');
+	const [email, setEmail] = useState('');
+	const [message, setMessage] = useState('');
 	const [sent, setSent] = useState(false);
 
 	const onSubmit = async (e: FormEvent) => {

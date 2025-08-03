@@ -1,19 +1,19 @@
-import { createTRPCRouter, publicProcedure } from "@/server/api/trpc";
-import { userPurchases, yogaLessons } from "@/server/db/schema";
-import { z } from "zod";
-import { eq, and } from "drizzle-orm";
+import { createTRPCRouter, publicProcedure } from '@/server/api/trpc';
+import { userPurchases, yogaLessons } from '@/server/db/schema';
+import { and, eq } from 'drizzle-orm';
+import { z } from 'zod';
 
 const createUserPurchaseSchema = z.object({
 	userId: z.string().min(1),
 	lessonId: z.number().int().positive(),
 	amount: z.string(), // decimal as string
-	paymentStatus: z.enum(["pending", "completed", "failed"]),
+	paymentStatus: z.enum(['pending', 'completed', 'failed'])
 });
 
 const updateUserPurchaseSchema = z.object({
 	id: z.number().int().positive(),
-	paymentStatus: z.enum(["pending", "completed", "failed"]).optional(),
-	amount: z.string().optional(),
+	paymentStatus: z.enum(['pending', 'completed', 'failed']).optional(),
+	amount: z.string().optional()
 });
 
 export const userPurchasesRouter = createTRPCRouter({
@@ -40,7 +40,7 @@ export const userPurchasesRouter = createTRPCRouter({
 
 	// Get purchases by payment status
 	getByPaymentStatus: publicProcedure
-		.input(z.object({ paymentStatus: z.enum(["pending", "completed", "failed"]) }))
+		.input(z.object({ paymentStatus: z.enum(['pending', 'completed', 'failed']) }))
 		.query(async ({ ctx, input }) => {
 			return await ctx.db.select().from(userPurchases).where(eq(userPurchases.paymentStatus, input.paymentStatus));
 		}),
@@ -62,8 +62,8 @@ export const userPurchasesRouter = createTRPCRouter({
 					difficulty: yogaLessons.difficulty,
 					category: yogaLessons.category,
 					thumbnailUrl: yogaLessons.thumbnailUrl,
-					videoUrl: yogaLessons.videoUrl,
-				},
+					videoUrl: yogaLessons.videoUrl
+				}
 			})
 			.from(userPurchases)
 			.innerJoin(yogaLessons, eq(userPurchases.lessonId, yogaLessons.id))
@@ -75,7 +75,7 @@ export const userPurchasesRouter = createTRPCRouter({
 		return await ctx.db
 			.select()
 			.from(userPurchases)
-			.where(and(eq(userPurchases.userId, input.userId), eq(userPurchases.paymentStatus, "completed")));
+			.where(and(eq(userPurchases.userId, input.userId), eq(userPurchases.paymentStatus, 'completed')));
 	}),
 
 	// Check if user has purchased a specific lesson
@@ -83,8 +83,8 @@ export const userPurchasesRouter = createTRPCRouter({
 		.input(
 			z.object({
 				userId: z.string().min(1),
-				lessonId: z.number().int().positive(),
-			}),
+				lessonId: z.number().int().positive()
+			})
 		)
 		.query(async ({ ctx, input }) => {
 			const purchase = await ctx.db
@@ -94,8 +94,8 @@ export const userPurchasesRouter = createTRPCRouter({
 					and(
 						eq(userPurchases.userId, input.userId),
 						eq(userPurchases.lessonId, input.lessonId),
-						eq(userPurchases.paymentStatus, "completed"),
-					),
+						eq(userPurchases.paymentStatus, 'completed')
+					)
 				);
 
 			return purchase.length > 0;
@@ -109,7 +109,7 @@ export const userPurchasesRouter = createTRPCRouter({
 				userId: input.userId,
 				lessonId: input.lessonId,
 				amount: input.amount,
-				paymentStatus: input.paymentStatus,
+				paymentStatus: input.paymentStatus
 			})
 			.returning();
 		return result[0];
@@ -127,8 +127,8 @@ export const userPurchasesRouter = createTRPCRouter({
 		.input(
 			z.object({
 				id: z.number().int().positive(),
-				paymentStatus: z.enum(["pending", "completed", "failed"]),
-			}),
+				paymentStatus: z.enum(['pending', 'completed', 'failed'])
+			})
 		)
 		.mutation(async ({ ctx, input }) => {
 			const result = await ctx.db
@@ -148,16 +148,16 @@ export const userPurchasesRouter = createTRPCRouter({
 	// Get purchase statistics
 	getStats: publicProcedure.query(async ({ ctx }) => {
 		const allPurchases = await ctx.db.select().from(userPurchases);
-		const completedPurchases = allPurchases.filter((p) => p.paymentStatus === "completed");
-		const pendingPurchases = allPurchases.filter((p) => p.paymentStatus === "pending");
-		const failedPurchases = allPurchases.filter((p) => p.paymentStatus === "failed");
+		const completedPurchases = allPurchases.filter((p) => p.paymentStatus === 'completed');
+		const pendingPurchases = allPurchases.filter((p) => p.paymentStatus === 'pending');
+		const failedPurchases = allPurchases.filter((p) => p.paymentStatus === 'failed');
 
 		return {
 			total: allPurchases.length,
 			completed: completedPurchases.length,
 			pending: pendingPurchases.length,
 			failed: failedPurchases.length,
-			totalRevenue: completedPurchases.reduce((sum, p) => sum + parseFloat(p.amount ?? "0"), 0),
+			totalRevenue: completedPurchases.reduce((sum, p) => sum + parseFloat(p.amount ?? '0'), 0)
 		};
-	}),
+	})
 });

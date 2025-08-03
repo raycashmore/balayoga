@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 interface PositionIndicatorProps {
 	total: number;
@@ -14,9 +14,9 @@ export const PositionIndicator: React.FC<PositionIndicatorProps> = ({ total, cur
 					key={i}
 					onClick={() => onSelect(i)}
 					aria-label={`Go to testimonial ${i + 1}`}
-					aria-current={i === current ? "true" : "false"}
+					aria-current={i === current ? 'true' : 'false'}
 					className={`h-2.5 w-2.5 rounded-full transition-all duration-300 ${
-						i === current ? "w-6 bg-purple-600" : "bg-purple-200 hover:bg-purple-300"
+						i === current ? 'w-6 bg-purple-600' : 'bg-purple-200 hover:bg-purple-300'
 					} focus:ring-2 focus:ring-purple-500 focus:ring-offset-1 focus:outline-none`}
 				/>
 			))}

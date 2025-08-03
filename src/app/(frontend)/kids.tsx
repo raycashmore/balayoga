@@ -1,7 +1,7 @@
-"use client";
+'use client';
 
-import { headerFont } from "@/styles/fonts";
-import Image from "next/image";
+import { headerFont } from '@/styles/fonts';
+import Image from 'next/image';
 
 export function Kids() {
 	return (
@@ -37,7 +37,7 @@ export function Kids() {
 						<tr>
 							<td className="pr-3 align-top">Location:</td>
 							<td>
-								Hills Yoga,{" "}
+								Hills Yoga,{' '}
 								<a href="https://maps.app.goo.gl/KPU2hASqv25omecUA" target="_blank" className="underline">
 									261 Old Northern Road, Castle Hill
 								</a>
@@ -85,7 +85,7 @@ export function Kids() {
 						<tr>
 							<td className="pr-3 align-top">Location:</td>
 							<td>
-								Hills Yoga,{" "}
+								Hills Yoga,{' '}
 								<a href="https://maps.app.goo.gl/KPU2hASqv25omecUA" target="_blank" className="underline">
 									261 Old Northern Road, Castle Hill
 								</a>

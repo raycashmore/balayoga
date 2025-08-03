@@ -1,18 +1,18 @@
-import { About } from "@/app/(frontend)/about";
-import { Adults } from "@/app/(frontend)/adults";
-import { Badge } from "@/app/(frontend)/badge";
-import { Contact } from "@/app/(frontend)/contact";
-import { Family } from "@/app/(frontend)/family";
-import { Header } from "@/app/(frontend)/header";
-import { Kids } from "@/app/(frontend)/kids";
-import { Schools } from "@/app/(frontend)/schools";
-import { Testimonials } from "@/app/(frontend)/testimonials";
-import Glow from "@/app/_components/glow";
-import Socials from "@/app/_components/socials";
+import { About } from '@/app/(frontend)/about';
+import { Adults } from '@/app/(frontend)/adults';
+import { Badge } from '@/app/(frontend)/badge';
+import { Contact } from '@/app/(frontend)/contact';
+import { Family } from '@/app/(frontend)/family';
+import { Header } from '@/app/(frontend)/header';
+import { Kids } from '@/app/(frontend)/kids';
+import { Schools } from '@/app/(frontend)/schools';
+import { Testimonials } from '@/app/(frontend)/testimonials';
+import Glow from '@/app/_components/glow';
+import Socials from '@/app/_components/socials';
 
-import config from "@/payload.config";
-import { headers as getHeaders } from "next/headers.js";
-import { getPayload } from "payload";
+import config from '@/payload.config';
+import { headers as getHeaders } from 'next/headers.js';
+import { getPayload } from 'payload';
 
 export default async function HomePage() {
 	const headers = await getHeaders();

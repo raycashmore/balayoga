@@ -1,8 +1,8 @@
-"use client";
+'use client';
 
-import { ContactDialog } from "@/app/_components/contact-dialog";
-import { headerFont } from "@/styles/fonts";
-import { useState } from "react";
+import { ContactDialog } from '@/app/_components/contact-dialog';
+import { headerFont } from '@/styles/fonts';
+import { useState } from 'react';
 
 export function Contact() {
 	const [contactDialogVisible, setContactDialogVisible] = useState(false);

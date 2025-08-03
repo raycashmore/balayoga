@@ -1,7 +1,7 @@
-import { yogaLessonsRouter } from "@/server/api/routers/yogaLessons";
-import { userPurchasesRouter } from "@/server/api/routers/userPurchases";
-import { videosRouter } from "@/server/api/routers/videos";
-import { createCallerFactory, createTRPCRouter } from "@/server/api/trpc";
+import { userPurchasesRouter } from '@/server/api/routers/userPurchases';
+import { videosRouter } from '@/server/api/routers/videos';
+import { yogaLessonsRouter } from '@/server/api/routers/yogaLessons';
+import { createCallerFactory, createTRPCRouter } from '@/server/api/trpc';
 
 /**
  * This is the primary router for your server.
@@ -11,7 +11,7 @@ import { createCallerFactory, createTRPCRouter } from "@/server/api/trpc";
 export const appRouter = createTRPCRouter({
 	yogaLessons: yogaLessonsRouter,
 	userPurchases: userPurchasesRouter,
-	videos: videosRouter,
+	videos: videosRouter
 });
 
 // export type definition of API

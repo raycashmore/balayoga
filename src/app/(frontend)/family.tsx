@@ -1,5 +1,5 @@
-import { headerFont } from "@/styles/fonts";
-import Image from "next/image";
+import { headerFont } from '@/styles/fonts';
+import Image from 'next/image';
 
 export function Family() {
 	return (
@@ -27,7 +27,7 @@ export function Family() {
 						<p>
 							Time: Sunday once a month 3 - 4 pm
 							<br />
-							Location: Hills Yoga,{" "}
+							Location: Hills Yoga,{' '}
 							<a href="https://maps.app.goo.gl/KPU2hASqv25omecUA" target="_blank" className="underline">
 								261 Old Northern Road, Castle Hill
 							</a>

@@ -4,19 +4,19 @@ export default function Glow() {
 			<div
 				className="absolute inset-0 -z-10 min-h-screen"
 				style={{
-					background: "radial-gradient(circle at 30% 30%, rgba(116, 196, 246, 0.7), rgba(116, 196, 246, 0) 50%)",
+					background: 'radial-gradient(circle at 30% 30%, rgba(116, 196, 246, 0.7), rgba(116, 196, 246, 0) 50%)'
 				}}
 			/>
 			<div
 				className="absolute inset-0 -z-10 min-h-screen"
 				style={{
-					background: "radial-gradient(circle at 100% 25%, rgba(236, 194, 126, 0.5), rgba(236, 194, 126, 0) 30%)",
+					background: 'radial-gradient(circle at 100% 25%, rgba(236, 194, 126, 0.5), rgba(236, 194, 126, 0) 30%)'
 				}}
 			/>
 			<div
 				className="absolute inset-0 -z-10 min-h-screen"
 				style={{
-					background: "radial-gradient(circle at 70% 10%, rgba(141, 86, 255, 0.3), rgba(141, 86, 255, 0) 30%)",
+					background: 'radial-gradient(circle at 70% 10%, rgba(141, 86, 255, 0.3), rgba(141, 86, 255, 0) 30%)'
 				}}
 			/>
 		</div>

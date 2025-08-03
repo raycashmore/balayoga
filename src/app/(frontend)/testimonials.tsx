@@ -1,11 +1,11 @@
-"use client";
+'use client';
 
-import { NavButton } from "@/app/_components/nav-button";
-import { PositionIndicator } from "@/app/_components/position-indicator";
-import { TestimonialCard } from "@/app/_components/testimonial-card";
-import { useSwipeGestures } from "@/app/_hooks/useSwipeGestures";
-import { headerFont } from "@/styles/fonts";
-import React, { type ReactNode, useState } from "react";
+import { NavButton } from '@/app/_components/nav-button';
+import { PositionIndicator } from '@/app/_components/position-indicator';
+import { TestimonialCard } from '@/app/_components/testimonial-card';
+import { useSwipeGestures } from '@/app/_hooks/useSwipeGestures';
+import { headerFont } from '@/styles/fonts';
+import React, { type ReactNode, useState } from 'react';
 
 export type Testimonial = {
 	id: number;
@@ -28,13 +28,13 @@ export function Testimonials() {
 				handlePrev();
 			}
 		},
-		threshold: 50,
+		threshold: 50
 	});
 
 	const testimonials: Testimonial[] = [
 		{
 			id: 1,
-			quote: "My daughter found ways to release stress",
+			quote: 'My daughter found ways to release stress',
 			truncatedContent: (
 				<>
 					<p>
@@ -72,11 +72,11 @@ export function Testimonials() {
 					</p>
 					<p>- Chiharu</p>
 				</>
-			),
+			)
 		},
 		{
 			id: 2,
-			quote: "She always comes out with a smile on her face",
+			quote: 'She always comes out with a smile on her face',
 			truncatedContent: (
 				<>
 					<p>
@@ -116,8 +116,8 @@ export function Testimonials() {
 					</p>
 					<p>- Sandhya</p>
 				</>
-			),
-		},
+			)
+		}
 	];
 
 	const handlePrev = () => {
@@ -145,8 +145,8 @@ export function Testimonials() {
 							className="transform-testimonial gap-8 transition-transform duration-500 ease-in-out md:flex"
 							style={
 								{
-									"--active-index": activeIndex,
-									transform: `translateX(-${activeIndex * 100}%)`,
+									'--active-index': activeIndex,
+									transform: `translateX(-${activeIndex * 100}%)`
 								} as React.CSSProperties
 							}
 						>

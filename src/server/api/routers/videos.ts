@@ -1,7 +1,7 @@
-import { createTRPCRouter, publicProcedure } from "@/server/api/trpc";
-import { videos } from "@/server/db/schema";
-import { z } from "zod";
-import { eq, and } from "drizzle-orm";
+import { createTRPCRouter, publicProcedure } from '@/server/api/trpc';
+import { videos } from '@/server/db/schema';
+import { and, eq } from 'drizzle-orm';
+import { z } from 'zod';
 
 const createVideoSchema = z.object({
 	title: z.string().min(1),
@@ -10,11 +10,11 @@ const createVideoSchema = z.object({
 	bunnyStreamId: z.string().min(1),
 	isPublic: z.boolean().default(false),
 	isPaid: z.boolean().default(false),
-	isPartOfPackage: z.boolean().default(false),
+	isPartOfPackage: z.boolean().default(false)
 });
 
 const updateVideoSchema = createVideoSchema.partial().extend({
-	id: z.number().int().positive(),
+	id: z.number().int().positive()
 });
 
 export const videosRouter = createTRPCRouter({
@@ -79,7 +79,7 @@ export const videosRouter = createTRPCRouter({
 				bunnyStreamId: input.bunnyStreamId,
 				isPublic: input.isPublic,
 				isPaid: input.isPaid,
-				isPartOfPackage: input.isPartOfPackage,
+				isPartOfPackage: input.isPartOfPackage
 			})
 			.returning();
 		return result[0];
@@ -92,7 +92,7 @@ export const videosRouter = createTRPCRouter({
 			.update(videos)
 			.set({
 				...updateData,
-				updatedAt: new Date(),
+				updatedAt: new Date()
 			})
 			.where(eq(videos.id, id))
 			.returning();
@@ -114,7 +114,7 @@ export const videosRouter = createTRPCRouter({
 			.update(videos)
 			.set({
 				isPublic: !video[0].isPublic,
-				updatedAt: new Date(),
+				updatedAt: new Date()
 			})
 			.where(eq(videos.id, input.id))
 			.returning();
@@ -130,7 +130,7 @@ export const videosRouter = createTRPCRouter({
 			.update(videos)
 			.set({
 				isPaid: !video[0].isPaid,
-				updatedAt: new Date(),
+				updatedAt: new Date()
 			})
 			.where(eq(videos.id, input.id))
 			.returning();
@@ -146,7 +146,7 @@ export const videosRouter = createTRPCRouter({
 			.update(videos)
 			.set({
 				isPartOfPackage: !video[0].isPartOfPackage,
-				updatedAt: new Date(),
+				updatedAt: new Date()
 			})
 			.where(eq(videos.id, input.id))
 			.returning();
@@ -167,7 +167,7 @@ export const videosRouter = createTRPCRouter({
 			paid: paidVideos.length,
 			free: allVideos.length - paidVideos.length,
 			package: packageVideos.length,
-			standalone: allVideos.length - packageVideos.length,
+			standalone: allVideos.length - packageVideos.length
 		};
-	}),
+	})
 });

@@ -5,7 +5,7 @@ export const Pages: CollectionConfig<'pages'> = {
 	fields: [
 		{
 			name: 'title',
-			type: 'text',
-		},
-	],
+			type: 'text'
+		}
+	]
 };

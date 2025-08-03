@@ -1,14 +1,14 @@
-import { createTRPCRouter, publicProcedure } from "@/server/api/trpc";
-import { yogaLessons } from "@/server/db/schema";
-import { z } from "zod";
-import { eq } from "drizzle-orm";
+import { createTRPCRouter, publicProcedure } from '@/server/api/trpc';
+import { yogaLessons } from '@/server/db/schema';
+import { eq } from 'drizzle-orm';
+import { z } from 'zod';
 
 const createYogaLessonSchema = z.object({
 	title: z.string().min(1),
 	description: z.string().optional(),
 	instructor: z.string().min(1),
 	duration: z.number().int().positive().optional(),
-	difficulty: z.enum(["beginner", "intermediate", "advanced"]),
+	difficulty: z.enum(['beginner', 'intermediate', 'advanced']),
 	category: z.string().min(1),
 	tags: z.array(z.string()).optional(),
 	thumbnailUrl: z.string().url().optional(),
@@ -16,11 +16,11 @@ const createYogaLessonSchema = z.object({
 	isPublished: z.boolean().default(false),
 	isFree: z.boolean().default(false),
 	price: z.string().optional(), // decimal as string
-	createdBy: z.string().min(1),
+	createdBy: z.string().min(1)
 });
 
 const updateYogaLessonSchema = createYogaLessonSchema.partial().extend({
-	id: z.number().int().positive(),
+	id: z.number().int().positive()
 });
 
 export const yogaLessonsRouter = createTRPCRouter({
@@ -47,7 +47,7 @@ export const yogaLessonsRouter = createTRPCRouter({
 
 	// Get yoga lessons by difficulty
 	getByDifficulty: publicProcedure
-		.input(z.object({ difficulty: z.enum(["beginner", "intermediate", "advanced"]) }))
+		.input(z.object({ difficulty: z.enum(['beginner', 'intermediate', 'advanced']) }))
 		.query(async ({ ctx, input }) => {
 			return await ctx.db.select().from(yogaLessons).where(eq(yogaLessons.difficulty, input.difficulty));
 		}),
@@ -79,7 +79,7 @@ export const yogaLessonsRouter = createTRPCRouter({
 				isPublished: input.isPublished,
 				isFree: input.isFree,
 				price: input.price,
-				createdBy: input.createdBy,
+				createdBy: input.createdBy
 			})
 			.returning();
 		return result[0];
@@ -92,7 +92,7 @@ export const yogaLessonsRouter = createTRPCRouter({
 			.update(yogaLessons)
 			.set({
 				...updateData,
-				updatedAt: new Date(),
+				updatedAt: new Date()
 			})
 			.where(eq(yogaLessons.id, id))
 			.returning();
@@ -114,10 +114,10 @@ export const yogaLessonsRouter = createTRPCRouter({
 			.update(yogaLessons)
 			.set({
 				isPublished: !lesson[0].isPublished,
-				updatedAt: new Date(),
+				updatedAt: new Date()
 			})
 			.where(eq(yogaLessons.id, input.id))
 			.returning();
 		return result[0];
-	}),
+	})
 });

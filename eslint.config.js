@@ -26,6 +26,7 @@ export default tseslint.config(
 			'@typescript-eslint/require-await': 'off',
 			'@typescript-eslint/no-misused-promises': ['error', { checksVoidReturn: { attributes: false } }],
 			'@typescript-eslint/ban-tslint-comment': 'off',
+			'@typescript-eslint/prefer-nullish-coalescing': 'off',
 			'drizzle/enforce-delete-with-where': ['error', { drizzleObjectName: ['db', 'ctx.db'] }],
 			'drizzle/enforce-update-with-where': ['error', { drizzleObjectName: ['db', 'ctx.db'] }]
 		}

@@ -174,63 +174,252 @@ export interface Page {
   slug?: string | null;
   slugLock?: boolean | null;
   layout?:
-    | {
-        title: string;
-        image: number | Media;
-        /**
-         * Add one entry per date or a short human-readable label.
-         */
-        upcomingDates?:
-          | {
-              label: string;
-              id?: string | null;
-            }[]
-          | null;
-        time?: string | null;
-        locationLabel?: string | null;
-        locationUrl?: string | null;
-        suitability?: string | null;
-        intro?: {
-          root: {
-            type: string;
-            children: {
-              type: string;
-              version: number;
+    | (
+        | {
+            heading?: string | null;
+            /**
+             * Optional formatted subheading
+             */
+            subheading?: {
+              root: {
+                type: string;
+                children: {
+                  type: string;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                indent: number;
+                version: number;
+              };
               [k: string]: unknown;
-            }[];
-            direction: ('ltr' | 'rtl') | null;
-            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-            indent: number;
-            version: number;
-          };
-          [k: string]: unknown;
-        } | null;
-        bulletPoints?:
-          | {
-              text: string;
-              id?: string | null;
-            }[]
-          | null;
-        description?: {
-          root: {
-            type: string;
-            children: {
-              type: string;
-              version: number;
+            } | null;
+            /**
+             * Background image (optional)
+             */
+            background?: (number | null) | Media;
+            ctas?:
+              | {
+                  label: string;
+                  url: string;
+                  variant?: ('primary' | 'secondary' | 'link') | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'hero';
+          }
+        | {
+            content: {
+              root: {
+                type: string;
+                children: {
+                  type: string;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                indent: number;
+                version: number;
+              };
               [k: string]: unknown;
-            }[];
-            direction: ('ltr' | 'rtl') | null;
-            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-            indent: number;
-            version: number;
-          };
-          [k: string]: unknown;
-        } | null;
-        bookingUrl?: string | null;
-        id?: string | null;
-        blockName?: string | null;
-        blockType: 'familyYoga';
-      }[]
+            };
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'richText';
+          }
+        | {
+            image: number | Media;
+            /**
+             * Required for accessibility unless decorative
+             */
+            alt: string;
+            caption?: string | null;
+            /**
+             * Optional aspect ratio control
+             */
+            aspect?: ('auto' | '1:1' | '4:3' | '16:9') | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'image';
+          }
+        | {
+            label: string;
+            url: string;
+            variant?: ('primary' | 'secondary' | 'link') | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'ctaButton';
+          }
+        | {
+            title?: string | null;
+            items?:
+              | {
+                  icon?: (number | null) | Media;
+                  title: string;
+                  /**
+                   * Feature description
+                   */
+                  body?: {
+                    root: {
+                      type: string;
+                      children: {
+                        type: string;
+                        version: number;
+                        [k: string]: unknown;
+                      }[];
+                      direction: ('ltr' | 'rtl') | null;
+                      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                      indent: number;
+                      version: number;
+                    };
+                    [k: string]: unknown;
+                  } | null;
+                  id?: string | null;
+                }[]
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'featureList';
+          }
+        | {
+            left?: {
+              root: {
+                type: string;
+                children: {
+                  type: string;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            } | null;
+            right?: {
+              root: {
+                type: string;
+                children: {
+                  type: string;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            } | null;
+            layout?: ('imageLeft' | 'imageRight' | 'split') | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'twoColumn';
+          }
+        | {
+            heading?: string | null;
+            body?: {
+              root: {
+                type: string;
+                children: {
+                  type: string;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            } | null;
+            /**
+             * Placeholder until form strategy is decided
+             */
+            formConfig?:
+              | {
+                  [k: string]: unknown;
+                }
+              | unknown[]
+              | string
+              | number
+              | boolean
+              | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'contact';
+          }
+        | {
+            text?: string | null;
+            image?: (number | null) | Media;
+            link?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'badge';
+          }
+        | {
+            title: string;
+            image: number | Media;
+            /**
+             * Add one entry per date or a short human-readable label.
+             */
+            upcomingDates?:
+              | {
+                  label: string;
+                  id?: string | null;
+                }[]
+              | null;
+            time?: string | null;
+            locationLabel?: string | null;
+            locationUrl?: string | null;
+            suitability?: string | null;
+            intro?: {
+              root: {
+                type: string;
+                children: {
+                  type: string;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            } | null;
+            bulletPoints?:
+              | {
+                  text: string;
+                  id?: string | null;
+                }[]
+              | null;
+            description?: {
+              root: {
+                type: string;
+                children: {
+                  type: string;
+                  version: number;
+                  [k: string]: unknown;
+                }[];
+                direction: ('ltr' | 'rtl') | null;
+                format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+                indent: number;
+                version: number;
+              };
+              [k: string]: unknown;
+            } | null;
+            bookingUrl?: string | null;
+            id?: string | null;
+            blockName?: string | null;
+            blockType: 'familyYoga';
+          }
+      )[]
     | null;
   updatedAt: string;
   createdAt: string;
@@ -348,6 +537,91 @@ export interface PagesSelect<T extends boolean = true> {
   layout?:
     | T
     | {
+        hero?:
+          | T
+          | {
+              heading?: T;
+              subheading?: T;
+              background?: T;
+              ctas?:
+                | T
+                | {
+                    label?: T;
+                    url?: T;
+                    variant?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        richText?:
+          | T
+          | {
+              content?: T;
+              id?: T;
+              blockName?: T;
+            };
+        image?:
+          | T
+          | {
+              image?: T;
+              alt?: T;
+              caption?: T;
+              aspect?: T;
+              id?: T;
+              blockName?: T;
+            };
+        ctaButton?:
+          | T
+          | {
+              label?: T;
+              url?: T;
+              variant?: T;
+              id?: T;
+              blockName?: T;
+            };
+        featureList?:
+          | T
+          | {
+              title?: T;
+              items?:
+                | T
+                | {
+                    icon?: T;
+                    title?: T;
+                    body?: T;
+                    id?: T;
+                  };
+              id?: T;
+              blockName?: T;
+            };
+        twoColumn?:
+          | T
+          | {
+              left?: T;
+              right?: T;
+              layout?: T;
+              id?: T;
+              blockName?: T;
+            };
+        contact?:
+          | T
+          | {
+              heading?: T;
+              body?: T;
+              formConfig?: T;
+              id?: T;
+              blockName?: T;
+            };
+        badge?:
+          | T
+          | {
+              text?: T;
+              image?: T;
+              link?: T;
+              id?: T;
+              blockName?: T;
+            };
         familyYoga?:
           | T
           | {

@@ -43,15 +43,15 @@ Validated via src/env.js. Required at minimum:
 - PAYLOAD_SECRET: secret string for Payload (used in src/payload.config.ts)
 
 Recommended files:
-- .env.local — used by Next.js during development; start-database.sh sources this file
+- .env — used by Next.js during development; start-database.sh sources this file
 
-Note: start-database.sh reads .env.local for DATABASE_URL but also contains a line that updates .env if you opt into auto-changing the password. Ensure your DATABASE_URL is consistent across files you use.
+Note: start-database.sh reads .env for DATABASE_URL but also contains a line that updates .env if you opt into auto-changing the password. Ensure your DATABASE_URL is consistent across files you use.
 
 ## Installing Dependencies
 - npm install
 
 ## Running the App (Development)
-1. Ensure .env.local defines DATABASE_URL and PAYLOAD_SECRET.
+1. Ensure .env defines DATABASE_URL and PAYLOAD_SECRET.
 2. Optionally start a local Postgres container:
    - npm run db:start
 3. Start the Next.js dev server:
@@ -125,6 +125,6 @@ To access Admin:
 - When finished, run prettier to format the code using: npm run format:write 
 
 ## Troubleshooting
-- Env validation errors during dev/build: set SKIP_ENV_VALIDATION=1 temporarily (not recommended for long-term). Prefer fixing .env.local to satisfy src/env.js schema.
+- Env validation errors during dev/build: set SKIP_ENV_VALIDATION=1 temporarily (not recommended for long-term). Prefer fixing .env to satisfy src/env.js schema.
 - Database container won’t start: ensure Docker/Podman is running and the port from DATABASE_URL is free. The script checks port availability and container state.
 - Admin not accessible: verify PAYLOAD_SECRET is defined and no runtime errors occur in logs.

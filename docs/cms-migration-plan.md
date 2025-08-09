@@ -102,7 +102,107 @@ Below are suggested fields. Finalize after reviewing existing content.
 
 ---
 
+## Phase 2 — Actionable Checklist (Next Steps)
+
+Use this checklist to complete Phase 2 before any implementation work.
+
+1. Confirm block list and naming ✓/✗
+   - HeroBlock, RichTextBlock, ImageBlock, CTAButtonBlock, FeatureListBlock, TwoColumnBlock, FamilyYogaBlock, ContactBlock, BadgeBlock
+   - Decide whether ContactBlock and BadgeBlock are in-scope for initial rollout.
+
+2. Field definitions (finalize) ✓/✗
+   - HeroBlock
+     - heading: text (required?)
+     - subheading: text or richText (pick one; recommend richText for formatting)
+     - background: upload -> Media (required?)
+     - ctas: array of { label: text, url: text, style: select[primary|secondary|link] }
+   - RichTextBlock
+     - content: richText (lexical)
+   - ImageBlock
+     - image: upload -> Media (required)
+     - alt: text (required)
+     - caption: text (optional)
+     - aspect: select[auto|1:1|4:3|16:9] (optional)
+   - CTAButtonBlock
+     - label: text (required)
+     - url: text (required)
+     - variant: select[primary|secondary|link] (default: primary)
+   - FeatureListBlock
+     - title: text (required?)
+     - items: array of { icon?: Media, title: text, body: richText or text (choose) }
+   - TwoColumnBlock
+     - left: richText (primary) — images can be embedded via ImageBlock or rich text uploads later
+     - right: richText (primary)
+     - layout: select[imageLeft|imageRight|split] (default: split)
+   - FamilyYogaBlock (based on src/app/(frontend)/family.tsx)
+     - title: text (default: "Family yoga")
+     - image: Media (required)
+     - upcomingDates: array of { label: text }
+     - time: text
+     - locationLabel: text
+     - locationUrl: text
+     - suitability: text
+     - intro: richText
+     - bulletPoints: array of { text: text }
+     - description: richText
+     - bookingUrl: text
+   - ContactBlock (optional)
+     - heading: text
+     - body: richText
+     - formConfig: json (placeholder until form strategy is decided)
+   - BadgeBlock (optional)
+     - text: text
+     - image: Media
+     - link: text
+
+3. Validation and defaults ✓/✗
+   - Mark required fields (e.g., image alt text, CTA label/url).
+   - Choose reasonable defaults (e.g., CTA variant=primary; TwoColumnBlock layout=split).
+   - Add admin descriptions where helpful (e.g., upcomingDates guidance).
+
+4. Shared field fragments ✓/✗
+   - Decide if you want shared field helpers for CTA and Media reference to avoid duplication later (Phase 3).
+   - For now, only document the shapes; don’t implement code changes yet.
+
+5. Accessibility and content guidelines ✓/✗
+   - Ensure ImageBlock requires alt text unless explicitly decorative.
+   - Encourage meaningful headings and ARIA-friendly links in CTAs.
+
+6. i18n and future-proofing ✓/✗
+   - Decide whether any fields need localization now (likely no for initial rollout).
+   - Keep field names stable and kebab/camel case consistent.
+
+7. Acceptance criteria for Phase 2 ✓/✗
+   - All blocks above have finalized field sets with types, required/optional, select options, defaults.
+   - Any optional blocks (Contact, Badge) are either included or explicitly deferred.
+   - Notes on validation, accessibility, and defaults are captured here.
+   - No code changes beyond documentation are required in this phase.
+
+Notes:
+- FamilyYogaBlock is already defined in code at src/blocks/FamilyYoga.ts and referenced by Pages.layout. You only need to confirm the spec matches your content needs.
+- The rest of the blocks will be implemented in Phase 3/4, after this checklist is completed.
+
+---
+
+### Phase 2 status update (Aug 2025)
+- Implemented baseline Payload blocks in code: HeroBlock, RichTextBlock, ImageBlock, CTAButtonBlock, FeatureListBlock, TwoColumnBlock.
+- Registered these in Pages.layout alongside FamilyYogaBlock so editors can begin creating content.
+- Optional blocks (ContactBlock, BadgeBlock) are deferred pending confirmation.
+
 ## Phase 3 — Next.js Rendering Layer
+
+### Home page migration instructions
+1. Start the dev server: npm run dev (ensure PAYLOAD_SECRET and DATABASE_URL are set).
+2. Open the Admin: http://localhost:3000/admin and log in or create a user.
+3. Go to Pages and click Create New.
+4. Fill title: Home; slug: home.
+5. In layout, add blocks such as:
+   - Hero: heading="Welcome to Bala Yoga"; optional subheading; optional background; add one CTA with label "Learn more" and url="#about".
+   - FeatureList: title="Why practice"; add 3 items with titles and short bodies.
+   - TwoColumn: leave layout=split, add brief content to left/right.
+   - Contact: heading="Get in touch"; optional body.
+6. Save and publish (or keep as draft; the route will fetch latest). 
+7. Visit http://localhost:3000/cms/home to see it render. The renderer is minimal and does not yet map Media to Next/Image or render Lexical content; that’s planned for the enhanced rendering step.
 
 1. Data fetching helper
    - Create a server-side helper (e.g., `src/lib/payload/fetchPageBySlug.ts`) that uses the Payload Node client or REST to fetch `pages` by `slug` with `draft` support in Preview Mode.

@@ -88,9 +88,11 @@ export interface Config {
   };
   globals: {
     header: Header;
+    footer: Footer;
   };
   globalsSelect: {
     header: HeaderSelect<false> | HeaderSelect<true>;
+    footer: FooterSelect<false> | FooterSelect<true>;
   };
   locale: null;
   user: User & {
@@ -168,11 +170,71 @@ export interface Media {
  */
 export interface Page {
   id: number;
-  title?: string | null;
+  title: string;
   slug?: string | null;
   slugLock?: boolean | null;
+  layout?:
+    | {
+        title: string;
+        image: number | Media;
+        /**
+         * Add one entry per date or a short human-readable label.
+         */
+        upcomingDates?:
+          | {
+              label: string;
+              id?: string | null;
+            }[]
+          | null;
+        time?: string | null;
+        locationLabel?: string | null;
+        locationUrl?: string | null;
+        suitability?: string | null;
+        intro?: {
+          root: {
+            type: string;
+            children: {
+              type: string;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        } | null;
+        bulletPoints?:
+          | {
+              text: string;
+              id?: string | null;
+            }[]
+          | null;
+        description?: {
+          root: {
+            type: string;
+            children: {
+              type: string;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        } | null;
+        bookingUrl?: string | null;
+        id?: string | null;
+        blockName?: string | null;
+        blockType: 'familyYoga';
+      }[]
+    | null;
   updatedAt: string;
   createdAt: string;
+  _status?: ('draft' | 'published') | null;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -283,8 +345,40 @@ export interface PagesSelect<T extends boolean = true> {
   title?: T;
   slug?: T;
   slugLock?: T;
+  layout?:
+    | T
+    | {
+        familyYoga?:
+          | T
+          | {
+              title?: T;
+              image?: T;
+              upcomingDates?:
+                | T
+                | {
+                    label?: T;
+                    id?: T;
+                  };
+              time?: T;
+              locationLabel?: T;
+              locationUrl?: T;
+              suitability?: T;
+              intro?: T;
+              bulletPoints?:
+                | T
+                | {
+                    text?: T;
+                    id?: T;
+                  };
+              description?: T;
+              bookingUrl?: T;
+              id?: T;
+              blockName?: T;
+            };
+      };
   updatedAt?: T;
   createdAt?: T;
+  _status?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -329,9 +423,27 @@ export interface Header {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "footer".
+ */
+export interface Footer {
+  id: number;
+  updatedAt?: string | null;
+  createdAt?: string | null;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "header_select".
  */
 export interface HeaderSelect<T extends boolean = true> {
+  updatedAt?: T;
+  createdAt?: T;
+  globalType?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "footer_select".
+ */
+export interface FooterSelect<T extends boolean = true> {
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;

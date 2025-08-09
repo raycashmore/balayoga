@@ -1,5 +1,6 @@
 // storage-adapter-import-placeholder
 import { Pages } from '@/collections/Pages';
+import { Footer } from '@/globals/footer/config';
 import { Header } from '@/globals/header/config';
 import { userPurchases, videos, yogaLessons } from '@/server/db/schema';
 import { vercelPostgresAdapter } from '@payloadcms/db-vercel-postgres';
@@ -24,7 +25,7 @@ export default buildConfig({
 		}
 	},
 	collections: [Users, Media, Pages],
-	globals: [Header],
+	globals: [Header, Footer],
 	editor: lexicalEditor(),
 	secret: process.env.PAYLOAD_SECRET ?? '',
 	typescript: {

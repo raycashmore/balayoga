@@ -1,5 +1,5 @@
-import { BlockRenderer } from '@/components/blocks';
-import { fetchPageBySlug } from '@/lib/payload/fetchPageBySlug';
+import { BlockRenderer } from '@/payload/blocks';
+import { fetchPageBySlug } from '@/payload/utils/fetchPageBySlug';
 import { notFound } from 'next/navigation';
 
 export default async function CMSPage({ params }: { params: Promise<{ slug: string[] }> }) {
@@ -12,7 +12,6 @@ export default async function CMSPage({ params }: { params: Promise<{ slug: stri
 	return (
 		<main className="container mx-auto max-w-5xl px-4 py-8">
 			<h1 className="mb-6 text-4xl font-bold">{page.title}</h1>
-			{/* @ts-expect-error Payload generated types unavailable at build step; layout is present on the doc */}
 			<BlockRenderer layout={page.layout} />
 		</main>
 	);

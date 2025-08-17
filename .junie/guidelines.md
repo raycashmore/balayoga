@@ -4,6 +4,10 @@ These guidelines are generated from the current repository state (Next.js + Payl
 
 Last updated: 2025-08-09
 
+## Code style hard rules
+- Prefer type over interface with Typescript
+- Prefer React components to be defined with the function declaration syntax, no default exports
+
 ## Overview
 - Framework: Next.js 15 (App Router)
 - Language: TypeScript 5

@@ -1,7 +1,7 @@
 // storage-adapter-import-placeholder
-import { Pages } from '@/collections/Pages';
-import { Footer } from '@/globals/footer/config';
-import { Header } from '@/globals/header/config';
+import { Pages } from '@/payload/collections/Pages';
+import { Footer } from '@/payload/globals/footer/config';
+import { Header } from '@/payload/globals/header/config';
 import { userPurchases, videos, yogaLessons } from '@/server/db/schema';
 import { vercelPostgresAdapter } from '@payloadcms/db-vercel-postgres';
 import { payloadCloudPlugin } from '@payloadcms/payload-cloud';
@@ -10,9 +10,9 @@ import path from 'path';
 import { buildConfig } from 'payload';
 import sharp from 'sharp';
 import { fileURLToPath } from 'url';
-import { Media } from './collections/Media';
+import { Media } from './payload/collections/Media';
 
-import { Users } from './collections/Users';
+import { Users } from './payload/collections/Users';
 
 const filename = fileURLToPath(import.meta.url);
 const dirname = path.dirname(filename);

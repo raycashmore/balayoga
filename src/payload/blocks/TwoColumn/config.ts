@@ -2,6 +2,7 @@ import type { Block } from 'payload';
 
 export const TwoColumnBlock: Block = {
 	slug: 'twoColumn',
+	interfaceName: 'TwoColumnBlock',
 	labels: { singular: 'Two Column', plural: 'Two Column Blocks' },
 	fields: [
 		{

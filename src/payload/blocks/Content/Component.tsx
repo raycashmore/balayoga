@@ -1,7 +1,6 @@
 import type { ContentBlock as ContentBlockProps } from '@/payload-types';
 import RichText from '@/payload/components/RichText';
 import { cn } from '@/payload/utils/ui';
-import React from 'react';
 
 export function ContentBlock(props: ContentBlockProps) {
 	const { columns } = props;

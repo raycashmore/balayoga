@@ -385,6 +385,7 @@ export interface Page {
             blockType: 'familyYoga';
           }
         | ContentBlock
+        | AboutBlockProps
       )[]
     | null;
   updatedAt: string;
@@ -460,6 +461,30 @@ export interface ContentBlock {
   id?: string | null;
   blockName?: string | null;
   blockType: 'content';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "AboutBlockProps".
+ */
+export interface AboutBlockProps {
+  richText?: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'about';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -678,6 +703,7 @@ export interface PagesSelect<T extends boolean = true> {
               blockName?: T;
             };
         content?: T | ContentBlockSelect<T>;
+        about?: T | AboutBlockPropsSelect<T>;
       };
   updatedAt?: T;
   createdAt?: T;
@@ -706,6 +732,15 @@ export interface ContentBlockSelect<T extends boolean = true> {
         richText?: T;
         id?: T;
       };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "AboutBlockProps_select".
+ */
+export interface AboutBlockPropsSelect<T extends boolean = true> {
+  richText?: T;
   id?: T;
   blockName?: T;
 }

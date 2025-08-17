@@ -1,3 +1,4 @@
+import { About } from '@/payload/blocks/About/config';
 import { BadgeBlock } from '@/payload/blocks/Badge/config';
 import { ContactBlock } from '@/payload/blocks/Contact/config';
 import { ContentBlock } from '@/payload/blocks/Content/config';
@@ -50,7 +51,8 @@ export const Pages: CollectionConfig<'pages'> = {
 				ContactBlock,
 				BadgeBlock,
 				FamilyYogaBlock,
-				ContentBlock
+				ContentBlock,
+				About
 			]
 		}
 	]

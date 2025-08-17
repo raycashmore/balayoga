@@ -18,7 +18,8 @@
     "format:write": "prettier --write \"**/*.{ts,tsx,js,jsx,mdx}\" --cache",
     "lint:fix": "next lint --fix",
     "preview": "next build && next start",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "payload:types": "payload generate:types"
   },
   "dependencies": {
     "@formspark/use-formspark": "^0.1.39",

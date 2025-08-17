@@ -1,3 +1,4 @@
+import { AboutBlock } from '@/payload/blocks/About/Component';
 import Badge from '@/payload/blocks/Badge/Component';
 import Contact from '@/payload/blocks/Contact/Component';
 import { ContentBlock } from '@/payload/blocks/Content/Component';
@@ -19,5 +20,6 @@ export const blockComponents = {
 	contact: Contact,
 	badge: Badge,
 	familyYoga: FamilyYoga,
-	content: ContentBlock
+	content: ContentBlock,
+	about: AboutBlock
 };

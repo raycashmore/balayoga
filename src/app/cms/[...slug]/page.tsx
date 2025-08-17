@@ -1,4 +1,4 @@
-import { BlockRenderer } from '@/payload/blocks';
+import { BlockRenderer } from '@/payload/blocks/BlockRenderer';
 import { fetchPageBySlug } from '@/payload/utils/fetchPageBySlug';
 import { notFound } from 'next/navigation';
 

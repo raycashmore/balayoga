@@ -8,7 +8,7 @@ import { Schools } from '@/app/(frontend)/schools';
 import { Testimonials } from '@/app/(frontend)/testimonials';
 import Glow from '@/app/_components/glow';
 import Socials from '@/app/_components/socials';
-import { Header } from '@/globals/header/Header';
+import { Header } from '@/payload/globals/header/Header';
 
 export default async function HomePage() {
 	// const headers = await getHeaders();

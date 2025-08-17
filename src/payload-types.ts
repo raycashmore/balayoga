@@ -386,6 +386,7 @@ export interface Page {
           }
         | ContentBlock
         | AboutBlockProps
+        | TestimonialsBlockProps
       )[]
     | null;
   updatedAt: string;
@@ -485,6 +486,58 @@ export interface AboutBlockProps {
   id?: string | null;
   blockName?: string | null;
   blockType: 'about';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TestimonialsBlockProps".
+ */
+export interface TestimonialsBlockProps {
+  title?: string | null;
+  testimonials?:
+    | {
+        quote: string;
+        /**
+         * Short testimonial
+         */
+        shortBody: {
+          root: {
+            type: string;
+            children: {
+              type: string;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        };
+        /**
+         * Expanded testimonial
+         */
+        body: {
+          root: {
+            type: string;
+            children: {
+              type: string;
+              version: number;
+              [k: string]: unknown;
+            }[];
+            direction: ('ltr' | 'rtl') | null;
+            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+            indent: number;
+            version: number;
+          };
+          [k: string]: unknown;
+        };
+        id?: string | null;
+      }[]
+    | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'testimonials';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -704,6 +757,7 @@ export interface PagesSelect<T extends boolean = true> {
             };
         content?: T | ContentBlockSelect<T>;
         about?: T | AboutBlockPropsSelect<T>;
+        testimonials?: T | TestimonialsBlockPropsSelect<T>;
       };
   updatedAt?: T;
   createdAt?: T;
@@ -741,6 +795,23 @@ export interface ContentBlockSelect<T extends boolean = true> {
  */
 export interface AboutBlockPropsSelect<T extends boolean = true> {
   richText?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "TestimonialsBlockProps_select".
+ */
+export interface TestimonialsBlockPropsSelect<T extends boolean = true> {
+  title?: T;
+  testimonials?:
+    | T
+    | {
+        quote?: T;
+        shortBody?: T;
+        body?: T;
+        id?: T;
+      };
   id?: T;
   blockName?: T;
 }

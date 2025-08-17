@@ -8,6 +8,7 @@ import FeatureList from '@/payload/blocks/FeatureList/Component';
 import Hero from '@/payload/blocks/Hero/Component';
 import ImageComponent from '@/payload/blocks/Image/Component';
 import RichText from '@/payload/blocks/RichText/Component';
+import { TestimonialsBlock } from '@/payload/blocks/Testimonials/Component';
 import { TwoColumn } from '@/payload/blocks/TwoColumn/Component';
 
 export const blockComponents = {
@@ -21,5 +22,6 @@ export const blockComponents = {
 	badge: Badge,
 	familyYoga: FamilyYoga,
 	content: ContentBlock,
-	about: AboutBlock
+	about: AboutBlock,
+	testimonials: TestimonialsBlock
 };

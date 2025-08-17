@@ -8,6 +8,7 @@ import { FeatureListBlock } from '@/payload/blocks/FeatureList/config';
 import { HeroBlock } from '@/payload/blocks/Hero/config';
 import { ImageBlock } from '@/payload/blocks/Image/config';
 import { RichTextBlock } from '@/payload/blocks/RichText/config';
+import { Testimonials } from '@/payload/blocks/Testimonials/config';
 import { TwoColumnBlock } from '@/payload/blocks/TwoColumn/config';
 import { slugField } from '@/payload/fields/slug';
 import type { CollectionConfig } from 'payload';
@@ -52,7 +53,8 @@ export const Pages: CollectionConfig<'pages'> = {
 				BadgeBlock,
 				FamilyYogaBlock,
 				ContentBlock,
-				About
+				About,
+				Testimonials
 			]
 		}
 	]

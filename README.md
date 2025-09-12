@@ -9,12 +9,12 @@ Bootstrapped with create-t3-app
 Start local postgres db (docker): 
 
 ```
-npm run db:start
+pnpm db:start
 ```
 
 Start dev server:
 ```
-npm run dev
+pnpm dev
 ```
 
 ## Payload CMS
@@ -22,5 +22,5 @@ npm run dev
 Generate payload types
 
 ```
-npm run payload:types
+pnpm payload:types
 ```

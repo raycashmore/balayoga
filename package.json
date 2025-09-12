@@ -23,11 +23,13 @@
   },
   "dependencies": {
     "@formspark/use-formspark": "^0.1.39",
+    "@neondatabase/serverless": "^1.0.1",
     "@next/third-parties": "^15.2.3",
     "@payloadcms/db-vercel-postgres": "^3.48.0",
     "@payloadcms/next": "^3.48.0",
     "@payloadcms/payload-cloud": "^3.48.0",
     "@payloadcms/richtext-lexical": "^3.48.0",
+    "@payloadcms/ui": "^3.55.1",
     "@t3-oss/env-nextjs": "^0.12.0",
     "@tanstack/react-query": "^5.69.0",
     "@trpc/client": "^11.0.0",
@@ -43,6 +45,7 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "server-only": "^0.0.1",
+    "sharp": "^0.34.3",
     "superjson": "^2.2.1",
     "tailwind-merge": "^3.3.1",
     "zod": "^3.24.2"
@@ -67,5 +70,5 @@
   "ct3aMetadata": {
     "initVersion": "7.39.3"
   },
-  "packageManager": "npm@10.8.1"
+  "packageManager": "pnpm@9.0.0"
 }

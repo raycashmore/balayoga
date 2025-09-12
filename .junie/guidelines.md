@@ -37,7 +37,7 @@ Last updated: 2025-08-09
 
 ## Prerequisites
 - Node.js: use the version that supports Next 15/React 19 (recommend Node 20+)
-- Package manager: npm 10.8.1 (project specifies "packageManager": "npm@10.8.1")
+- Package manager: pnpm 10.8.1 (project specifies "packageManager": "pnpm@10.8.1")
 - Docker or Podman (optional) if you want to run the local database using the provided script
 
 ## Environment Variables
@@ -52,35 +52,35 @@ Recommended files:
 Note: start-database.sh reads .env for DATABASE_URL but also contains a line that updates .env if you opt into auto-changing the password. Ensure your DATABASE_URL is consistent across files you use.
 
 ## Installing Dependencies
-- npm install
+- pnpm install
 
 ## Running the App (Development)
 1. Ensure .env defines DATABASE_URL and PAYLOAD_SECRET.
 2. Optionally start a local Postgres container:
-   - npm run db:start
+   - pnpm run db:start
 3. Start the Next.js dev server:
-   - npm run dev
+   - pnpm run dev
 4. Open the site at http://localhost:3000
 5. Payload Admin is served under http://localhost:3000/admin
 
 ## Building and Running (Production-like)
-- Build: npm run build
-- Start: npm run start
-- Preview (build + start): npm run preview
+- Build: pnpm run build
+- Start: pnpm run start
+- Preview (build + start): pnpm run preview
 
 ## Database (Drizzle)
 - Config file: drizzle.config.ts (uses env.DATABASE_URL)
-- Generate SQL from schema: npm run db:generate
-- Apply migrations: npm run db:migrate
-- Push (synchronize) schema: npm run db:push
-- Studio (visual): npm run db:studio
+- Generate SQL from schema: pnpm run db:generate
+- Apply migrations: pnpm run db:migrate
+- Push (synchronize) schema: pnpm run db:push
+- Studio (visual): pnpm run db:studio
 
 ## Linting, Formatting, Type Checking
-- Lint: npm run lint (Next.js + ESLint flat config)
-- Lint (auto-fix): npm run lint:fix
-- Type check: npm run typecheck or npm run check (lint + tsc)
-- Format (check): npm run format:check
-- Format (write): npm run format:write
+- Lint: pnpm run lint (Next.js + ESLint flat config)
+- Lint (auto-fix): pnpm run lint:fix
+- Type check: pnpm run typecheck or pnpm run check (lint + tsc)
+- Format (check): pnpm run format:check
+- Format (write): pnpm run format:write
 
 ESLint highlights:
 - Typescript-ESLint rules enabled (recommended + stylistic)
@@ -112,21 +112,21 @@ To access Admin:
 
 ## Testing
 - No test framework or test scripts are defined in package.json.
-- For now, rely on linting and type checking. If adding tests, prefer Vitest or Jest + React Testing Library and add corresponding npm scripts.
+- For now, rely on linting and type checking. If adding tests, prefer Vitest or Jest + React Testing Library and add corresponding pnpm scripts.
 
 ## Code Style & Conventions
 - TypeScript strict mode enabled; prefer explicit types where clarity improves
 - Use path aliases ("@/*") for imports where appropriate
 - Keep components in src/app or dedicated src/components directories; colocate small components near usage when sensible
 - Maintain accessibility (alt text, aria attributes) and semantic HTML
-- Run npm run check and npm run format:write before committing
+- Run pnpm run check and pnpm run format:write before committing
 
 ## Contribution Workflow
 - Create feature branches from main
 - Keep PRs small and focused; include context and screenshots for UI changes
 - Ensure build, lint, and type checks pass locally
 - When changing database schema, include generated migrations and update docs if needed
-- When finished, run prettier to format the code using: npm run format:write 
+- When finished, run prettier to format the code using: pnpm run format:write 
 
 ## Troubleshooting
 - Env validation errors during dev/build: set SKIP_ENV_VALIDATION=1 temporarily (not recommended for long-term). Prefer fixing .env to satisfy src/env.js schema.

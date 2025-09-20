@@ -28,6 +28,7 @@
     "@payloadcms/db-vercel-postgres": "^3.48.0",
     "@payloadcms/next": "^3.48.0",
     "@payloadcms/payload-cloud": "^3.48.0",
+    "@payloadcms/plugin-seo": "^3.55.1",
     "@payloadcms/richtext-lexical": "^3.48.0",
     "@payloadcms/ui": "^3.55.1",
     "@t3-oss/env-nextjs": "^0.12.0",

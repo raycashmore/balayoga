@@ -1,5 +1,5 @@
-// storage-adapter-import-placeholder
 import { Pages } from '@/payload/collections/Pages';
+import { Posts } from '@/payload/collections/Posts';
 import { Footer } from '@/payload/globals/footer/config';
 import { Header } from '@/payload/globals/header/config';
 import { userPurchases, videos, yogaLessons } from '@/server/db/schema';
@@ -24,7 +24,7 @@ export default buildConfig({
 			baseDir: path.resolve(dirname)
 		}
 	},
-	collections: [Users, Media, Pages],
+	collections: [Users, Media, Pages, Posts],
 	globals: [Header, Footer],
 	editor: lexicalEditor(),
 	secret: process.env.PAYLOAD_SECRET ?? '',

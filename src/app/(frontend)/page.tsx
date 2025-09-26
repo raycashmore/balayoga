@@ -7,8 +7,8 @@ import { Kids } from '@/app/(frontend)/kids';
 import { Schools } from '@/app/(frontend)/schools';
 import { Testimonials } from '@/app/(frontend)/testimonials';
 import Glow from '@/app/_components/glow';
+import { Hero } from '@/app/_components/hero';
 import Socials from '@/app/_components/socials';
-import { Header } from '@/payload/globals/header/Header';
 
 export default async function HomePage() {
 	// const headers = await getHeaders();
@@ -19,7 +19,7 @@ export default async function HomePage() {
 	return (
 		<>
 			<div className="flex flex-col items-center gap-8 lg:gap-12">
-				<Header />
+				<Hero />
 				<main className="m-2 flex max-w-[1000px] flex-col gap-8 md:m-4 lg:gap-12">
 					<About />
 					<Kids />

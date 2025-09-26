@@ -91,11 +91,11 @@ export interface Config {
     defaultIDType: number;
   };
   globals: {
-    header: Header;
+    nav: Nav;
     footer: Footer;
   };
   globalsSelect: {
-    header: HeaderSelect<false> | HeaderSelect<true>;
+    nav: NavSelect<false> | NavSelect<true>;
     footer: FooterSelect<false> | FooterSelect<true>;
   };
   locale: null;
@@ -710,9 +710,9 @@ export interface PayloadMigrationsSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "header".
+ * via the `definition` "nav".
  */
-export interface Header {
+export interface Nav {
   id: number;
   updatedAt?: string | null;
   createdAt?: string | null;
@@ -728,9 +728,9 @@ export interface Footer {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "header_select".
+ * via the `definition` "nav_select".
  */
-export interface HeaderSelect<T extends boolean = true> {
+export interface NavSelect<T extends boolean = true> {
   updatedAt?: T;
   createdAt?: T;
   globalType?: T;

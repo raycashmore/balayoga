@@ -1,6 +1,6 @@
 import type { GlobalConfig } from 'payload';
 
-export const Header: GlobalConfig = {
-	slug: 'header',
+export const Nav: GlobalConfig = {
+	slug: 'nav',
 	fields: []
 };

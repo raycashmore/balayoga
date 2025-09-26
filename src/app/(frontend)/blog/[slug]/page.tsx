@@ -21,11 +21,9 @@ export async function generateStaticParams() {
 		}
 	});
 
-	const params = posts.docs.map(({ slug }) => {
+	return posts.docs.map(({ slug }) => {
 		return { slug };
 	});
-
-	return params;
 }
 
 type Args = {
@@ -33,33 +31,6 @@ type Args = {
 		slug?: string;
 	}>;
 };
-
-export default async function Post({ params: paramsPromise }: Args) {
-	const { isEnabled: draft } = await draftMode();
-	const { slug = '' } = await paramsPromise;
-	const url = '/posts/' + slug;
-	const post = await queryPostBySlug({ slug });
-
-	// if (!post) return <PayloadRedirects url={url} />;
-	if (!post) return null;
-
-	return (
-		<article className="pt-16 pb-16">
-			{/* Allows redirects for valid pages too */}
-			{/*<PayloadRedirects disableNotFound url={url} />*/}
-
-			{/*{draft && <LivePreviewListener />}*/}
-
-			<PostHero post={post} />
-
-			<div className="flex flex-col items-center gap-4 pt-8">
-				<div className="container">
-					<RichText className="mx-auto max-w-[48rem]" data={post.content} enableGutter={false} />
-				</div>
-			</div>
-		</article>
-	);
-}
 
 // export async function generateMetadata({ params: paramsPromise }: Args): Promise<Metadata> {
 // 	const { slug = '' } = await paramsPromise;
@@ -88,3 +59,30 @@ const queryPostBySlug = cache(async ({ slug }: { slug: string }) => {
 
 	return result.docs?.[0] || null;
 });
+
+export default async function Post({ params: paramsPromise }: Args) {
+	// const { isEnabled: draft } = await draftMode();
+	const { slug = '' } = await paramsPromise;
+	// const url = '/posts/' + slug;
+	const post = await queryPostBySlug({ slug });
+
+	// if (!post) return <PayloadRedirects url={url} />;
+	if (!post) return null;
+
+	return (
+		<article className="pt-16 pb-16">
+			{/* Allows redirects for valid pages too */}
+			{/*<PayloadRedirects disableNotFound url={url} />*/}
+
+			{/*{draft && <LivePreviewListener />}*/}
+
+			<PostHero post={post} />
+
+			<div className="flex flex-col items-center gap-4 pt-8">
+				<div className="container">
+					<RichText className="mx-auto max-w-[48rem]" data={post.content} enableGutter={false} />
+				</div>
+			</div>
+		</article>
+	);
+}

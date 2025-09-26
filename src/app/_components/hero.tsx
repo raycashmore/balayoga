@@ -1,7 +1,7 @@
 import BannerImage from '@/app/_components/banner-image';
 import Logo from '@/app/_components/logo';
 
-export function Header() {
+export function Hero() {
 	return (
 		<header className="relative">
 			<BannerImage imgSrc="/IMG_3676.webp" />

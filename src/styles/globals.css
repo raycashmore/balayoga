@@ -1,5 +1,10 @@
 @import 'tailwindcss';
 
+@theme {
+	--color-bala-purple: #5137AC;
+	--color-bala-blue: #74C4F6;
+}
+
 :root {
 	--color-background: #5137ac;
 	--color-text: #fff;

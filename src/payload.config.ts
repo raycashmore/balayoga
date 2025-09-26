@@ -1,7 +1,7 @@
 import { Pages } from '@/payload/collections/Pages';
 import { Posts } from '@/payload/collections/Posts';
 import { Footer } from '@/payload/globals/footer/config';
-import { Header } from '@/payload/globals/header/config';
+import { Nav } from '@/payload/globals/nav/config';
 import { userPurchases, videos, yogaLessons } from '@/server/db/schema';
 import { vercelPostgresAdapter } from '@payloadcms/db-vercel-postgres';
 import { payloadCloudPlugin } from '@payloadcms/payload-cloud';
@@ -25,7 +25,7 @@ export default buildConfig({
 		}
 	},
 	collections: [Users, Media, Pages, Posts],
-	globals: [Header, Footer],
+	globals: [Nav, Footer],
 	editor: lexicalEditor(),
 	secret: process.env.PAYLOAD_SECRET ?? '',
 	typescript: {

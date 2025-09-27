@@ -1,44 +1,45 @@
 'use client';
 
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
+import { usePathname } from 'next/navigation';
+import { useCallback, useEffect, useState } from 'react';
 
 export function Nav() {
+	const pathname = usePathname();
 	const [scrolled, setScrolled] = useState(false);
 
-	useEffect(() => {
-		let isMounted = true;
-
+	const handleScroll = useCallback(() => {
+		console.log('handleScroll');
 		setScrolled(window.scrollY > 50);
-
-		const handleScroll = () => {
-			if (isMounted) {
-				setScrolled(window.scrollY > 50);
-			}
-		};
-
-		window.addEventListener('scroll', handleScroll, { passive: true });
-
-		return () => {
-			isMounted = false;
-			window.removeEventListener('scroll', handleScroll);
-		};
 	}, []);
+
+	useEffect(() => {
+		window?.addEventListener('scroll', handleScroll, { passive: true });
+		return () => {
+			window?.removeEventListener('scroll', handleScroll);
+		};
+	}, [handleScroll, pathname]);
+
+	const isHome = pathname === '/';
+	const transparentBg = !scrolled && isHome;
+	const staticHeight = !scrolled && pathname === '/blog';
 
 	return (
 		<header
 			className={[
 				'fixed top-0 left-0 z-10 hidden w-full lg:block',
-				'transition-[height,background-color,opacity,transform] duration-300 ease-out',
-				scrolled ? 'h-14 backdrop-blur-sm' : 'h-20',
-				scrolled ? 'bg-bala-purple/85' : 'bg-bala-purple/0'
+				'transition-[height,background-color,opacity,transform] duration-500 ease-out',
+				scrolled ? 'h-14 backdrop-blur-xs' : staticHeight ? 'h-14 backdrop-blur-xs' : 'h-20',
+				transparentBg ? 'bg-bala-purple/0' : 'bg-bala-purple/85'
 			].join(' ')}
 		>
-			<div className="mx-auto grid h-full max-w-screen-2xl grid-cols-3 items-center px-6">
+			<div className="mx-auto grid h-full max-w-[1280px] grid-cols-3 items-center px-6">
 				<div className="justify-self-start">
-					<Link href="/" className="text-xl leading-none font-medium whitespace-nowrap text-white">
-						BALA YOGA
-					</Link>
+					{(scrolled || !isHome || staticHeight) && (
+						<Link href="/" className="text-xl leading-none font-medium whitespace-nowrap text-white">
+							BALA YOGA
+						</Link>
+					)}
 				</div>
 
 				<nav className="justify-self-center">

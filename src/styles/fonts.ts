@@ -1,6 +1,6 @@
-import { DM_Serif_Text, Inter } from 'next/font/google';
+import { DM_Serif_Text, Libre_Franklin } from 'next/font/google';
 
-const bodyFont = Inter({ subsets: ['latin'] });
+const bodyFont = Libre_Franklin({ subsets: ['latin'] });
 
 const headerFont = DM_Serif_Text({
 	subsets: ['latin'],

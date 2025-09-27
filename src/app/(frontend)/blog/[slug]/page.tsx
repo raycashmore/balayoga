@@ -1,8 +1,7 @@
 // import { LivePreviewListener } from '@/components/LivePreviewListener';
 // import { PayloadRedirects } from '@/components/PayloadRedirects';
 
-import { PostHero } from '@/payload/components/PostHero';
-import RichText from '@/payload/components/RichText';
+import { BlogPage } from '@/app/_components/blog-page';
 import configPromise from '@payload-config';
 import { draftMode } from 'next/headers';
 import { getPayload } from 'payload';
@@ -76,13 +75,7 @@ export default async function Post({ params: paramsPromise }: Args) {
 
 			{/*{draft && <LivePreviewListener />}*/}
 
-			<PostHero post={post} />
-
-			<div className="flex flex-col items-center gap-4 pt-8">
-				<div className="container">
-					<RichText className="mx-auto max-w-[48rem]" data={post.content} enableGutter={false} />
-				</div>
-			</div>
+			<BlogPage post={post} />
 		</article>
 	);
 }

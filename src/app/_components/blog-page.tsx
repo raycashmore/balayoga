@@ -11,8 +11,13 @@ export function BlogPage({ post }: { post: Post }) {
 	const hasAuthors = populatedAuthors && populatedAuthors.length > 0 && formatAuthors(populatedAuthors) !== '';
 
 	return (
-		<div className="rounded-xl bg-[rgba(251,249,245,0.9)] px-20 py-12">
-			<div className="py-8">
+		<div className="relative overflow-hidden rounded-2xl bg-[rgba(251,249,245,0.9)] px-20 py-12">
+			<img
+				src="/blog-banner-3.jpg"
+				alt="Blog Banner"
+				className="absolute top-0 left-0 z-0 h-[280px] w-full object-cover opacity-50"
+			/>
+			<div className="relative z-10 py-8">
 				<h3 className={`${headerFont.className} mb-0 text-4xl text-black`}>{title}</h3>
 
 				{hasAuthors && (
@@ -27,7 +32,7 @@ export function BlogPage({ post }: { post: Post }) {
 				)}
 			</div>
 
-			<div className="text-[1rem] font-normal text-neutral-900">
+			<div className="pt-8 text-[1rem] leading-relaxed font-normal text-neutral-900">
 				<RichText className="mx-auto" data={content} enableGutter={false} />
 			</div>
 		</div>

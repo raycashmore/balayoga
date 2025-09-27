@@ -45,7 +45,8 @@ export function Testimonials() {
 						help at all.
 					</p>
 					<p>
-						However, ever since she started going to Romana’s classes, it’s clear to me that she is slowly but surely growing...
+						However, ever since she started going to Romana’s classes, it’s clear to me that she is slowly but surely growing
+						and changing in a positive way....
 					</p>
 				</>
 			),
@@ -87,8 +88,7 @@ export function Testimonials() {
 						Romana is an outstanding, kind and thoughtful yoga teacher who makes her students feel welcome and respected during
 						the classes. Whilst including a variety of challenging poses and activities, her sessions are always fun and
 						enjoyable (for all students). She has taught my daughter many useful techniques on how to relieve stress, how to
-						improve memory and how to remain calm and focused. She always ensures that her students thrive to achieve their
-						personal best and sets a wide range of opportunities for them....
+						improve memory and how to remain calm and focused....
 					</p>
 				</>
 			),

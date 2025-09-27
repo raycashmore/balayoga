@@ -1,7 +1,4 @@
-// import { LivePreviewListener } from '@/components/LivePreviewListener';
-// import { PayloadRedirects } from '@/components/PayloadRedirects';
-
-import { BlogPage } from '@/app/_components/blog-page';
+import Post from '@/app/(frontend)/blog/post';
 import configPromise from '@payload-config';
 import { draftMode } from 'next/headers';
 import { getPayload } from 'payload';
@@ -31,13 +28,6 @@ type Args = {
 	}>;
 };
 
-// export async function generateMetadata({ params: paramsPromise }: Args): Promise<Metadata> {
-// 	const { slug = '' } = await paramsPromise;
-// 	const post = await queryPostBySlug({ slug });
-//
-// 	return generateMeta({ doc: post });
-// }
-
 const queryPostBySlug = cache(async ({ slug }: { slug: string }) => {
 	const { isEnabled: draft } = await draftMode();
 
@@ -59,23 +49,29 @@ const queryPostBySlug = cache(async ({ slug }: { slug: string }) => {
 	return result.docs?.[0] || null;
 });
 
-export default async function Post({ params: paramsPromise }: Args) {
-	// const { isEnabled: draft } = await draftMode();
+export default async function Page({ params: paramsPromise }: Args) {
 	const { slug = '' } = await paramsPromise;
-	// const url = '/posts/' + slug;
 	const post = await queryPostBySlug({ slug });
 
-	// if (!post) return <PayloadRedirects url={url} />;
 	if (!post) return null;
 
-	return (
-		<article className="pt-16 pb-16">
-			{/* Allows redirects for valid pages too */}
-			{/*<PayloadRedirects disableNotFound url={url} />*/}
+	const payload = await getPayload({ config: configPromise });
 
-			{/*{draft && <LivePreviewListener />}*/}
+	const draftInfo = await draftMode();
 
-			<BlogPage post={post} />
-		</article>
-	);
+	const allPosts = await payload.find({
+		collection: 'posts',
+		depth: 1,
+		limit: 12,
+		sort: '-publishedAt',
+		draft: draftInfo.isEnabled,
+		overrideAccess: draftInfo.isEnabled,
+		select: {
+			title: true,
+			slug: true,
+			meta: true
+		}
+	});
+
+	return <Post post={post} allPosts={allPosts} />;
 }

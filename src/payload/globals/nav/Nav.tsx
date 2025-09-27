@@ -9,7 +9,6 @@ export function Nav() {
 	const [scrolled, setScrolled] = useState(false);
 
 	const handleScroll = useCallback(() => {
-		console.log('handleScroll');
 		setScrolled(window.scrollY > 50);
 	}, []);
 
@@ -18,11 +17,21 @@ export function Nav() {
 		return () => {
 			window?.removeEventListener('scroll', handleScroll);
 		};
-	}, [handleScroll, pathname]);
+	}, [handleScroll]);
 
 	const isHome = pathname === '/';
 	const transparentBg = !scrolled && isHome;
 	const staticHeight = !scrolled && pathname === '/blog';
+
+	const enableSignIn = false;
+
+	const getLinkClassName = (path: string) => {
+		const isActive = path === '/' ? pathname === path : pathname.startsWith(path);
+		return [
+			'hover:bg-bala-purple-dark px-4 py-1 font-medium whitespace-nowrap transition-all duration-300 hover:rounded-full',
+			isActive ? 'bg-bala-purple-dark rounded-full' : ''
+		].join(' ');
+	};
 
 	return (
 		<header
@@ -43,34 +52,24 @@ export function Nav() {
 				</div>
 
 				<nav className="justify-self-center">
-					<ul className="flex items-center gap-8 text-base font-normal text-white">
+					<ul className="flex items-center gap-2 text-base font-normal text-white">
 						<li>
-							<Link href="/" className="whitespace-nowrap transition-opacity hover:opacity-80">
+							<Link href="/" className={getLinkClassName('/')}>
 								Home
 							</Link>
 						</li>
 						<li>
-							<Link href="/yoga" className="whitespace-nowrap transition-opacity hover:opacity-80">
+							<Link href="/yoga" className={getLinkClassName('/yoga')}>
 								Yoga
 							</Link>
 						</li>
 						<li>
-							<Link href="/program" className="whitespace-nowrap transition-opacity hover:opacity-80">
-								{`Anxious & Assured`}
-							</Link>
-						</li>
-						<li>
-							<Link href="/blog" className="whitespace-nowrap transition-opacity hover:opacity-80">
+							<Link href="/blog" className={getLinkClassName('/blog')}>
 								Blog
 							</Link>
 						</li>
 						<li>
-							<Link href="/resources" className="whitespace-nowrap transition-opacity hover:opacity-80">
-								Resources
-							</Link>
-						</li>
-						<li>
-							<Link href="/contact" className="whitespace-nowrap transition-opacity hover:opacity-80">
+							<Link href="/contact" className={getLinkClassName('/contact')}>
 								Contact
 							</Link>
 						</li>
@@ -78,12 +77,14 @@ export function Nav() {
 				</nav>
 
 				<div className="justify-self-end">
-					<Link
-						href="/admin"
-						className="bg-bala-blue hover:bg-bala-blue/90 inline-flex items-center rounded-md px-4 py-2 text-base font-semibold text-white transition-colors focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:outline-none"
-					>
-						Sign in
-					</Link>
+					{enableSignIn && (
+						<Link
+							href="/admin"
+							className="bg-bala-blue hover:bg-bala-blue/90 inline-flex items-center rounded-md px-4 py-2 text-base font-semibold text-white transition-colors focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:outline-none"
+						>
+							Sign in
+						</Link>
+					)}
 				</div>
 			</div>
 		</header>

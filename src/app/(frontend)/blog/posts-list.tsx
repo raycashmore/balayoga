@@ -11,7 +11,7 @@ export default function PostsList({ posts }: { posts: PaginatedDocs }) {
 					const doc = result as Pick<Post, 'slug' | 'meta' | 'title'>;
 					return (
 						<div key={index} className="hover:text-bala-purple cursor-pointer text-base text-black transition-colors">
-							<Link href={`blog/${doc.slug}`} className="mb-0 text-sm">
+							<Link href={`/blog/${doc.slug}`} className="mb-0 text-sm">
 								{doc.title}
 							</Link>
 						</div>

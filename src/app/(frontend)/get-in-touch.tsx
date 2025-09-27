@@ -2,9 +2,10 @@
 
 import { ContactDialog } from '@/app/_components/contact-dialog';
 import { headerFont } from '@/styles/fonts';
+import Link from 'next/link';
 import { useState } from 'react';
 
-export function Contact() {
+export function GetInTouch() {
 	const [contactDialogVisible, setContactDialogVisible] = useState(false);
 
 	return (
@@ -18,13 +19,12 @@ export function Contact() {
 					<p>I would love to be part of your yoga journey!</p>
 				</div>
 
-				<button
-					onClick={() => setContactDialogVisible(true)}
-					type="submit"
+				<Link
+					href="/contact"
 					className="self-center rounded-md bg-[#2B80E9] px-5 py-2.5 text-sm font-medium text-white focus:ring-4 focus:ring-blue-300 focus:outline-none disabled:opacity-50 sm:w-auto md:self-start"
 				>
 					Send a message
-				</button>
+				</Link>
 			</div>
 
 			<ContactDialog visible={contactDialogVisible} onClose={() => setContactDialogVisible(false)} />

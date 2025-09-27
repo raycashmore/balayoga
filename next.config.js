@@ -12,7 +12,7 @@ const config = {
 		return [
 			{
 				source: '/register-interest',
-				destination: '/#kids-yoga',
+				destination: '/yoga',
 				permanent: true
 			},
 			{
@@ -22,12 +22,12 @@ const config = {
 			},
 			{
 				source: '/adults-yoga',
-				destination: '/#adults-yoga',
+				destination: '/yoga',
 				permanent: true
 			},
 			{
 				source: '/kids-yoga',
-				destination: '/#kids-yoga',
+				destination: '/yoga',
 				permanent: true
 			}
 		];

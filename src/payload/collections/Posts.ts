@@ -1,6 +1,5 @@
 import { authenticated } from '@/payload/access/authenticated';
 import { authenticatedOrPublished } from '@/payload/access/authenticatedOrPublished';
-import { MediaBlock } from '@/payload/blocks/Media/config';
 import { slugField } from '@/payload/fields/slug';
 import { generatePreviewPath } from '@/payload/utils/generatePreviewPath';
 import { MetaDescriptionField, MetaImageField, MetaTitleField, OverviewField, PreviewField } from '@payloadcms/plugin-seo/fields';
@@ -80,7 +79,7 @@ export const Posts: CollectionConfig<'posts'> = {
 									return [
 										...rootFeatures,
 										HeadingFeature({ enabledHeadingSizes: ['h1', 'h2', 'h3', 'h4'] }),
-										BlocksFeature({ blocks: [MediaBlock] }),
+										BlocksFeature({ blocks: [] }),
 										FixedToolbarFeature(),
 										InlineToolbarFeature(),
 										HorizontalRuleFeature()

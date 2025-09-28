@@ -10,8 +10,11 @@ import { type Post } from '@/payload-types';
  * [Author1, Author2, Author3] becomes 'Author1, Author2, and Author3'
  *
  */
-export const formatAuthors = (authors: NonNullable<NonNullable<Post['populatedAuthors']>[number]>[]) => {
-	// Ensure we don't have any authors without a name
+export const formatAuthors = (authors: Post['populatedAuthors']): string | null | undefined => {
+	if (!(authors && authors.length > 0)) {
+		return null;
+	}
+
 	const authorNames = authors.map((author) => author.name).filter(Boolean);
 
 	if (authorNames.length === 0) return '';

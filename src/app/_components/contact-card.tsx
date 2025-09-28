@@ -12,7 +12,7 @@ export function ContactCard({ visible, onClose }: ContactDialogProps) {
 		<div
 			tabIndex={-1}
 			aria-hidden="true"
-			className="w-full max-w-md self-stretch bg-white p-8 shadow-lg sm:self-center sm:rounded-lg"
+			className="w-full max-w-md self-stretch rounded-lg bg-white p-8 shadow-lg sm:self-center"
 			onClick={(e) => e.stopPropagation()}
 		>
 			<div className="relative max-h-full w-full max-w-md p-4 pb-0">

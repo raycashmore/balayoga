@@ -172,6 +172,10 @@ export const Posts: CollectionConfig<'posts'> = {
 				{
 					name: 'name',
 					type: 'text'
+				},
+				{
+					name: 'thumbnail',
+					type: 'text'
 				}
 			]
 		},

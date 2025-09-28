@@ -137,6 +137,8 @@ export interface UserAuthOperations {
  */
 export interface User {
   id: number;
+  name?: string | null;
+  thumbnail?: string | null;
   updatedAt: string;
   createdAt: string;
   email: string;
@@ -346,6 +348,7 @@ export interface Post {
     | {
         id?: string | null;
         name?: string | null;
+        thumbnail?: string | null;
       }[]
     | null;
   slug?: string | null;
@@ -520,6 +523,8 @@ export interface PayloadMigration {
  * via the `definition` "users_select".
  */
 export interface UsersSelect<T extends boolean = true> {
+  name?: T;
+  thumbnail?: T;
   updatedAt?: T;
   createdAt?: T;
   email?: T;
@@ -638,6 +643,7 @@ export interface PostsSelect<T extends boolean = true> {
     | {
         id?: T;
         name?: T;
+        thumbnail?: T;
       };
   slug?: T;
   slugLock?: T;

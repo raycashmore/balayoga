@@ -15,8 +15,6 @@ type Props = {
 export function TestimonialsBlock({ title, testimonials }: Props) {
 	const [activeIndex, setActiveIndex] = useState(0);
 
-	console.log(testimonials, title);
-
 	useSwipeGestures({
 		onSwipeLeft: () => {
 			if (!testimonials) return;

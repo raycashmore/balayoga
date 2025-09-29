@@ -33,7 +33,7 @@ export default buildConfig({
 	},
 	db: vercelPostgresAdapter({
 		pool: {
-			connectionString: process.env.POSTGRES_URL ?? ''
+			connectionString: process.env.DATABASE_URL ?? ''
 		},
 		beforeSchemaInit: [
 			// @ts-expect-error Loose table types
@@ -48,7 +48,8 @@ export default buildConfig({
 					}
 				};
 			}
-		]
+		],
+		migrationDir: './migrations'
 	}),
 	sharp,
 	plugins: [

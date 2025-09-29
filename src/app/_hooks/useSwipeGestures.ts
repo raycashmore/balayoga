@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from 'react';
 
 interface SwipeGestureConfig {
 	onSwipeLeft?: () => void;
@@ -68,20 +68,20 @@ export function useSwipeGestures({ onSwipeLeft, onSwipeRight, threshold = 50 }: 
 			touchEndX.current = null;
 		};
 
-		document.addEventListener("touchstart", handleTouchStart);
-		document.addEventListener("touchmove", handleTouchMove);
-		document.addEventListener("touchend", handleTouchEnd);
-		document.addEventListener("mousedown", handleMouseDown);
-		document.addEventListener("mousemove", handleMouseMove);
-		document.addEventListener("mouseup", handleMouseUp);
+		document.addEventListener('touchstart', handleTouchStart);
+		document.addEventListener('touchmove', handleTouchMove);
+		document.addEventListener('touchend', handleTouchEnd);
+		document.addEventListener('mousedown', handleMouseDown);
+		document.addEventListener('mousemove', handleMouseMove);
+		document.addEventListener('mouseup', handleMouseUp);
 
 		return () => {
-			document.removeEventListener("touchstart", handleTouchStart);
-			document.removeEventListener("touchmove", handleTouchMove);
-			document.removeEventListener("touchend", handleTouchEnd);
-			document.removeEventListener("mousedown", handleMouseDown);
-			document.removeEventListener("mousemove", handleMouseMove);
-			document.removeEventListener("mouseup", handleMouseUp);
+			document.removeEventListener('touchstart', handleTouchStart);
+			document.removeEventListener('touchmove', handleTouchMove);
+			document.removeEventListener('touchend', handleTouchEnd);
+			document.removeEventListener('mousedown', handleMouseDown);
+			document.removeEventListener('mousemove', handleMouseMove);
+			document.removeEventListener('mouseup', handleMouseUp);
 		};
 	}, [onSwipeLeft, onSwipeRight, threshold]);
 

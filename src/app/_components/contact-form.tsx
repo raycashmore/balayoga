@@ -1,20 +1,20 @@
-"use client";
+'use client';
 
-import { useFormspark } from "@formspark/use-formspark";
-import { type FormEvent, useEffect, useRef, useState } from "react";
+import { useFormspark } from '@formspark/use-formspark';
+import { type FormEvent, useEffect, useRef, useState } from 'react';
 
-const FORMSPARK_FORM_ID = "G9aAoos7Y";
+const FORMSPARK_FORM_ID = 'G9aAoos7Y';
 
 export default function ContactForm({ isOpen }: { isOpen: boolean }) {
 	const [submit, submitting] = useFormspark({
-		formId: FORMSPARK_FORM_ID,
+		formId: FORMSPARK_FORM_ID
 	});
 
 	const nameRef = useRef<HTMLInputElement>(null);
 
-	const [name, setName] = useState("");
-	const [email, setEmail] = useState("");
-	const [message, setMessage] = useState("");
+	const [name, setName] = useState('');
+	const [email, setEmail] = useState('');
+	const [message, setMessage] = useState('');
 	const [sent, setSent] = useState(false);
 
 	const onSubmit = async (e: FormEvent) => {
@@ -32,7 +32,7 @@ export default function ContactForm({ isOpen }: { isOpen: boolean }) {
 	return sent ? (
 		<div className="text-xl font-extralight text-black">Message sent, thank you.</div>
 	) : (
-		<form onSubmit={onSubmit} className="flex min-w-[200px] max-w-[400px] flex-col gap-4">
+		<form onSubmit={onSubmit} className="flex max-w-[400px] min-w-[200px] flex-col gap-4">
 			<div>
 				<label htmlFor="name" className="text-md mb-2 text-sm leading-8 text-black">
 					Your name
@@ -78,7 +78,7 @@ export default function ContactForm({ isOpen }: { isOpen: boolean }) {
 			<button
 				type="submit"
 				disabled={submitting}
-				className="rounded-md border-blue-300 bg-[#2B80E9] px-5 py-2.5 text-center text-sm font-medium text-white opacity-90 hover:opacity-100 focus:outline-none focus:ring-4 focus:ring-blue-300 disabled:opacity-50 sm:w-auto"
+				className="rounded-md border-blue-300 bg-[#2B80E9] px-5 py-2.5 text-center text-sm font-medium text-white opacity-90 hover:opacity-100 focus:ring-4 focus:ring-blue-300 focus:outline-none disabled:opacity-50 sm:w-auto"
 			>
 				SEND
 			</button>

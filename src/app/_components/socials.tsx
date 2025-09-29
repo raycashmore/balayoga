@@ -1,5 +1,5 @@
-import Facebook from "@/app/_components/facebook";
-import Instagram from "@/app/_components/instagram";
+import Facebook from '@/app/_components/facebook';
+import Instagram from '@/app/_components/instagram';
 
 export default function Socials() {
 	return (

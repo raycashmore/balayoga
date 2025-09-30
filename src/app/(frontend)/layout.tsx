@@ -18,7 +18,7 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
 	return (
 		<html lang="en" className={bodyFont.className}>
 			{isProd && <GoogleTagManager gtmId="GTM-TMJ3SHG6" />}
-			<body className="relative">
+			<body className="relative flex flex-col items-center">
 				<Nav />
 				{children}
 				{isProd && <Analytics />}

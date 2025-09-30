@@ -18,7 +18,7 @@ export default async function HomePage() {
 					<Hero />
 					<MobileHomeNav />
 				</div>
-				<main className="m-2 flex max-w-[1000px] flex-col gap-8 md:m-4 lg:gap-12">
+				<main className="m-2 flex max-w-[1000px] flex-col gap-8 px-2 md:m-4 lg:gap-12">
 					<About />
 					<Testimonials />
 				</main>

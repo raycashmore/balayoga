@@ -15,7 +15,7 @@ export function BlogPage({ post }: { post: Post }) {
 	const hasAuthors = authors && authors !== '';
 
 	return (
-		<div className="relative overflow-hidden rounded-2xl bg-[rgba(251,249,245,0.9)] px-6 md:px-8 lg:px-20">
+		<div className="relative overflow-hidden rounded-2xl bg-[rgba(251,249,245,0.9)] px-6 pb-12 md:px-8 lg:px-20">
 			<div className="absolute top-0 left-0 z-0 h-[280px] w-full">
 				<Image src="/blog-banner-3.jpg" alt="Blog Banner" fill className="object-cover opacity-50" />
 			</div>

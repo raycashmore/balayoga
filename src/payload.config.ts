@@ -2,9 +2,9 @@ import { Pages } from '@/payload/collections/Pages';
 import { Posts } from '@/payload/collections/Posts';
 import { Footer } from '@/payload/globals/footer/config';
 import { Nav } from '@/payload/globals/nav/config';
+import { plugins } from '@/payload/plugins';
 import { userPurchases, videos, yogaLessons } from '@/server/db/schema';
 import { vercelPostgresAdapter } from '@payloadcms/db-vercel-postgres';
-import { payloadCloudPlugin } from '@payloadcms/payload-cloud';
 import { lexicalEditor } from '@payloadcms/richtext-lexical';
 import path from 'path';
 import { buildConfig } from 'payload';
@@ -52,8 +52,5 @@ export default buildConfig({
 		migrationDir: './migrations'
 	}),
 	sharp,
-	plugins: [
-		payloadCloudPlugin()
-		// storage-adapter-placeholder
-	]
+	plugins: [...plugins]
 });

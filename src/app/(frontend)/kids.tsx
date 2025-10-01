@@ -21,7 +21,7 @@ export function Kids() {
 					className="float-none m-0 mt-0 justify-self-center rounded-xl sm:justify-self-start md:float-right md:m-8 md:mt-2 md:pb-0"
 				/>
 				<p className="text-base font-bold">
-					Program for kids in term 3, 2025
+					Program for kids in term 4, 2025
 					<br /> Building Inner Strength, Resilience, and Self-Belief
 				</p>
 				<p>
@@ -67,7 +67,7 @@ export function Kids() {
 					className="float-none m-0 mt-0 justify-self-center rounded-xl sm:justify-self-start md:float-right md:m-8 md:mt-2 md:pb-0"
 				/>
 				<p className="text-base font-bold">
-					Program for teens in term 3, 2025
+					Program for teens in term 4, 2025
 					<br />
 					Building Resilience, Confidence, and Self-Acceptance
 				</p>

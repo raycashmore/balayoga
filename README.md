@@ -19,8 +19,17 @@ pnpm dev
 
 ## Payload CMS
 
-Generate payload types
+Generate payload boilerplate
 
 ```
 pnpm payload:types
+pnpm payload:importmap
+```
+
+## Deployment
+
+1. Create a DB migration
+
+```
+pnpm payload:migrate
 ```

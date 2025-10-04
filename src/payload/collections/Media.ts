@@ -22,5 +22,7 @@ export const Media: CollectionConfig = {
 			})
 		}
 	],
-	upload: true
+	upload: {
+		disableLocalStorage: true // handled by Bunny.net
+	}
 };

@@ -19,7 +19,8 @@
     "lint:fix": "next lint --fix",
     "preview": "next build && next start",
     "typecheck": "tsc --noEmit",
-    "payload:types": "payload generate:types"
+    "payload:types": "payload generate:types",
+    "payload:importmap": "payload generate:importmap"
   },
   "dependencies": {
     "@formspark/use-formspark": "^0.1.39",

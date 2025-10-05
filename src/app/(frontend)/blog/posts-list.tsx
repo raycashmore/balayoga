@@ -10,11 +10,11 @@ export default function PostsList({ posts }: { posts: PaginatedDocs }) {
 	const pathname = usePathname();
 	return (
 		<div className="flex flex-col gap-4">
-			{posts?.docs?.map((result) => {
+			{posts?.docs?.map((result, index) => {
 				if (typeof result === 'object' && result !== null) {
 					const doc = result as Pick<Post, 'slug' | 'meta' | 'title' | 'id'>;
 					const href = `/blog/${doc.slug}`;
-					const isSelected = pathname === href;
+					const isSelected = pathname === href || (pathname === '/blog' && index === 0);
 					return (
 						<div
 							key={doc.id}

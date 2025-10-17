@@ -1,28 +1,29 @@
-import { FixedToolbarFeature, HeadingFeature, InlineToolbarFeature, lexicalEditor } from '@payloadcms/richtext-lexical';
+import { lexicalEditor } from '@payloadcms/richtext-lexical';
 import type { Block } from 'payload';
 
 export const KidsYoga: Block = {
 	slug: 'kids',
-	interfaceName: 'KidsYogaBlock',
+	interfaceName: 'KidsYogaBlockProps',
 	labels: {
 		singular: 'Kids Yoga',
 		plural: 'Kids Yoga'
 	},
 	fields: [
 		{
-			name: 'richText',
+			name: 'title',
+			type: 'text'
+		},
+		{
+			name: 'kids',
 			type: 'richText',
-			editor: lexicalEditor({
-				features: ({ rootFeatures }) => {
-					return [
-						...rootFeatures,
-						HeadingFeature({ enabledHeadingSizes: ['h2', 'h3', 'h4'] }),
-						FixedToolbarFeature(),
-						InlineToolbarFeature()
-					];
-				}
-			}),
-			label: false
+			editor: lexicalEditor(),
+			label: 'Kids'
+		},
+		{
+			name: 'teens',
+			type: 'richText',
+			editor: lexicalEditor(),
+			label: 'Teens'
 		}
 	]
 };

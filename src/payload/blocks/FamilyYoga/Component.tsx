@@ -1,7 +1,7 @@
 import { headerFont } from '@/styles/fonts';
 import Image from 'next/image';
 
-export function Family() {
+export function FamilyYogaBlock(/*{ richText }: Props */) {
 	return (
 		<section className="bg-opacity-80 flex flex-col gap-4 rounded-[32px] bg-[#F0F9F7] p-6 pb-8 text-[#1A1A1A] md:px-12">
 			<a id="adults-yoga" />

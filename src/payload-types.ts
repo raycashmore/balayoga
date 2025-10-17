@@ -202,7 +202,9 @@ export interface Page {
   title: string;
   slug?: string | null;
   slugLock?: boolean | null;
-  layout?: (ContentBlock | AboutBlockProps | TestimonialsBlockProps)[] | null;
+  layout?:
+    | (ContentBlock | AboutBlockProps | TestimonialsBlockProps | KidsYogaBlock | FamilyYogaBlock | AdultsYogaBlock)[]
+    | null;
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
@@ -312,6 +314,78 @@ export interface TestimonialsBlockProps {
   id?: string | null;
   blockName?: string | null;
   blockType: 'testimonials';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "KidsYogaBlock".
+ */
+export interface KidsYogaBlock {
+  richText?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'kids';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FamilyYogaBlock".
+ */
+export interface FamilyYogaBlock {
+  richText?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'family';
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "AdultsYogaBlock".
+ */
+export interface AdultsYogaBlock {
+  richText?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  id?: string | null;
+  blockName?: string | null;
+  blockType: 'adults';
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -579,6 +653,9 @@ export interface PagesSelect<T extends boolean = true> {
         content?: T | ContentBlockSelect<T>;
         about?: T | AboutBlockPropsSelect<T>;
         testimonials?: T | TestimonialsBlockPropsSelect<T>;
+        kids?: T | KidsYogaBlockSelect<T>;
+        family?: T | FamilyYogaBlockSelect<T>;
+        adults?: T | AdultsYogaBlockSelect<T>;
       };
   updatedAt?: T;
   createdAt?: T;
@@ -622,6 +699,33 @@ export interface TestimonialsBlockPropsSelect<T extends boolean = true> {
         body?: T;
         id?: T;
       };
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "KidsYogaBlock_select".
+ */
+export interface KidsYogaBlockSelect<T extends boolean = true> {
+  richText?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "FamilyYogaBlock_select".
+ */
+export interface FamilyYogaBlockSelect<T extends boolean = true> {
+  richText?: T;
+  id?: T;
+  blockName?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "AdultsYogaBlock_select".
+ */
+export interface AdultsYogaBlockSelect<T extends boolean = true> {
+  richText?: T;
   id?: T;
   blockName?: T;
 }
@@ -762,10 +866,15 @@ export interface TaskSchedulePublish {
   input: {
     type?: ('publish' | 'unpublish') | null;
     locale?: string | null;
-    doc?: {
-      relationTo: 'posts';
-      value: number | Post;
-    } | null;
+    doc?:
+      | ({
+          relationTo: 'pages';
+          value: number | Page;
+        } | null)
+      | ({
+          relationTo: 'posts';
+          value: number | Post;
+        } | null);
     global?: string | null;
     user?: (number | null) | User;
   };

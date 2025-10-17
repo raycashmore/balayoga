@@ -203,7 +203,14 @@ export interface Page {
   slug?: string | null;
   slugLock?: boolean | null;
   layout?:
-    | (ContentBlock | AboutBlockProps | TestimonialsBlockProps | KidsYogaBlock | FamilyYogaBlock | AdultsYogaBlock)[]
+    | (
+        | ContentBlock
+        | AboutBlockProps
+        | TestimonialsBlockProps
+        | KidsYogaBlock
+        | FamilyYogaBlock
+        | AdultsYogaBlockProps
+      )[]
     | null;
   updatedAt: string;
   createdAt: string;
@@ -365,9 +372,10 @@ export interface FamilyYogaBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "AdultsYogaBlock".
+ * via the `definition` "AdultsYogaBlockProps".
  */
-export interface AdultsYogaBlock {
+export interface AdultsYogaBlockProps {
+  title?: string | null;
   richText?: {
     root: {
       type: string;
@@ -655,7 +663,7 @@ export interface PagesSelect<T extends boolean = true> {
         testimonials?: T | TestimonialsBlockPropsSelect<T>;
         kids?: T | KidsYogaBlockSelect<T>;
         family?: T | FamilyYogaBlockSelect<T>;
-        adults?: T | AdultsYogaBlockSelect<T>;
+        adults?: T | AdultsYogaBlockPropsSelect<T>;
       };
   updatedAt?: T;
   createdAt?: T;
@@ -722,9 +730,10 @@ export interface FamilyYogaBlockSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "AdultsYogaBlock_select".
+ * via the `definition` "AdultsYogaBlockProps_select".
  */
-export interface AdultsYogaBlockSelect<T extends boolean = true> {
+export interface AdultsYogaBlockPropsSelect<T extends boolean = true> {
+  title?: T;
   richText?: T;
   id?: T;
   blockName?: T;

@@ -3,12 +3,16 @@ import type { Block } from 'payload';
 
 export const AdultsYoga: Block = {
 	slug: 'adults',
-	interfaceName: 'AdultsYogaBlock',
+	interfaceName: 'AdultsYogaBlockProps',
 	labels: {
 		singular: 'Adults Yoga',
 		plural: 'Adults Yoga'
 	},
 	fields: [
+		{
+			name: 'title',
+			type: 'text'
+		},
 		{
 			name: 'richText',
 			type: 'richText',

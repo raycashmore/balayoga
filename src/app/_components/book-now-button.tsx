@@ -1,15 +1,12 @@
 export function BookNowButton() {
 	return (
-		<form
-			action="https://app.squareup.com/appointments/book/classes/bro8gvstcef3zz/L2Y5ECFR9ASJT/classes"
-			className="mt-4 flex justify-center sm:justify-start"
+		<a
+			href="https://app.squareup.com/appointments/book/classes/bro8gvstcef3zz/L2Y5ECFR9ASJT/classes"
+			target="_blank"
+			rel="noopener"
+			className="hover:bg-bala-purple-dark mt-4 inline-block cursor-pointer rounded-md bg-[#8C52FF] px-5 py-2.5 text-center text-sm font-medium text-white !no-underline transition-all duration-300 focus:ring-4 focus:ring-blue-300 focus:outline-none disabled:opacity-50"
 		>
-			<button
-				type="submit"
-				className="rounded-md bg-[#8C52FF] px-5 py-2.5 text-center text-sm font-medium text-white focus:ring-4 focus:ring-blue-300 focus:outline-none disabled:opacity-50 sm:w-auto"
-			>
-				Book now
-			</button>
-		</form>
+			Book now
+		</a>
 	);
 }

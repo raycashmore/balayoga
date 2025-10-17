@@ -207,8 +207,8 @@ export interface Page {
         | ContentBlock
         | AboutBlockProps
         | TestimonialsBlockProps
-        | KidsYogaBlock
-        | FamilyYogaBlock
+        | KidsYogaBlockProps
+        | FamilyYogaBlockProps
         | AdultsYogaBlockProps
       )[]
     | null;
@@ -324,10 +324,26 @@ export interface TestimonialsBlockProps {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "KidsYogaBlock".
+ * via the `definition` "KidsYogaBlockProps".
  */
-export interface KidsYogaBlock {
-  richText?: {
+export interface KidsYogaBlockProps {
+  title?: string | null;
+  kids?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  teens?: {
     root: {
       type: string;
       children: {
@@ -348,10 +364,26 @@ export interface KidsYogaBlock {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "FamilyYogaBlock".
+ * via the `definition` "FamilyYogaBlockProps".
  */
-export interface FamilyYogaBlock {
-  richText?: {
+export interface FamilyYogaBlockProps {
+  title?: string | null;
+  details?: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  } | null;
+  description?: {
     root: {
       type: string;
       children: {
@@ -661,8 +693,8 @@ export interface PagesSelect<T extends boolean = true> {
         content?: T | ContentBlockSelect<T>;
         about?: T | AboutBlockPropsSelect<T>;
         testimonials?: T | TestimonialsBlockPropsSelect<T>;
-        kids?: T | KidsYogaBlockSelect<T>;
-        family?: T | FamilyYogaBlockSelect<T>;
+        kids?: T | KidsYogaBlockPropsSelect<T>;
+        family?: T | FamilyYogaBlockPropsSelect<T>;
         adults?: T | AdultsYogaBlockPropsSelect<T>;
       };
   updatedAt?: T;
@@ -712,19 +744,23 @@ export interface TestimonialsBlockPropsSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "KidsYogaBlock_select".
+ * via the `definition` "KidsYogaBlockProps_select".
  */
-export interface KidsYogaBlockSelect<T extends boolean = true> {
-  richText?: T;
+export interface KidsYogaBlockPropsSelect<T extends boolean = true> {
+  title?: T;
+  kids?: T;
+  teens?: T;
   id?: T;
   blockName?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "FamilyYogaBlock_select".
+ * via the `definition` "FamilyYogaBlockProps_select".
  */
-export interface FamilyYogaBlockSelect<T extends boolean = true> {
-  richText?: T;
+export interface FamilyYogaBlockPropsSelect<T extends boolean = true> {
+  title?: T;
+  details?: T;
+  description?: T;
   id?: T;
   blockName?: T;
 }

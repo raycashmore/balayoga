@@ -1,28 +1,29 @@
-import { FixedToolbarFeature, HeadingFeature, InlineToolbarFeature, lexicalEditor } from '@payloadcms/richtext-lexical';
+import { lexicalEditor } from '@payloadcms/richtext-lexical';
 import type { Block } from 'payload';
 
 export const FamilyYoga: Block = {
 	slug: 'family',
-	interfaceName: 'FamilyYogaBlock',
+	interfaceName: 'FamilyYogaBlockProps',
 	labels: {
 		singular: 'Family Yoga',
 		plural: 'Family Yoga'
 	},
 	fields: [
 		{
-			name: 'richText',
+			name: 'title',
+			type: 'text'
+		},
+		{
+			name: 'details',
 			type: 'richText',
-			editor: lexicalEditor({
-				features: ({ rootFeatures }) => {
-					return [
-						...rootFeatures,
-						HeadingFeature({ enabledHeadingSizes: ['h2', 'h3', 'h4'] }),
-						FixedToolbarFeature(),
-						InlineToolbarFeature()
-					];
-				}
-			}),
-			label: false
+			editor: lexicalEditor(),
+			label: 'Details'
+		},
+		{
+			name: 'description',
+			type: 'richText',
+			editor: lexicalEditor(),
+			label: 'Description'
 		}
 	]
 };

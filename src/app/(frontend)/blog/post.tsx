@@ -30,7 +30,7 @@ export default async function Post({ allPosts, post }: PostProps) {
 						</div>
 					</aside>
 					<article>
-						<div className="px-0 pt-16 pb-12 md:px-2 lg:px-4 lg:pt-24">{post && <BlogPage post={post} />}</div>
+						<div className="content px-0 pt-16 pb-12 md:px-2 lg:px-4 lg:pt-24">{post && <BlogPage post={post} />}</div>
 					</article>
 				</div>
 			</div>

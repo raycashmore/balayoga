@@ -11,7 +11,6 @@ export default async function CMSPage({ params }: { params: Promise<{ slug: stri
 
 	return (
 		<main className="container mx-auto max-w-5xl px-4 py-8">
-			<h1 className="mb-6 text-4xl font-bold">{page.title}</h1>
 			<BlockRenderer layout={page.layout} />
 		</main>
 	);

@@ -1,6 +1,6 @@
 'use client';
 
-import type { Testimonial } from '@/app/(frontend)/testimonials';
+import type { Testimonial } from '@/app/_components/testimonials';
 import { headerFont } from '@/styles/fonts';
 import React, { useState } from 'react';
 

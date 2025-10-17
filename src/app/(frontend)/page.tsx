@@ -1,9 +1,9 @@
-import { About } from '@/app/(frontend)/about';
-import Footer from '@/app/(frontend)/footer';
-import { Testimonials } from '@/app/(frontend)/testimonials';
+import { About } from '@/app/_components/about';
+import Footer from '@/app/_components/footer';
 import Glow from '@/app/_components/glow';
 import { Hero } from '@/app/_components/hero';
 import { MobileHomeNav } from '@/app/_components/mobile-home-nav';
+import { Testimonials } from '@/app/_components/testimonials';
 
 export default async function HomePage() {
 	// const headers = await getHeaders();

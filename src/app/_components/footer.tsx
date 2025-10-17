@@ -1,5 +1,5 @@
-import { Badge } from '@/app/(frontend)/badge';
-import { GetInTouch } from '@/app/(frontend)/get-in-touch';
+import { Badge } from '@/app/_components/badge';
+import { GetInTouch } from '@/app/_components/get-in-touch';
 import Socials from '@/app/_components/socials';
 
 export default function Footer() {

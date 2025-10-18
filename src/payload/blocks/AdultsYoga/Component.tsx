@@ -16,7 +16,9 @@ export function AdultsYogaBlock({ richText, title }: AdultsYogaBlockProps) {
 				</aside>
 				<div className="flex-[1]">
 					{richText && <RichText data={richText} enableGutter={false} />}
-					<BookNowButton />
+					<div className="flex justify-center sm:justify-start">
+						<BookNowButton />
+					</div>
 				</div>
 			</div>
 		</section>

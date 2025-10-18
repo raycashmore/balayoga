@@ -22,7 +22,10 @@ export function KidsYogaBlock({ kids, teens, title }: KidsYogaBlockProps) {
 					className="float-none m-0 mt-0 justify-self-center rounded-xl sm:justify-self-start md:float-right md:m-8 md:mt-2 md:pb-0"
 				/>
 				{kids && <RichText data={kids} enableGutter={false} />}
-				<BookNowButton />
+
+				<div className="flex justify-center sm:justify-start">
+					<BookNowButton />
+				</div>
 			</div>
 
 			<div className="mt-4 md:mt-0">
@@ -34,7 +37,9 @@ export function KidsYogaBlock({ kids, teens, title }: KidsYogaBlockProps) {
 					className="float-none m-0 mt-0 justify-self-center rounded-xl sm:justify-self-start md:float-right md:m-8 md:mt-2 md:pb-0"
 				/>
 				{teens && <RichText data={teens} enableGutter={false} />}
-				<BookNowButton />
+				<div className="flex justify-center sm:justify-start">
+					<BookNowButton />
+				</div>
 			</div>
 		</section>
 	);

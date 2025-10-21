@@ -28,7 +28,7 @@ export function MobileNav({ posts }: { posts: MobileNavPost[] }) {
 		<div className="lg:hidden">
 			<button
 				onClick={() => setIsOpen(true)}
-				className="fixed top-3 left-8 z-20 rounded-md bg-black/50 p-1 text-white"
+				className="fixed top-3 left-8 z-20 cursor-pointer rounded-md bg-black/50 p-1 text-white"
 				aria-label="Open menu"
 			>
 				<HamburgerIcon />

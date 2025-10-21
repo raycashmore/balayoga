@@ -2,13 +2,13 @@
 
 import { type ComponentProps, type FC } from 'react';
 
-export const HamburgerIcon: FC<ComponentProps<('svg')>> = (props) => {
+export const HamburgerIcon: FC<ComponentProps<'svg'>> = (props) => {
 	return (
 		<svg
 			xmlns="http://www.w3.org/2000/svg"
 			width="30"
 			height="30"
-			viewBox="0 0 24 24"
+			viewBox="0 0 30 30"
 			fill="none"
 			stroke="currentColor"
 			strokeWidth="2"
@@ -16,9 +16,9 @@ export const HamburgerIcon: FC<ComponentProps<('svg')>> = (props) => {
 			strokeLinejoin="round"
 			{...props}
 		>
-			<line x1="4" x2="20" y1="12" y2="12" />
-			<line x1="4" x2="20" y1="6" y2="6" />
-			<line x1="4" x2="20" y1="18" y2="18" />
+			<path d="m5 7.5 20 0" stroke-width="2"></path>
+			<path d="m5 15 20 0" stroke-width="2"></path>
+			<path d="m5 22.5 10 0" stroke-width="2"></path>
 		</svg>
 	);
 };

@@ -1,6 +1,6 @@
 import type { Page } from '@/payload-types';
 
-import { revalidatePath, revalidateTag } from 'next/cache';
+import { revalidatePath } from 'next/cache';
 import type { CollectionAfterChangeHook, CollectionAfterDeleteHook } from 'payload';
 
 export const revalidatePage: CollectionAfterChangeHook<Page> = ({ doc, previousDoc, req: { payload, context } }) => {
@@ -13,7 +13,6 @@ export const revalidatePage: CollectionAfterChangeHook<Page> = ({ doc, previousD
 			payload.logger.info(`Revalidating page at path: ${path}`);
 
 			revalidatePath(path);
-			revalidateTag('pages-sitemap');
 		}
 
 		// If the page was previously published, we need to revalidate the old path
@@ -23,7 +22,6 @@ export const revalidatePage: CollectionAfterChangeHook<Page> = ({ doc, previousD
 			payload.logger.info(`Revalidating old page at path: ${oldPath}`);
 
 			revalidatePath(oldPath);
-			revalidateTag('pages-sitemap');
 		}
 	}
 	return doc;
@@ -34,7 +32,6 @@ export const revalidateDelete: CollectionAfterDeleteHook<Page> = ({ doc, req: { 
 		const path = `/${doc?.slug}`;
 
 		revalidatePath(path);
-		revalidateTag('pages-sitemap');
 	}
 
 	return doc;

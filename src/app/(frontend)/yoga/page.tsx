@@ -3,7 +3,7 @@ import { fetchPageBySlug } from '@/payload/utils/fetchPageBySlug';
 import { notFound } from 'next/navigation';
 
 export default async function Page() {
-	const page = await fetchPageBySlug('yoga-slug');
+	const page = await fetchPageBySlug('yoga');
 	if (!page) return notFound();
 
 	return (

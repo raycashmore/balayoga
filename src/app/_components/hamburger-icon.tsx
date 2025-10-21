@@ -16,9 +16,9 @@ export const HamburgerIcon: FC<ComponentProps<'svg'>> = (props) => {
 			strokeLinejoin="round"
 			{...props}
 		>
-			<path d="m5 7.5 20 0" stroke-width="2"></path>
-			<path d="m5 15 20 0" stroke-width="2"></path>
-			<path d="m5 22.5 10 0" stroke-width="2"></path>
+			<path d="m5 7.5 20 0" strokeWidth="2"></path>
+			<path d="m5 15 20 0" strokeWidth="2"></path>
+			<path d="m5 22.5 10 0" strokeWidth="2"></path>
 		</svg>
 	);
 };

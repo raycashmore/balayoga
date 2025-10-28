@@ -42,7 +42,7 @@ export function DesktopNav() {
 				transparentBg ? 'bg-bala-purple/0' : 'bg-bala-purple/85'
 			].join(' ')}
 		>
-			<div className="mx-auto grid h-full max-w-[1280px] grid-cols-3 items-center px-6">
+			<div className="mx-auto grid h-full max-w-[1200px] grid-cols-3 items-center px-6">
 				<div className="justify-self-start">
 					{(scrolled || !isHome || staticHeight) && (
 						<Link href="/" className="text-xl leading-none font-medium whitespace-nowrap text-white">

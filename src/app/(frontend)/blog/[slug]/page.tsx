@@ -70,6 +70,11 @@ export default async function Page({ params: paramsPromise }: Args) {
 			title: true,
 			slug: true,
 			meta: true
+		},
+		where: {
+			_status: {
+				equals: 'published'
+			}
 		}
 	});
 

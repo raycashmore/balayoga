@@ -12,7 +12,7 @@ export function GetInTouch() {
 		<>
 			<div className="flex flex-col justify-center gap-2 pt-4 text-[#fff] md:justify-start">
 				<a id="contact" />
-				<h2 className={`${headerFont.className} text-center text-[32px] md:text-left`}>Get in touch</h2>
+				<h2 className={`headline ${headerFont.className} text-center text-[32px] md:text-left`}>Get in touch</h2>
 
 				<div className="max-w-[600px] text-center md:text-left">
 					<p>If you would like to find out more about what I offer, please send me a message.</p>

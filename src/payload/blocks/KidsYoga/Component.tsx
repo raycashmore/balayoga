@@ -9,7 +9,7 @@ export function KidsYogaBlock({ kids, teens, title }: KidsYogaBlockProps) {
 		<section className="bg-opacity-70 flex flex-col gap-10 rounded-[32px] bg-[#fff] p-6 pt-2 text-[#1A1A1A] md:gap-2 md:px-12">
 			<a id="kids-yoga" />
 			<div className="flex items-center gap-6">
-				<h2 className={`${headerFont.className} pb-2 text-center leading-tight sm:text-left`}>{title}</h2>
+				<h2 className={`headline ${headerFont.className} pb-2 text-center leading-tight sm:text-left`}>{title}</h2>
 				<Image src="/activekids-logo.webp" alt="Active kids approved provider" width={100} height={100} />
 			</div>
 

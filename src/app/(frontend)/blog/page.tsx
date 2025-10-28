@@ -24,7 +24,7 @@ export default async function Page() {
 		depth: 1,
 		limit: 12,
 		sort: '-publishedAt',
-		draft: false,
+		draft: draftInfo.isEnabled,
 		overrideAccess: draftInfo.isEnabled,
 		select: {
 			title: true,
@@ -35,6 +35,11 @@ export default async function Page() {
 			createdAt: true,
 			publishedAt: true,
 			authors: true
+		},
+		where: {
+			_status: {
+				equals: 'published'
+			}
 		}
 	});
 

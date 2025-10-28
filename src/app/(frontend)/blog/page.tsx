@@ -26,6 +26,13 @@ export default async function Page() {
 		sort: '-publishedAt',
 		draft: draftInfo.isEnabled,
 		overrideAccess: draftInfo.isEnabled,
+		where: draftInfo.isEnabled
+			? undefined
+			: {
+					_status: {
+						equals: 'published'
+					}
+				},
 		select: {
 			title: true,
 			slug: true,

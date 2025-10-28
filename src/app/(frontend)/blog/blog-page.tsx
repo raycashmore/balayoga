@@ -27,7 +27,7 @@ export function BlogPage({ post }: { post: Post }) {
 				/>
 			</div>
 			<div className="relative flex min-h-[280px] flex-col justify-center gap-6 py-8">
-				<h3 className={`${headerFont.className} mb-0 text-4xl text-black`}>{title}</h3>
+				<h1 className={`${headerFont.className} mb-0 text-4xl text-black`}>{title}</h1>
 				{hasAuthors && <Authors publishedAt={publishedDate} authors={authors} thumbnail={populatedAuthors?.at(0)?.thumbnail} />}
 			</div>
 

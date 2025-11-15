@@ -1,15 +1,14 @@
-import { About } from '@/app/_components/about';
 import Footer from '@/app/_components/footer';
 import Glow from '@/app/_components/glow';
 import { Hero } from '@/app/_components/hero';
 import { MobileHomeNav } from '@/app/_components/mobile-home-nav';
-import { Testimonials } from '@/app/_components/testimonials';
+import { BlockRenderer } from '@/payload/blocks/BlockRenderer';
+import { fetchPageBySlug } from '@/payload/utils/fetchPageBySlug';
+import { notFound } from 'next/navigation';
 
 export default async function HomePage() {
-	// const headers = await getHeaders();
-	// const payloadConfig = await config;
-	// const payload = await getPayload({ config: payloadConfig });
-	// const { user } = await payload.auth({ headers });
+	const page = await fetchPageBySlug('home');
+	if (!page) return notFound();
 
 	return (
 		<>
@@ -19,8 +18,7 @@ export default async function HomePage() {
 					<MobileHomeNav />
 				</div>
 				<main className="m-2 flex max-w-[1000px] flex-col gap-8 px-2 md:m-4 lg:gap-12">
-					<About />
-					<Testimonials />
+					<BlockRenderer layout={page.layout} />
 				</main>
 				<footer className="bg-bala-purple-dark flex w-full justify-center">
 					<Footer />

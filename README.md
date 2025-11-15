@@ -4,7 +4,12 @@ www.balayoga.com.au
 
 Bootstrapped with create-t3-app
 
-## Getting started:
+## Quick Start Local:
+
+1. Start balayoga-postgres docker container 
+2. pnpm dev
+
+## Development:
 
 Start local postgres db (docker): 
 

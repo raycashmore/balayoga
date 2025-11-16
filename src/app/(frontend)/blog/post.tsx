@@ -19,7 +19,7 @@ export default async function Post({ allPosts, post }: PostProps) {
 		<>
 			{draft && <LivePreviewListener />}
 
-			<div className="flex min-h-screen w-full justify-center overflow-hidden bg-[#EEEBF7]">
+			<div className="bg-bala-purple-light flex min-h-screen w-full justify-center overflow-hidden">
 				<div className="flex max-w-[1200px] px-2">
 					<aside className="hidden min-w-[240px] flex-col gap-4 p-4 pt-[100px] lg:flex">
 						<div className="fixed w-[220px] flex-col">

@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 export function FamilyYogaBlock({ details, description, title }: FamilyYogaBlockProps) {
 	return (
-		<section className="bg-opacity-80 flex flex-col gap-4 rounded-[32px] bg-[#F0F9F7] p-6 pb-8 text-[#1A1A1A] md:px-12">
+		<section className="bg-opacity-80 flex flex-col gap-4 rounded-[32px] p-6 pb-8 md:px-12" style={{ backgroundColor: 'var(--color-olive-50)', color: 'var(--color-gray-900)' }}>
 			<a id="adults-yoga" />
 			<h2 className={`headline ${headerFont.className} pb-4 text-center leading-none md:text-left`}>{title}</h2>
 

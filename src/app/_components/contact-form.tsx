@@ -78,7 +78,7 @@ export default function ContactForm({ isOpen }: { isOpen: boolean }) {
 			<button
 				type="submit"
 				disabled={submitting}
-				className="rounded-md border-blue-300 bg-[#2B80E9] px-5 py-2.5 text-center text-sm font-medium text-white opacity-90 hover:opacity-100 focus:ring-4 focus:ring-blue-300 focus:outline-none disabled:opacity-50 sm:w-auto"
+				className="bg-bala-blue rounded-md border-blue-300 px-5 py-2.5 text-center text-sm font-medium text-white opacity-90 hover:opacity-100 focus:ring-4 focus:ring-blue-300 focus:outline-none disabled:opacity-50 sm:w-auto"
 			>
 				SEND
 			</button>

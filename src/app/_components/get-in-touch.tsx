@@ -10,7 +10,7 @@ export function GetInTouch() {
 
 	return (
 		<>
-			<div className="flex flex-col justify-center gap-2 pt-4 text-[#fff] md:justify-start">
+			<div className="flex flex-col justify-center gap-2 pt-4 text-white md:justify-start">
 				<a id="contact" />
 				<h2 className={`headline ${headerFont.className} text-center text-[32px] md:text-left`}>Get in touch</h2>
 
@@ -21,7 +21,7 @@ export function GetInTouch() {
 
 				<Link
 					href="/contact"
-					className="self-center rounded-md bg-[#2B80E9] px-5 py-2.5 text-sm font-medium text-white focus:ring-4 focus:ring-blue-300 focus:outline-none disabled:opacity-50 sm:w-auto md:self-start"
+					className="bg-bala-blue self-center rounded-md px-5 py-2.5 text-sm font-medium text-white focus:ring-4 focus:ring-blue-300 focus:outline-none disabled:opacity-50 sm:w-auto md:self-start"
 				>
 					Send a message
 				</Link>

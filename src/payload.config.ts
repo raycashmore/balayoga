@@ -22,6 +22,13 @@ export default buildConfig({
 		user: Users.slug,
 		importMap: {
 			baseDir: path.resolve(dirname)
+		},
+		components: {
+			graphics: {
+				Logo: {
+					path: 'src/app/_components/logo-black'
+				}
+			}
 		}
 	},
 	collections: [Users, Media, Pages, Posts],

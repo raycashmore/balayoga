@@ -97,7 +97,7 @@ export function MobileNav({ posts }: { posts: MobileNavPost[] }) {
 		<div className="lg:hidden">
 			<button
 				onClick={toggleMenu}
-				className="border-bala-purple-dark fixed top-3 left-8 z-50 cursor-pointer rounded-full border-1 bg-black p-3 text-white"
+				className="border-bala-purple-dark fixed top-4 left-8 z-50 cursor-pointer rounded-full border-1 bg-black p-3 text-white"
 				aria-label={animationState === 'idle' ? 'Open menu' : 'Close menu'}
 			>
 				<HamburgerIcon />
@@ -116,12 +116,12 @@ export function MobileNav({ posts }: { posts: MobileNavPost[] }) {
 				<div
 					className={`bg-bala-purple-dark fixed z-40 overflow-hidden rounded-[32px] text-white shadow-2xl transition-all duration-500 ${
 						animationState === 'expanding' || animationState === 'shrinking'
-							? 'top-1 left-6 h-12 w-12 opacity-0'
-							: 'top-1 left-6 h-[90vh] w-[min(400px,calc(100vw-48px))] opacity-100'
+							? 'top-2 left-6 h-12 w-12 opacity-0'
+							: 'top-2 left-6 h-[90vh] w-[min(400px,calc(100vw-48px))] opacity-100'
 					}`}
 					style={{
 						...getPanelStyle(),
-						transitionTimingFunction: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)'
+						transitionTimingFunction: 'cubic-bezier(0.85, 0, 0.15, 1)'
 					}}
 				>
 					<div
@@ -187,14 +187,13 @@ export function MobileNav({ posts }: { posts: MobileNavPost[] }) {
 			<style jsx global>{`
 				@supports (view-transition-name: none) {
 					::view-transition-group(mobile-nav-panel) {
-						animation-duration: 0.5s;
-						animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+						animation-duration: 0.7s;
+						animation-timing-function: cubic-bezier(0.85, 0, 0.15, 1);
 					}
-
 					::view-transition-old(mobile-nav-panel),
 					::view-transition-new(mobile-nav-panel) {
-						animation-duration: 0.5s;
-						animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+						animation-duration: 0.7s;
+						animation-timing-function: cubic-bezier(0.85, 0, 0.15, 1);
 					}
 				}
 			`}</style>

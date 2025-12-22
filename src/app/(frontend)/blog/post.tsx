@@ -21,7 +21,7 @@ export default async function Post({ allPosts, post }: PostProps) {
 
 			<div className="flex min-h-screen w-full justify-center overflow-hidden bg-[#EEEBF7]">
 				<div className="flex max-w-[1200px] px-2">
-					<aside className="mt-20 hidden min-w-[240px] flex-col gap-4 p-4 lg:flex">
+					<aside className="hidden min-w-[240px] flex-col gap-4 p-4 lg:flex">
 						<div className="fixed w-[220px] flex-col">
 							<h2 className={headerFont.className}>
 								<span className="text-[24pt]">Blog</span>
@@ -30,7 +30,7 @@ export default async function Post({ allPosts, post }: PostProps) {
 						</div>
 					</aside>
 					<article>
-						<div className="content px-0 pt-16 pb-12 md:px-2 lg:px-4 lg:pt-24">{post && <BlogPage post={post} />}</div>
+						<div className="content px-0 pt-2 pb-2 md:px-2 lg:px-4 lg:pt-24 lg:pb-12">{post && <BlogPage post={post} />}</div>
 					</article>
 				</div>
 			</div>

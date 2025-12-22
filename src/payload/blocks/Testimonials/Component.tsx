@@ -49,7 +49,7 @@ export function TestimonialsBlock({ title, testimonials }: Props) {
 		<section>
 			<a id="testimonials" />
 			<div className="pb-4 text-center text-white sm:text-left">
-				<h2 className={`headline ${headerFont.className} py-4 pb-2 pl-6 leading-tight md:pl-12`}>{title}</h2>
+				<h2 className={`headline ${headerFont.className} py-4 pb-2 leading-tight sm:pl-6 md:pl-12`}>{title}</h2>
 			</div>
 			<div className="mx-auto max-w-7xl">
 				<div className="relative">

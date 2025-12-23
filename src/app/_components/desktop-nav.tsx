@@ -1,5 +1,6 @@
 'use client';
 
+import { logoFont } from '@/styles/fonts';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useCallback, useEffect, useState } from 'react';
@@ -45,7 +46,7 @@ export function DesktopNav() {
 			<div className="mx-auto grid h-full max-w-[1200px] grid-cols-3 items-center px-6">
 				<div className="justify-self-start">
 					{(scrolled || !isHome || staticHeight) && (
-						<Link href="/" className="text-xl leading-none font-medium whitespace-nowrap text-white">
+						<Link href="/" className={`${logoFont.className} text-2xl leading-none font-medium whitespace-nowrap text-white`}>
 							BALA YOGA
 						</Link>
 					)}

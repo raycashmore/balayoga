@@ -1,6 +1,7 @@
 'use client';
 
 import { HamburgerIcon } from '@/app/_components/hamburger-icon';
+import { logoFont } from '@/styles/fonts';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useEffect, useState } from 'react';
@@ -97,7 +98,7 @@ export function MobileNav({ posts }: { posts: MobileNavPost[] }) {
 		<div className="lg:hidden">
 			<button
 				onClick={toggleMenu}
-				className="border-bala-purple-dark fixed top-4 left-8 z-50 cursor-pointer rounded-full border-1 bg-black p-3 text-white"
+				className="border-bala-purple-dark fixed top-8 left-8 z-50 cursor-pointer rounded-full border-1 bg-black p-3 text-white"
 				aria-label={animationState === 'idle' ? 'Open menu' : 'Close menu'}
 			>
 				<HamburgerIcon />
@@ -114,10 +115,10 @@ export function MobileNav({ posts }: { posts: MobileNavPost[] }) {
 
 			{isVisible && (
 				<div
-					className={`bg-bala-purple-dark fixed z-40 overflow-hidden rounded-[32px] text-white shadow-2xl transition-all duration-500 ${
+					className={`bg-bala-purple-dark fixed z-40 overflow-hidden rounded-[28px] text-white shadow-2xl transition-all duration-500 ${
 						animationState === 'expanding' || animationState === 'shrinking'
-							? 'top-2 left-6 h-12 w-12 opacity-0'
-							: 'top-2 left-6 h-[90vh] w-[min(400px,calc(100vw-48px))] opacity-100'
+							? 'top-6 left-6 h-12 w-12 opacity-0'
+							: 'top-6 left-6 h-[90vh] w-[min(400px,calc(100vw-48px))] opacity-100'
 					}`}
 					style={{
 						...getPanelStyle(),
@@ -127,7 +128,9 @@ export function MobileNav({ posts }: { posts: MobileNavPost[] }) {
 					<div
 						className={`flex h-full flex-col p-6 transition-opacity duration-[250ms] ${showContent ? 'opacity-100' : 'opacity-0'}`}
 					>
-						<nav className="h-full overflow-y-auto pt-16">
+						<nav className="relative h-full overflow-y-auto pt-16">
+							<div className={`${logoFont.className} absolute top-[-6px] right-0 text-2xl`}>BALA YOGA</div>
+
 							<ul className="flex flex-col gap-4 text-xl">
 								<li>
 									<Link href="/" className={getLinkClassName('/')}>

@@ -15,7 +15,7 @@ export function BlogPage({ post }: { post: Post }) {
 	const hasAuthors = authors && authors !== '';
 
 	return (
-		<div className="relative overflow-hidden rounded-2xl bg-[rgba(251,249,245,0.9)] px-6 pb-12 md:px-8 lg:px-20">
+		<div className="relative overflow-hidden rounded-[32px] bg-[rgba(251,249,245,0.9)] px-6 pb-12 md:px-8 lg:px-20">
 			<div className="relative isolate -mx-6 md:-mx-8 lg:-mx-20">
 				<div className="pointer-events-none absolute inset-0 z-0">
 					<Image
@@ -27,7 +27,7 @@ export function BlogPage({ post }: { post: Post }) {
 						sizes="(max-width: 1024px) 100vw, 1024px"
 					/>
 				</div>
-				<div className="relative z-10 flex flex-col justify-center gap-6 px-6 py-8 md:px-8 lg:px-20">
+				<div className="relative z-10 flex flex-col justify-center gap-6 px-6 py-8 pt-16 md:px-8 md:pt-8 lg:px-20">
 					<h1 className={`${headerFont.className} mb-0 text-4xl text-black`}>{title}</h1>
 					{hasAuthors && <Authors publishedAt={publishedDate} authors={authors} thumbnail={populatedAuthors?.at(0)?.thumbnail} />}
 				</div>

@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 export function KidsYogaBlock({ kids, teens, title }: KidsYogaBlockProps) {
 	return (
-		<section className="bg-opacity-70 flex flex-col gap-10 rounded-[32px] bg-[#fff] p-6 px-12 pt-12 text-[#1A1A1A] md:gap-2 md:pt-2">
+		<section className="bg-opacity-70 flex flex-col gap-10 rounded-[32px] bg-[#fff] p-6 pt-12 text-[#1A1A1A] md:gap-2 md:px-12 md:pt-2">
 			<a id="kids-yoga" />
 			<div className="flex items-center gap-6">
 				<h2 className={`headline ${headerFont.className} pb-2 text-center leading-tight sm:text-left`}>{title}</h2>

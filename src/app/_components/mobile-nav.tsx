@@ -2,6 +2,7 @@
 
 import { HamburgerIcon } from '@/app/_components/hamburger-icon';
 import LogoSimple from '@/app/_components/logo-simple';
+import Socials from '@/app/_components/socials';
 import { logoFont } from '@/styles/fonts';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -119,7 +120,7 @@ export function MobileNav({ posts }: { posts: MobileNavPost[] }) {
 					className={`bg-bala-purple-dark fixed z-40 overflow-hidden rounded-[28px] text-white shadow-2xl transition-all duration-500 ${
 						animationState === 'expanding' || animationState === 'shrinking'
 							? 'top-6 left-6 h-12 w-12 opacity-0'
-							: 'top-6 left-6 h-[90vh] w-[min(400px,calc(100vw-48px))] opacity-100'
+							: 'top-6 left-6 h-[85dvh] w-[min(400px,calc(100vw-48px))] opacity-100'
 					}`}
 					style={{
 						...getPanelStyle(),
@@ -129,63 +130,69 @@ export function MobileNav({ posts }: { posts: MobileNavPost[] }) {
 					<div
 						className={`flex h-full flex-col p-6 transition-opacity duration-[250ms] ${showContent ? 'opacity-100' : 'opacity-0'}`}
 					>
-						<nav className="relative h-full overflow-y-auto overflow-y-visible pt-16">
+						<nav className="relative h-full overflow-y-visible">
 							<div className={`${logoFont.className} absolute top-[-6px] right-0 flex items-center gap-2 text-2xl`}>
 								<LogoSimple width={28} height={28} />
 								<span>BALA YOGA</span>
 							</div>
 
-							<ul className="flex flex-col gap-4 text-xl">
-								<li>
-									<Link href="/" className={getLinkClassName('/')}>
-										Home
-									</Link>
-								</li>
-								<li>
-									<Link href="/yoga" className={getLinkClassName('/yoga')}>
-										Yoga
-									</Link>
-								</li>
-								<li>
-									<div className="flex items-center justify-between">
-										<Link href="/blog" className={getLinkClassName('/blog')}>
-											Blog
+							<div className="flex h-full flex-col justify-between pt-20">
+								<ul className="flex flex-col gap-4 text-xl">
+									<li>
+										<Link href="/" className={getLinkClassName('/')}>
+											Home
 										</Link>
-										<button onClick={() => setIsBlogOpen(!isBlogOpen)} className="text-white">
-											<svg
-												xmlns="http://www.w3.org/2000/svg"
-												width="20"
-												height="20"
-												viewBox="0 0 24 24"
-												fill="none"
-												stroke="currentColor"
-												strokeWidth="2"
-												strokeLinecap="round"
-												strokeLinejoin="round"
-												className={`transition-transform ${isBlogOpen ? 'rotate-180' : ''}`}
-											>
-												<polyline points="6 9 12 15 18 9" />
-											</svg>
-										</button>
-									</div>
-									{isBlogOpen && (
-										<ul className="mt-2 flex flex-col gap-2 pl-4 text-sm">
-											{posts.map((post) => (
-												<li key={post.slug}>
-													<Link href={`/blog/${post.slug}`} className={getLinkClassName(`/blog/${post.slug}`)}>
-														{post.title}
-													</Link>
-												</li>
-											))}
-										</ul>
-									)}
-								</li>
-								<li>
-									<Link href="/contact" className={getLinkClassName('/contact')}>
-										Contact
-									</Link>
-								</li>
-							</ul>
+									</li>
+									<li>
+										<Link href="/yoga" className={getLinkClassName('/yoga')}>
+											Yoga
+										</Link>
+									</li>
+									<li>
+										<div className="flex items-center gap-4">
+											<Link href="/blog" className={getLinkClassName('/blog')}>
+												Blog
+											</Link>
+											<button onClick={() => setIsBlogOpen(!isBlogOpen)} className="text-white">
+												<svg
+													xmlns="http://www.w3.org/2000/svg"
+													width="20"
+													height="20"
+													viewBox="0 0 24 24"
+													fill="none"
+													stroke="currentColor"
+													strokeWidth="2"
+													strokeLinecap="round"
+													strokeLinejoin="round"
+													className={`transition-transform ${isBlogOpen ? 'rotate-180' : ''}`}
+												>
+													<polyline points="6 9 12 15 18 9" />
+												</svg>
+											</button>
+										</div>
+										{isBlogOpen && (
+											<ul className="mt-2 flex flex-col gap-2 pl-4 text-sm">
+												{posts.map((post) => (
+													<li key={post.slug}>
+														<Link
+															href={`/blog/${post.slug}`}
+															className={getLinkClassName(`/blog/${post.slug}`)}
+														>
+															{post.title}
+														</Link>
+													</li>
+												))}
+											</ul>
+										)}
+									</li>
+									<li>
+										<Link href="/contact" className={getLinkClassName('/contact')}>
+											Contact
+										</Link>
+									</li>
+								</ul>
+								<Socials />
+							</div>
 						</nav>
 					</div>
 				</div>

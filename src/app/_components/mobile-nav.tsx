@@ -1,6 +1,7 @@
 'use client';
 
 import { HamburgerIcon } from '@/app/_components/hamburger-icon';
+import LogoSimple from '@/app/_components/logo-simple';
 import { logoFont } from '@/styles/fonts';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -128,8 +129,11 @@ export function MobileNav({ posts }: { posts: MobileNavPost[] }) {
 					<div
 						className={`flex h-full flex-col p-6 transition-opacity duration-[250ms] ${showContent ? 'opacity-100' : 'opacity-0'}`}
 					>
-						<nav className="relative h-full overflow-y-auto pt-16">
-							<div className={`${logoFont.className} absolute top-[-6px] right-0 text-2xl`}>BALA YOGA</div>
+						<nav className="relative h-full overflow-y-auto overflow-y-visible pt-16">
+							<div className={`${logoFont.className} absolute top-[-6px] right-0 flex items-center gap-2 text-2xl`}>
+								<LogoSimple width={28} height={28} />
+								<span>BALA YOGA</span>
+							</div>
 
 							<ul className="flex flex-col gap-4 text-xl">
 								<li>

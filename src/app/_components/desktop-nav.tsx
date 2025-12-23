@@ -1,5 +1,6 @@
 'use client';
 
+import LogoSimple from '@/app/_components/logo-simple';
 import { logoFont } from '@/styles/fonts';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -47,7 +48,10 @@ export function DesktopNav() {
 				<div className="justify-self-start">
 					{(scrolled || !isHome || staticHeight) && (
 						<Link href="/" className={`${logoFont.className} text-2xl leading-none font-medium whitespace-nowrap text-white`}>
-							BALA YOGA
+							<div className="flex items-center gap-2">
+								<LogoSimple width={28} height={28} />
+								<span>BALA YOGA</span>
+							</div>
 						</Link>
 					)}
 				</div>

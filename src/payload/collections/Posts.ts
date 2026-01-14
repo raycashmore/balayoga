@@ -62,6 +62,14 @@ export const Posts: CollectionConfig<'posts'> = {
 			required: true
 		},
 		{
+			name: 'subtitle',
+			type: 'text',
+			required: false,
+			admin: {
+				description: 'Optional subtitle displayed below the main title'
+			}
+		},
+		{
 			type: 'tabs',
 			tabs: [
 				{

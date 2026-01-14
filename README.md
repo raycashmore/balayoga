@@ -38,3 +38,5 @@ pnpm payload:importmap
 ```
 pnpm payload:migrate
 ```
+
+The github action will run the migrations on deploy

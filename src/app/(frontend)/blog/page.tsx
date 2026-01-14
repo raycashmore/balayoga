@@ -28,6 +28,7 @@ export default async function Page() {
 		overrideAccess: draftInfo.isEnabled,
 		select: {
 			title: true,
+			subtitle: true,
 			slug: true,
 			meta: true,
 			content: true,

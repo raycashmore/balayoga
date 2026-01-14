@@ -54,6 +54,18 @@ pnpm payload:importmap # Generate import map
 pnpm payload:migrate  # Create Payload migration
 ```
 
+**Database Migrations Note**: 
+
+For local dev, schema changes will automatically be pushed to the local database.
+
+When ready to create a migration file for the prod DB, run `pnpm payload:migrate`
+
+**Workflow for schema changes**:
+1. Modify the collection/field definitions in `src/payload/collections/`
+2. Run `pnpm payload generate:types` to regenerate TypeScript types
+3. Start the dev server (`pnpm dev`) - schema changes are pushed automatically to the local DB
+4. Create migration files with `pnpm payload:migrate` to create the remote migrations
+
 ## Code Style Guidelines
 
 ### TypeScript Configuration

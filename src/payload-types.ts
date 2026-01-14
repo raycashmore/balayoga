@@ -434,6 +434,10 @@ export interface AdultsYogaBlockProps {
 export interface Post {
   id: number;
   title: string;
+  /**
+   * Optional subtitle displayed below the main title
+   */
+  subtitle?: string | null;
   heroImage?: (number | null) | Media;
   content: {
     root: {
@@ -780,6 +784,7 @@ export interface AdultsYogaBlockPropsSelect<T extends boolean = true> {
  */
 export interface PostsSelect<T extends boolean = true> {
   title?: T;
+  subtitle?: T;
   heroImage?: T;
   content?: T;
   meta?:

@@ -3,12 +3,11 @@ import type { Post } from '@/payload-types';
 import RichText from '@/payload/components/RichText';
 import { formatAuthors } from '@/payload/utils/formatAuthors';
 import { formatDateTime } from '@/payload/utils/formatDateTime';
-import { headerFont } from '@/styles/fonts';
 import Image from 'next/image';
 import React from 'react';
 
 export function BlogPage({ post }: { post: Post }) {
-	const { populatedAuthors, publishedAt, title, content } = post;
+	const { populatedAuthors, publishedAt, title, subtitle, content } = post;
 
 	const publishedDate = publishedAt ? formatDateTime(publishedAt) : null;
 	const authors = formatAuthors(populatedAuthors);
@@ -27,8 +26,9 @@ export function BlogPage({ post }: { post: Post }) {
 						sizes="(max-width: 1024px) 100vw, 1024px"
 					/>
 				</div>
-				<div className="relative z-10 flex flex-col justify-center gap-6 px-6 py-8 pt-16 md:px-8 md:pt-8 lg:px-20">
-					<h1 className={`${headerFont.className} mb-0 text-4xl text-black`}>{title}</h1>
+				<div className="relative z-10 flex flex-col justify-center gap-6 px-6 py-8 pt-16 text-black md:px-8 md:pt-8 lg:px-20">
+					<h1 className="mb-0 text-4xl">{title}</h1>
+					{subtitle && <h2 className="mt-[-8px] text-2xl">{subtitle}</h2>}
 					{hasAuthors && <Authors publishedAt={publishedDate} authors={authors} thumbnail={populatedAuthors?.at(0)?.thumbnail} />}
 				</div>
 			</div>

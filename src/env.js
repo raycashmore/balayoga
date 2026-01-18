@@ -8,7 +8,13 @@ export const env = createEnv({
 	 */
 	server: {
 		DATABASE_URL: z.string().url(),
-		NODE_ENV: z.enum(['development', 'test', 'production']).default('development')
+		NODE_ENV: z.enum(['development', 'test', 'production']).default('development'),
+		SENTRY_DSN: z.string().url().optional(),
+		SENTRY_AUTH_TOKEN: z.string().optional(),
+		SENTRY_ORG: z.string().optional(),
+		SENTRY_PROJECT: z.string().optional(),
+		SENTRY_ENVIRONMENT: z.string().optional(),
+		SENTRY_RELEASE: z.string().optional()
 	},
 
 	/**
@@ -17,6 +23,7 @@ export const env = createEnv({
 	 * `NEXT_PUBLIC_`.
 	 */
 	client: {
+		NEXT_PUBLIC_SENTRY_DSN: z.string().url().optional()
 		// NEXT_PUBLIC_CLIENTVAR: z.string(),
 	},
 
@@ -26,9 +33,17 @@ export const env = createEnv({
 	 */
 	runtimeEnv: {
 		DATABASE_URL: process.env.DATABASE_URL,
-		NODE_ENV: process.env.NODE_ENV
+		NODE_ENV: process.env.NODE_ENV,
+		SENTRY_DSN: process.env.SENTRY_DSN,
+		SENTRY_AUTH_TOKEN: process.env.SENTRY_AUTH_TOKEN,
+		SENTRY_ORG: process.env.SENTRY_ORG,
+		SENTRY_PROJECT: process.env.SENTRY_PROJECT,
+		SENTRY_ENVIRONMENT: process.env.SENTRY_ENVIRONMENT,
+		SENTRY_RELEASE: process.env.SENTRY_RELEASE,
+		NEXT_PUBLIC_SENTRY_DSN: process.env.NEXT_PUBLIC_SENTRY_DSN
 		// NEXT_PUBLIC_CLIENTVAR: process.env.NEXT_PUBLIC_CLIENTVAR,
 	},
+
 	/**
 	 * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially
 	 * useful for Docker builds.

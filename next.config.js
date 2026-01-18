@@ -1,4 +1,5 @@
 import { withPayload } from '@payloadcms/next/withPayload';
+import { withSentryConfig } from '@sentry/nextjs';
 
 /**
  * Run `build` or `dev` with `SKIP_ENV_VALIDATION` to skip env validation. This is especially useful
@@ -7,6 +8,7 @@ import { withPayload } from '@payloadcms/next/withPayload';
 await import('./src/env.js');
 
 /** @type {import("next").NextConfig} */
+// eslint-disable-next-line no-unused-vars
 const config = {
 	async redirects() {
 		return [
@@ -34,4 +36,16 @@ const config = {
 	}
 };
 
-export default withPayload(config);
+const payloadConfig = withPayload(config);
+
+export default withSentryConfig(payloadConfig, {
+	authToken: process.env.SENTRY_AUTH_TOKEN,
+	org: process.env.SENTRY_ORG,
+	project: process.env.SENTRY_PROJECT,
+	silent: true,
+	widenClientFileUpload: true,
+	sourcemaps: {
+		disable: false,
+		deleteSourcemapsAfterUpload: true
+	}
+});

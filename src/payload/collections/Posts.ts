@@ -17,6 +17,10 @@ import { revalidateDelete, revalidatePost } from './hooks/revalidatePost';
 
 export const Posts: CollectionConfig<'posts'> = {
 	slug: 'posts',
+	labels: {
+		singular: 'Blog post',
+		plural: 'Blog'
+	},
 	access: {
 		create: authenticated,
 		delete: authenticated,

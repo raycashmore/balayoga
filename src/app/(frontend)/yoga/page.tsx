@@ -1,6 +1,11 @@
 import { BlockRenderer } from '@/payload/blocks/BlockRenderer';
 import { fetchPageBySlug } from '@/payload/utils/fetchPageBySlug';
 import { notFound } from 'next/navigation';
+import type { Metadata } from 'next/types';
+
+export const metadata: Metadata = {
+	title: 'Yoga'
+};
 
 export default async function Page() {
 	const page = await fetchPageBySlug('yoga');

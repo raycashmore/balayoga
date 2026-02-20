@@ -9,7 +9,10 @@ import { type ReactNode } from 'react';
 const isProd = process.env.VERCEL_ENV === 'production';
 
 export const metadata: Metadata = {
-	title: 'Bala Yoga',
+	title: {
+		default: 'Bala Yoga',
+		template: '%s | Bala Yoga'
+	},
 	description: 'Mindfulness and Wellbeing',
 	icons: [{ rel: 'icon', url: '/favicon.png' }]
 };

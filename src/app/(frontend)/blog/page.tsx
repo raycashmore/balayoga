@@ -10,7 +10,7 @@ export const revalidate = 600;
 
 export function generateMetadata(): Metadata {
 	return {
-		title: `Bala Yoga: Blog`
+		title: 'Blog'
 	};
 }
 

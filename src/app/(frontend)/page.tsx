@@ -5,6 +5,13 @@ import { MobileHomeNav } from '@/app/_components/mobile-home-nav';
 import { BlockRenderer } from '@/payload/blocks/BlockRenderer';
 import { fetchPageBySlug } from '@/payload/utils/fetchPageBySlug';
 import { notFound } from 'next/navigation';
+import type { Metadata } from 'next/types';
+
+export const metadata: Metadata = {
+	title: {
+		absolute: 'Bala Yoga'
+	}
+};
 
 export default async function HomePage() {
 	const page = await fetchPageBySlug('home');

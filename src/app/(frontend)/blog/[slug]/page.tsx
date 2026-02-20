@@ -1,6 +1,7 @@
 import Post from '@/app/(frontend)/blog/post';
 import configPromise from '@payload-config';
 import { draftMode } from 'next/headers';
+import type { Metadata } from 'next/types';
 import { getPayload } from 'payload';
 import React, { cache } from 'react';
 
@@ -48,6 +49,18 @@ const queryPostBySlug = cache(async ({ slug }: { slug: string }) => {
 
 	return result.docs?.[0] || null;
 });
+
+export async function generateMetadata({ params: paramsPromise }: Args): Promise<Metadata> {
+	const { slug = '' } = await paramsPromise;
+	const post = await queryPostBySlug({ slug });
+
+	if (!post) return { title: 'Blog' };
+
+	return {
+		title: post.meta?.title || post.title || 'Blog',
+		description: post.meta?.description || undefined
+	};
+}
 
 export default async function Page({ params: paramsPromise }: Args) {
 	const { slug = '' } = await paramsPromise;

@@ -1,4 +1,7 @@
-export const metadata = {
+import type { Metadata } from 'next/types';
+
+export const metadata: Metadata = {
+	title: 'WhatsApp Privacy Policy',
 	robots: {
 		index: false,
 		follow: false,

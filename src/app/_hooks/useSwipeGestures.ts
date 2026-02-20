@@ -4,14 +4,17 @@ interface SwipeGestureConfig {
 	onSwipeLeft?: () => void;
 	onSwipeRight?: () => void;
 	threshold?: number;
+	enabled?: boolean;
 }
 
-export function useSwipeGestures({ onSwipeLeft, onSwipeRight, threshold = 50 }: SwipeGestureConfig) {
+export function useSwipeGestures({ onSwipeLeft, onSwipeRight, threshold = 50, enabled = true }: SwipeGestureConfig) {
 	const touchStartX = useRef<number | null>(null);
 	const touchEndX = useRef<number | null>(null);
 	const [isDragging, setIsDragging] = useState(false);
 
 	useEffect(() => {
+		if (!enabled) return;
+
 		const handleTouchStart = (e: TouchEvent) => {
 			touchStartX.current = e.touches[0]?.clientX ?? 0;
 			setIsDragging(true);
@@ -83,7 +86,7 @@ export function useSwipeGestures({ onSwipeLeft, onSwipeRight, threshold = 50 }: 
 			document.removeEventListener('mousemove', handleMouseMove);
 			document.removeEventListener('mouseup', handleMouseUp);
 		};
-	}, [onSwipeLeft, onSwipeRight, threshold]);
+	}, [enabled, onSwipeLeft, onSwipeRight, threshold]);
 
 	return { isDragging };
 }

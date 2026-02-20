@@ -6,7 +6,7 @@ import { useSwipeGestures } from '@/app/_hooks/useSwipeGestures';
 import type { TestimonialsBlockProps } from '@/payload-types';
 import { TestimonialCard } from '@/payload/blocks/Testimonials/TestimonialCard';
 import { headerFont } from '@/styles/fonts';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 
 type Props = {
 	className?: string;
@@ -14,6 +14,19 @@ type Props = {
 
 export function TestimonialsBlock({ title, testimonials }: Props) {
 	const [activeIndex, setActiveIndex] = useState(0);
+	const [enableSwipe, setEnableSwipe] = useState(false);
+
+	useEffect(() => {
+		const mediaQuery = window.matchMedia('(min-width: 768px)');
+		const updateSwipeEnabled = () => setEnableSwipe(mediaQuery.matches);
+
+		updateSwipeEnabled();
+		mediaQuery.addEventListener('change', updateSwipeEnabled);
+
+		return () => {
+			mediaQuery.removeEventListener('change', updateSwipeEnabled);
+		};
+	}, []);
 
 	useSwipeGestures({
 		onSwipeLeft: () => {
@@ -27,7 +40,8 @@ export function TestimonialsBlock({ title, testimonials }: Props) {
 				handlePrev();
 			}
 		},
-		threshold: 50
+		threshold: 50,
+		enabled: enableSwipe
 	});
 
 	const handlePrev = () => {

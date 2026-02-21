@@ -9,7 +9,7 @@ import React from 'react';
 export default function PostsList({ posts }: { posts: PaginatedDocs }) {
 	const pathname = usePathname();
 	return (
-		<div className="flex flex-col gap-4">
+		<div className="flex flex-col gap-2">
 			{posts?.docs?.map((result, index) => {
 				if (typeof result === 'object' && result !== null) {
 					const doc = result as Pick<Post, 'slug' | 'meta' | 'title' | 'id'>;

@@ -163,7 +163,7 @@ export interface User {
  */
 export interface Media {
   id: number;
-  alt: string;
+  alt?: string | null;
   caption?: {
     root: {
       type: string;
@@ -438,6 +438,9 @@ export interface Post {
    * Optional subtitle displayed below the main title
    */
   subtitle?: string | null;
+  /**
+   * Background image shown in the blog post header. Falls back to the default banner when empty.
+   */
   heroImage?: (number | null) | Media;
   content: {
     root: {

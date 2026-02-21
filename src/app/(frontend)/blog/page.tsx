@@ -30,6 +30,7 @@ export default async function Page() {
 			title: true,
 			subtitle: true,
 			slug: true,
+			heroImage: true,
 			meta: true,
 			content: true,
 			updatedAt: true,

@@ -80,8 +80,12 @@ export const Posts: CollectionConfig<'posts'> = {
 					fields: [
 						{
 							name: 'heroImage',
+							label: 'Blog background image',
 							type: 'upload',
-							relationTo: 'media'
+							relationTo: 'media',
+							admin: {
+								description: 'Background image shown in the blog post header. Falls back to the default banner when empty.'
+							}
 						},
 						{
 							name: 'content',

@@ -3,23 +3,29 @@ import type { Post } from '@/payload-types';
 import RichText from '@/payload/components/RichText';
 import { formatAuthors } from '@/payload/utils/formatAuthors';
 import { formatDateTime } from '@/payload/utils/formatDateTime';
+import { getMediaUrl } from '@/payload/utils/getMediaUrl';
 import Image from 'next/image';
 import React from 'react';
 
 export function BlogPage({ post }: { post: Post }) {
-	const { populatedAuthors, publishedAt, title, subtitle, content } = post;
+	const { populatedAuthors, publishedAt, title, subtitle, content, heroImage } = post;
 
 	const publishedDate = publishedAt ? formatDateTime(publishedAt) : null;
 	const authors = formatAuthors(populatedAuthors);
 	const hasAuthors = authors && authors !== '';
+	const heroImageUrl = (
+		heroImage && typeof heroImage === 'object' && 'url' in heroImage
+			? getMediaUrl(heroImage.url)
+			: ''
+	) || '/blog-banner-3.jpg';
 
 	return (
 		<div className="relative overflow-hidden rounded-[32px] bg-[rgba(251,249,245,0.9)] px-6 pb-12 md:px-8 lg:px-20">
 			<div className="relative isolate -mx-6 md:-mx-8 lg:-mx-20">
 				<div className="pointer-events-none absolute inset-0 z-0">
 					<Image
-						src="/blog-banner-3.jpg"
-						alt="Blog Banner"
+						src={heroImageUrl}
+						alt=""
 						fill
 						className="object-cover opacity-50"
 						priority={true}

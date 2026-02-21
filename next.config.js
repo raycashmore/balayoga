@@ -10,6 +10,14 @@ await import('./src/env.js');
 /** @type {import("next").NextConfig} */
 // eslint-disable-next-line no-unused-vars
 const config = {
+	images: {
+		remotePatterns: [
+			{
+				protocol: 'https',
+				hostname: 'bala-yoga.b-cdn.net'
+			}
+		]
+	},
 	async redirects() {
 		return [
 			{

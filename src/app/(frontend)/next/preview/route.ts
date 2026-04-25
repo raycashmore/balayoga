@@ -1,18 +1,15 @@
 import configPromise from '@payload-config';
+import { generateFrontendPath } from '@/payload/utils/generatePreviewPath';
 import { draftMode } from 'next/headers';
 import { redirect } from 'next/navigation';
 import type { CollectionSlug } from 'payload';
 import { getPayload } from 'payload';
 
-const collectionPrefixMap: Partial<Record<CollectionSlug, string>> = {
-	posts: '/blog',
-	pages: ''
-};
-
 export async function GET(request: Request) {
 	const { searchParams } = new URL(request.url);
 	const slug = searchParams.get('slug');
 	const collection = searchParams.get('collection') as CollectionSlug;
+	const path = searchParams.get('path');
 	const previewSecret = searchParams.get('previewSecret');
 
 	// Validate the preview secret
@@ -47,7 +44,6 @@ export async function GET(request: Request) {
 	const draft = await draftMode();
 	draft.enable();
 
-	// Redirect to the path
-	const path = `${collectionPrefixMap[collection]}/${slug}`;
-	redirect(path);
+	const redirectPath = path || generateFrontendPath({ collection: collection as 'pages' | 'posts', slug });
+	redirect(redirectPath);
 }

@@ -1,23 +1,18 @@
-import { FlatCompat } from '@eslint/eslintrc';
-import tseslint from 'typescript-eslint';
-// @ts-ignore -- no types for this plugin
+import { defineConfig, globalIgnores } from 'eslint/config';
+import nextTs from 'eslint-config-next/typescript';
+import nextVitals from 'eslint-config-next/core-web-vitals';
+// @ts-expect-error -- no types for this plugin
 import drizzle from 'eslint-plugin-drizzle';
 
-const compat = new FlatCompat({
-	baseDirectory: import.meta.dirname
-});
-
-export default tseslint.config(
-	{
-		ignores: ['.next', '**/migrations/**/*']
-	},
-	...compat.extends('next/core-web-vitals'),
+export default defineConfig([
+	...nextVitals,
+	...nextTs,
+	globalIgnores(['.next/**', 'out/**', 'build/**', 'next-env.d.ts', '**/migrations/**/*']),
 	{
 		files: ['**/*.ts', '**/*.tsx'],
 		plugins: {
 			drizzle
 		},
-		extends: [...tseslint.configs.recommended, ...tseslint.configs.recommendedTypeChecked, ...tseslint.configs.stylisticTypeChecked],
 		rules: {
 			'@typescript-eslint/array-type': 'off',
 			'@typescript-eslint/consistent-type-definitions': 'off',
@@ -29,16 +24,14 @@ export default tseslint.config(
 			'@typescript-eslint/prefer-nullish-coalescing': 'off',
 			'drizzle/enforce-delete-with-where': ['error', { drizzleObjectName: ['db', 'ctx.db'] }],
 			'drizzle/enforce-update-with-where': ['error', { drizzleObjectName: ['db', 'ctx.db'] }]
-		}
-	},
-	{
-		linterOptions: {
-			reportUnusedDisableDirectives: true
 		},
 		languageOptions: {
 			parserOptions: {
 				projectService: true
 			}
+		},
+		linterOptions: {
+			reportUnusedDisableDirectives: true
 		}
 	}
-);
+]);

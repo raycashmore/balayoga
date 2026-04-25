@@ -3,7 +3,9 @@ import Glow from '@/app/_components/glow';
 import { Hero } from '@/app/_components/hero';
 import { MobileHomeNav } from '@/app/_components/mobile-home-nav';
 import { BlockRenderer } from '@/payload/blocks/BlockRenderer';
+import { LivePreviewListener } from '@/payload/components/LivePreviewListener';
 import { fetchPageBySlug } from '@/payload/utils/fetchPageBySlug';
+import { draftMode } from 'next/headers';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next/types';
 
@@ -14,11 +16,13 @@ export const metadata: Metadata = {
 };
 
 export default async function HomePage() {
+	const { isEnabled: draft } = await draftMode();
 	const page = await fetchPageBySlug('home');
 	if (!page) return notFound();
 
 	return (
 		<>
+			{draft && <LivePreviewListener />}
 			<div className="flex flex-col items-center gap-8 lg:gap-12">
 				<div className="flex flex-col">
 					<Hero />

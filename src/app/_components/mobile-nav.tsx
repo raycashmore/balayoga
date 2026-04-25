@@ -21,7 +21,11 @@ export function MobileNav({ posts }: { posts: MobileNavPost[] }) {
 	const pathname = usePathname();
 
 	useEffect(() => {
-		setAnimationState('idle');
+		const timer = setTimeout(() => {
+			setAnimationState('idle');
+		}, 0);
+
+		return () => clearTimeout(timer);
 	}, [pathname]);
 
 	const getLinkClassName = (path: string) => {

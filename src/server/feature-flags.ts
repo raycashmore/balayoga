@@ -1,7 +1,7 @@
 import 'server-only';
 
 import { env } from '@/env';
-import { init, type LDClient, type LDContext } from '@launchdarkly/node-server-sdk';
+import { basicLogger, init, type LDClient, type LDContext } from '@launchdarkly/node-server-sdk';
 import { unstable_noStore as noStore } from 'next/cache';
 
 export const FEATURE_FLAGS = {
@@ -25,7 +25,9 @@ function getLaunchDarklyClient(): LDClient | null {
 		return null;
 	}
 
-	globalThis.launchDarklyClient ??= init(env.LAUNCHDARKLY_SDK_KEY);
+	globalThis.launchDarklyClient ??= init(env.LAUNCHDARKLY_SDK_KEY, {
+		logger: basicLogger({ level: 'warn' })
+	});
 
 	return globalThis.launchDarklyClient;
 }
@@ -49,12 +51,6 @@ export async function getBooleanFeatureFlag(
 	try {
 		await client.waitForInitialization({ timeout: INITIALIZATION_TIMEOUT_SECONDS });
 		const value = await client.boolVariation(flagKey, context, fallbackValue);
-
-		console.info(`[feature-flags] Evaluated "${flagKey}"`, {
-			contextKey: context.key,
-			value,
-			fallbackValue
-		});
 
 		return value;
 	} catch (error) {

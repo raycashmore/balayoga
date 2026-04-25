@@ -8,6 +8,7 @@ export const env = createEnv({
 	 */
 	server: {
 		DATABASE_URL: z.string().url(),
+		LAUNCHDARKLY_SDK_KEY: z.string().optional(),
 		NODE_ENV: z.enum(['development', 'test', 'production']).default('development'),
 		SENTRY_DSN: z.string().url().optional(),
 		SENTRY_AUTH_TOKEN: z.string().optional(),
@@ -33,6 +34,7 @@ export const env = createEnv({
 	 */
 	runtimeEnv: {
 		DATABASE_URL: process.env.DATABASE_URL,
+		LAUNCHDARKLY_SDK_KEY: process.env.LAUNCHDARKLY_SDK_KEY,
 		NODE_ENV: process.env.NODE_ENV,
 		SENTRY_DSN: process.env.SENTRY_DSN,
 		SENTRY_AUTH_TOKEN: process.env.SENTRY_AUTH_TOKEN,

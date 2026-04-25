@@ -8,7 +8,6 @@ import { withSentryConfig } from '@sentry/nextjs';
 await import('./src/env.js');
 
 /** @type {import("next").NextConfig} */
-// eslint-disable-next-line no-unused-vars
 const config = {
 	images: {
 		remotePatterns: [

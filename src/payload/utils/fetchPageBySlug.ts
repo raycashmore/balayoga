@@ -1,9 +1,11 @@
 import 'server-only';
-import { draftMode } from 'next/headers';
 import { getPayloadClient } from './getPayloadClient';
 
-export async function fetchPageBySlug(slug: string) {
-	const { isEnabled: draft } = await draftMode();
+type FetchPageBySlugOptions = {
+	draft?: boolean;
+};
+
+export async function fetchPageBySlug(slug: string, { draft = false }: FetchPageBySlugOptions = {}) {
 	const payload = await getPayloadClient();
 	const result = await payload.find({
 		collection: 'pages' as const,
@@ -11,7 +13,18 @@ export async function fetchPageBySlug(slug: string) {
 		limit: 1,
 		overrideAccess: draft,
 		where: {
-			slug: { equals: slug }
+			and: [
+				{
+					slug: { equals: slug }
+				},
+				...(draft
+					? []
+					: [
+							{
+								_status: { equals: 'published' }
+							}
+						])
+			]
 		},
 		depth: 2
 	});

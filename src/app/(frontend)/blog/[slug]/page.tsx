@@ -1,6 +1,5 @@
 import Post from '@/app/(frontend)/blog/post';
 import configPromise from '@payload-config';
-import { draftMode } from 'next/headers';
 import type { Metadata } from 'next/types';
 import { getPayload } from 'payload';
 import React, { cache } from 'react';
@@ -30,21 +29,28 @@ type Args = {
 };
 
 const queryPostBySlug = cache(async ({ slug }: { slug: string }) => {
-	const { isEnabled: draft } = await draftMode();
-
 	const payload = await getPayload({ config: configPromise });
 
 	const result = await payload.find({
 		collection: 'posts',
 		depth: 1,
-		draft,
+		draft: false,
 		limit: 1,
-		overrideAccess: draft,
+		overrideAccess: false,
 		pagination: false,
 		where: {
-			slug: {
-				equals: slug
-			}
+			and: [
+				{
+					slug: {
+						equals: slug
+					}
+				},
+				{
+					_status: {
+						equals: 'published'
+					}
+				}
+			]
 		}
 	});
 
@@ -71,15 +77,13 @@ export default async function Page({ params: paramsPromise }: Args) {
 
 	const payload = await getPayload({ config: configPromise });
 
-	const draftInfo = await draftMode();
-
 	const allPosts = await payload.find({
 		collection: 'posts',
 		depth: 1,
 		limit: 12,
 		sort: '-publishedAt',
-		draft: draftInfo.isEnabled,
-		overrideAccess: draftInfo.isEnabled,
+		draft: false,
+		overrideAccess: false,
 		select: {
 			title: true,
 			slug: true,

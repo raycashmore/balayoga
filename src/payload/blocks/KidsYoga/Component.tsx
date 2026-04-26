@@ -11,15 +11,10 @@ export async function KidsYogaBlock(props: KidsYogaBlockProps) {
 	return <KidsYogaBlockContent {...props} isKidsEnabled={isKidsEnabled} />;
 }
 
-function KidsYogaBlockContent({
-	kids,
-	teens,
-	title,
-	isKidsEnabled
-}: KidsYogaBlockProps & { isKidsEnabled: boolean }) {
+function KidsYogaBlockContent({ kids, teens, title, isKidsEnabled }: KidsYogaBlockProps & { isKidsEnabled: boolean }) {
 	return (
 		<section
-			className="bg-opacity-70 flex flex-col gap-10 rounded-[32px] bg-white p-6 pt-12 md:gap-2 md:px-12 md:pt-2"
+			className="bg-opacity-70 flex flex-col gap-4 rounded-[32px] bg-white p-6 pt-12 md:gap-2 md:px-12 md:pt-2"
 			style={{ color: 'var(--color-gray-900)' }}
 		>
 			<a id="kids-yoga" />
@@ -39,13 +34,13 @@ function KidsYogaBlockContent({
 					/>
 					{kids && <RichText data={kids} enableGutter={false} />}
 
-					<div className="flex justify-center sm:justify-start">
+					<div className="flex justify-center">
 						<BookNowButton />
 					</div>
 				</div>
 			) : null}
 
-			<div className="mt-4 md:mt-0">
+			<div>
 				<Image
 					src="/teens-yoga.webp"
 					alt=""
@@ -54,7 +49,7 @@ function KidsYogaBlockContent({
 					className="float-none m-0 mt-0 justify-self-center rounded-xl sm:justify-self-start md:float-right md:m-8 md:mt-2 md:pb-0"
 				/>
 				{teens && <RichText data={teens} enableGutter={false} />}
-				<div className="flex justify-center sm:justify-start">
+				<div className="flex justify-center">
 					<BookNowButton />
 				</div>
 			</div>

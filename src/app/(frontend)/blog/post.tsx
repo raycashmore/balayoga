@@ -3,18 +3,16 @@ import PostsList from '@/app/(frontend)/blog/posts-list';
 import type { Post as PostType } from '@/payload-types';
 import { LivePreviewPost } from '@/payload/components/LivePreviewPost';
 import { headerFont } from '@/styles/fonts';
-import { draftMode } from 'next/headers';
 import type { PaginatedDocs } from 'payload';
 import React from 'react';
 
 type PostProps = {
 	allPosts: PaginatedDocs;
+	isPreview?: boolean;
 	post: PostType | null;
 };
 
-export default async function Post({ allPosts, post }: PostProps) {
-	const { isEnabled: draft } = await draftMode();
-
+export default function Post({ allPosts, isPreview = false, post }: PostProps) {
 	return (
 		<div className="bg-bala-purple-light flex min-h-screen w-full justify-center overflow-hidden">
 			<div className="flex max-w-[1200px] px-2">
@@ -28,7 +26,7 @@ export default async function Post({ allPosts, post }: PostProps) {
 				</aside>
 				<article>
 					<div className="content px-0 pt-2 pb-2 md:px-2 lg:px-4 lg:pt-24 lg:pb-12">
-						{post && (draft ? <LivePreviewPost post={post} /> : <BlogPage post={post} />)}
+						{post && (isPreview ? <LivePreviewPost post={post} /> : <BlogPage post={post} />)}
 					</div>
 				</article>
 			</div>

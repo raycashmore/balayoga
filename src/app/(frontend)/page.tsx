@@ -3,9 +3,7 @@ import Glow from '@/app/_components/glow';
 import { Hero } from '@/app/_components/hero';
 import { MobileHomeNav } from '@/app/_components/mobile-home-nav';
 import { BlockRenderer } from '@/payload/blocks/BlockRenderer';
-import { LivePreviewListener } from '@/payload/components/LivePreviewListener';
 import { fetchPageBySlug } from '@/payload/utils/fetchPageBySlug';
-import { draftMode } from 'next/headers';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next/types';
 
@@ -15,21 +13,16 @@ export const metadata: Metadata = {
 	}
 };
 
-export default async function HomePage() {
-	const { isEnabled: draft } = await draftMode();
-	const page = await fetchPageBySlug('home');
-	if (!page) return notFound();
-
+export function HomePageContent({ layout }: { layout: NonNullable<Awaited<ReturnType<typeof fetchPageBySlug>>>['layout'] }) {
 	return (
 		<>
-			{draft && <LivePreviewListener />}
 			<div className="flex flex-col items-center gap-8 lg:gap-12">
 				<div className="flex flex-col">
 					<Hero />
 					<MobileHomeNav />
 				</div>
 				<main className="m-2 flex max-w-[1000px] flex-col gap-8 px-2 md:m-4 lg:gap-12">
-					<BlockRenderer layout={page.layout} />
+					<BlockRenderer layout={layout} />
 				</main>
 				<footer className="bg-bala-purple-dark flex w-full justify-center">
 					<Footer />
@@ -38,4 +31,11 @@ export default async function HomePage() {
 			<Glow />
 		</>
 	);
+}
+
+export default async function HomePage() {
+	const page = await fetchPageBySlug('home');
+	if (!page) return notFound();
+
+	return <HomePageContent layout={page.layout} />;
 }

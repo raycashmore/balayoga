@@ -14,8 +14,16 @@ export const generateFrontendPath = ({ collection, slug }: Omit<Props, 'req'>) =
 	return slug === 'home' ? '/' : `/${slug}`;
 };
 
+export const generatePreviewTargetPath = ({ collection, slug }: Omit<Props, 'req'>) => {
+	if (collection === 'posts') {
+		return `/preview/blog/${slug}`;
+	}
+
+	return `/preview/${slug}`;
+};
+
 export const generatePreviewPath = ({ collection, slug }: Props) => {
-	const path = generateFrontendPath({ collection, slug });
+	const path = generatePreviewTargetPath({ collection, slug });
 	const encodedParams = new URLSearchParams({
 		slug,
 		collection,

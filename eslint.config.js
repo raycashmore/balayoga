@@ -29,9 +29,6 @@ export default defineConfig([
 			parserOptions: {
 				projectService: true
 			}
-		},
-		linterOptions: {
-			reportUnusedDisableDirectives: true
 		}
 	}
 ]);

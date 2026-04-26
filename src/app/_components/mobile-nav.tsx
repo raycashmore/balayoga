@@ -20,6 +20,8 @@ export function MobileNav({ posts }: { posts: MobileNavPost[] }) {
 	const [isBlogOpen, setIsBlogOpen] = useState(true);
 	const pathname = usePathname();
 
+	// React 19 / Next 16 batching may delay state reset on pathname change;
+	// deferring via setTimeout(0) ensures the animation state clears after the render cycle.
 	useEffect(() => {
 		const timer = setTimeout(() => {
 			setAnimationState('idle');

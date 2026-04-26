@@ -1,7 +1,7 @@
 import Post from '@/app/(frontend)/blog/post';
 import configPromise from '@payload-config';
 import { draftMode } from 'next/headers';
-import { redirect } from 'next/navigation';
+import { notFound, redirect } from 'next/navigation';
 import { getPayload } from 'payload';
 
 type Args = {
@@ -35,7 +35,7 @@ export default async function PreviewBlogPostPage({ params: paramsPromise }: Arg
 
 	const post = postResult.docs?.[0] ?? null;
 	if (!post) {
-		redirect('/blog');
+		notFound();
 	}
 
 	const allPosts = await payload.find({

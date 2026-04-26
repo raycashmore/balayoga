@@ -44,6 +44,7 @@ export async function GET(request: Request) {
 	const draft = await draftMode();
 	draft.enable();
 
-	const redirectPath = path || generateFrontendPath({ collection: collection as 'pages' | 'posts', slug });
+	const isSafe = path && path.startsWith('/') && !path.startsWith('//');
+	const redirectPath = isSafe ? path : generateFrontendPath({ collection: collection as 'pages' | 'posts', slug });
 	redirect(redirectPath);
 }

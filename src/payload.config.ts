@@ -45,7 +45,6 @@ export default buildConfig({
 			connectionString: process.env.DATABASE_URL ?? ''
 		},
 		beforeSchemaInit: [
-			// @ts-expect-error Loose table types
 			({ schema }) => {
 				return {
 					...schema,

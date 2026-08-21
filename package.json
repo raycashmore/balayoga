@@ -67,7 +67,7 @@
     "@types/react": "^19.2.14",
     "@types/react-dom": "^19.2.3",
     "drizzle-kit": "^0.30.5",
-    "eslint": "^9.23.0",
+    "eslint": "^9.39.4",
     "eslint-config-next": "^16.3.1",
     "eslint-plugin-drizzle": "^0.2.3",
     "postcss": "^8.5.26",
@@ -78,8 +78,10 @@
   },
   "pnpm": {
     "overrides": {
+      "brace-expansion@<2": "1.1.18",
       "dompurify": ">=3.4.13",
       "esbuild": ">=0.25.0",
+      "js-yaml": "4.3.1",
       "undici@>=7.0.0": "7.29.0",
       "postcss": ">=8.5.23",
       "shell-quote": ">=1.9.0"

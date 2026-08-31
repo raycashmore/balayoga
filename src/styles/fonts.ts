@@ -11,7 +11,7 @@ const headerFont = DM_Serif_Text({
 const logoFont = Baloo_Paaji_2({
 	subsets: ['latin'],
 	variable: '--font-logo',
-	weight: '400',
+	weight: '500',
 	display: 'swap'
 });
 

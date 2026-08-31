@@ -1,0 +1,1107 @@
+{
+  "version": "2.17",
+  "children": [
+    {
+      "type": "frame",
+      "id": "Qqa0f",
+      "x": 0,
+      "y": 238,
+      "name": "Desktop floating navigation",
+      "reusable": true,
+      "width": 912,
+      "height": 58,
+      "fill": "#FFFDF0B8",
+      "cornerRadius": 34,
+      "stroke": "#FFFFFFB3",
+      "strokeWidth": 1,
+      "effect": [
+        {
+          "type": "background_blur",
+          "radius": 14
+        },
+        {
+          "type": "shadow",
+          "shadowType": "outer",
+          "color": "#392C662B",
+          "offset": {
+            "x": 0,
+            "y": 7
+          },
+          "blur": 20
+        }
+      ],
+      "gap": 12,
+      "padding": [
+        5,
+        8,
+        5,
+        16
+      ],
+      "alignItems": "center",
+      "children": [
+        {
+          "type": "frame",
+          "id": "B5AGVg",
+          "name": "Bala Yoga brand",
+          "width": 178,
+          "height": "fill_container",
+          "gap": 9,
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "icon",
+              "id": "A5Lrg",
+              "name": "Lotus mark",
+              "width": 21,
+              "height": 21,
+              "icon": "flower-2",
+              "library": "lucide",
+              "weight": 1.5,
+              "fill": "#6B4EC1"
+            },
+            {
+              "type": "text",
+              "id": "i79Ms0",
+              "name": "Bala Yoga title",
+              "fill": "#3E3551",
+              "content": "BALA YOGA",
+              "fontFamily": "Cormorant Garamond",
+              "fontSize": 19,
+              "fontWeight": "700",
+              "letterSpacing": 1.1
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "H4FSbG",
+          "name": "Main navigation",
+          "width": "fill_container",
+          "height": "fill_container",
+          "gap": 4,
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "frame",
+              "id": "eKtRG",
+              "name": "Home navigation item",
+              "height": 38,
+              "fill": "#FFFFFF00",
+              "cornerRadius": 22,
+              "stroke": "#FFFFFF00",
+              "strokeWidth": 1,
+              "gap": 7,
+              "padding": [
+                0,
+                16
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "uPTI0",
+                  "name": "Home label",
+                  "fill": "#3E3551",
+                  "content": "Home",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "G00Wn8",
+              "name": "Yoga navigation item",
+              "height": 38,
+              "fill": "#6B4EC1B8",
+              "cornerRadius": 22,
+              "stroke": "#FFFFFF73",
+              "strokeWidth": 1,
+              "padding": [
+                0,
+                16
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "W0Zgnh",
+                  "name": "Yoga label",
+                  "fill": "#FFFFFF",
+                  "content": "Yoga",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "KsDKa",
+              "name": "Blog navigation item",
+              "height": 38,
+              "fill": "#FFFFFF00",
+              "cornerRadius": 22,
+              "stroke": "#FFFFFF00",
+              "strokeWidth": 1,
+              "gap": 7,
+              "padding": [
+                0,
+                16
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "X31C5Z",
+                  "name": "Blog label",
+                  "fill": "#3E3551",
+                  "content": "Blog",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "BI3AG",
+              "name": "Contact navigation item",
+              "height": 38,
+              "fill": "#FFFFFF00",
+              "cornerRadius": 22,
+              "stroke": "#FFFFFF00",
+              "strokeWidth": 1,
+              "gap": 7,
+              "padding": [
+                0,
+                16
+              ],
+              "justifyContent": "center",
+              "alignItems": "center",
+              "children": [
+                {
+                  "type": "text",
+                  "id": "ab2sA",
+                  "name": "Contact label",
+                  "fill": "#3E3551",
+                  "content": "Contact",
+                  "fontFamily": "Inter",
+                  "fontSize": 13,
+                  "fontWeight": "600"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "F25AF",
+          "name": "Book a class button",
+          "width": 146,
+          "height": 46,
+          "fill": "#6B4EC1B8",
+          "cornerRadius": 26,
+          "stroke": "#FFFFFF73",
+          "strokeWidth": 1,
+          "gap": 8,
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "text",
+              "id": "CUL9I",
+              "name": "Book a class label",
+              "fill": "#FFFFFF",
+              "content": "Book a class",
+              "fontFamily": "Inter",
+              "fontSize": 13,
+              "fontWeight": "600"
+            },
+            {
+              "type": "icon",
+              "id": "M5mRT2",
+              "name": "Arrow right",
+              "width": 15,
+              "height": 15,
+              "icon": "arrow-up-right",
+              "library": "lucide",
+              "fill": "#FFFFFF"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "IuPHj",
+      "x": 0,
+      "y": 485,
+      "name": "Blog — widescreen proposal",
+      "clip": true,
+      "width": 1440,
+      "height": 1200,
+      "fill": "#F1EDF8",
+      "layout": "none",
+      "children": [
+        {
+          "id": "ZCMWq",
+          "type": "ref",
+          "ref": "Qqa0f",
+          "name": "Blog floating navigation",
+          "x": 264,
+          "y": 18,
+          "width": 912,
+          "height": 58,
+          "descendants": {
+            "G00Wn8": {
+              "fill": "#FFFFFF00",
+              "stroke": "#FFFFFF00"
+            },
+            "W0Zgnh": {
+              "fill": "#3E3551"
+            },
+            "KsDKa": {
+              "fill": "#6B4EC1B8",
+              "stroke": "#FFFFFF73"
+            },
+            "X31C5Z": {
+              "fill": "#FFFFFF"
+            }
+          }
+        },
+        {
+          "type": "frame",
+          "id": "soETQ",
+          "x": 160,
+          "y": 122,
+          "name": "Journal introduction",
+          "width": 1120,
+          "height": 172,
+          "justifyContent": "space_between",
+          "alignItems": "end",
+          "children": [
+            {
+              "type": "frame",
+              "id": "w6sk0",
+              "name": "Journal heading",
+              "width": 710,
+              "layout": "vertical",
+              "gap": 12,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "m116kh",
+                  "name": "Journal eyebrow",
+                  "fill": "#6B4EC1",
+                  "content": "THE BALA JOURNAL",
+                  "fontFamily": "Inter",
+                  "fontSize": 12,
+                  "fontWeight": "700",
+                  "letterSpacing": 2
+                },
+                {
+                  "type": "text",
+                  "id": "g3ZfT",
+                  "name": "Journal title",
+                  "fill": "#2F293D",
+                  "content": "Notes on movement,\nmotherhood and growing well.",
+                  "lineHeight": 0.98,
+                  "fontFamily": "Cormorant Garamond",
+                  "fontSize": 56,
+                  "fontWeight": "600"
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "F7fN7",
+              "name": "Journal description",
+              "width": 330,
+              "layout": "vertical",
+              "gap": 14,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "K47Hg",
+                  "name": "Journal summary",
+                  "fill": "#5E566E",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Practical, compassionate guidance for helping children and families feel at home in their bodies.",
+                  "lineHeight": 1.5,
+                  "fontFamily": "Inter",
+                  "fontSize": 15,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "Glhrl",
+                  "name": "Browse all articles",
+                  "gap": 8,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "xwI9S",
+                      "name": "Browse articles label",
+                      "fill": "#4F3D92",
+                      "content": "Browse all articles",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "icon",
+                      "id": "G6f0N",
+                      "name": "Browse arrow",
+                      "width": 16,
+                      "height": 16,
+                      "icon": "arrow-right",
+                      "library": "lucide",
+                      "fill": "#4F3D92"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "JtXWO",
+          "x": 160,
+          "y": 340,
+          "name": "Featured article",
+          "clip": true,
+          "width": 780,
+          "height": 742,
+          "fill": "#FBF9F5",
+          "cornerRadius": 28,
+          "layout": "vertical",
+          "children": [
+            {
+              "type": "frame",
+              "id": "EJSbZ",
+              "name": "Featured article hero",
+              "width": "fill_container",
+              "height": 328,
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "lScsz",
+                  "name": "Featured article image",
+                  "metadata": {
+                    "type": "unsplash",
+                    "username": "michielannaert",
+                    "link": "https://unsplash.com/@michielannaert",
+                    "author": "Michiel Annaert"
+                  },
+                  "width": 330,
+                  "height": "fill_container",
+                  "fill": {
+                    "type": "image",
+                    "enabled": true,
+                    "url": "https://images.unsplash.com/photo-1698778755372-351969bfaa49?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w4NDM0ODN8MHwxfHJhbmRvbXx8fHx8fHx8fDE3ODc5ODM5NzV8&ixlib=rb-4.1.0&q=80&w=1080",
+                    "mode": "fill"
+                  }
+                },
+                {
+                  "type": "frame",
+                  "id": "eq6ue",
+                  "name": "Featured article heading",
+                  "width": "fill_container",
+                  "height": "fill_container",
+                  "layout": "vertical",
+                  "gap": 16,
+                  "padding": [
+                    42,
+                    44
+                  ],
+                  "justifyContent": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "grr8k",
+                      "name": "Featured label",
+                      "fill": "#6B4EC1",
+                      "content": "FEATURED · 8 MIN READ",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "700",
+                      "letterSpacing": 1.4
+                    },
+                    {
+                      "type": "text",
+                      "id": "eTvNb",
+                      "name": "Featured title",
+                      "fill": "#2F293D",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "Behind her anxiety",
+                      "lineHeight": 1.03,
+                      "fontFamily": "Cormorant Garamond",
+                      "fontSize": 43,
+                      "fontWeight": "600"
+                    },
+                    {
+                      "type": "text",
+                      "id": "b3awQ",
+                      "name": "Featured subtitle",
+                      "fill": "#5E566E",
+                      "textGrowth": "fixed-width",
+                      "width": "fill_container",
+                      "content": "A different answer might not be found in a bottle.",
+                      "lineHeight": 1.45,
+                      "fontFamily": "Inter",
+                      "fontSize": 15,
+                      "fontWeight": "normal"
+                    },
+                    {
+                      "type": "frame",
+                      "id": "j3vzkv",
+                      "name": "Article meta",
+                      "gap": 9,
+                      "alignItems": "center",
+                      "children": [
+                        {
+                          "type": "ellipse",
+                          "id": "IE5N1",
+                          "name": "Author portrait",
+                          "fill": "#B8A9D8",
+                          "width": 28,
+                          "height": 28
+                        },
+                        {
+                          "type": "text",
+                          "id": "DaxbP",
+                          "name": "Article author and date",
+                          "fill": "#675F75",
+                          "content": "Ray Cashmore  ·  24 April",
+                          "fontFamily": "Inter",
+                          "fontSize": 12,
+                          "fontWeight": "600"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "frame",
+              "id": "L4iNZ",
+              "name": "Article preview",
+              "width": "fill_container",
+              "height": "fill_container",
+              "layout": "vertical",
+              "gap": 17,
+              "padding": [
+                38,
+                52
+              ],
+              "children": [
+                {
+                  "type": "text",
+                  "id": "XHAbP",
+                  "name": "Article opening",
+                  "fill": "#2F293D",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Does your daughter believe she can’t change her mental illness?",
+                  "lineHeight": 1.2,
+                  "fontFamily": "Cormorant Garamond",
+                  "fontSize": 26,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "text",
+                  "id": "J2ccho",
+                  "name": "Article paragraph one",
+                  "fill": "#4E4858",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Maybe she’s been given a diagnosis — and now that diagnosis defines her. The label has become how she sees herself, and it’s in control of everything she does.",
+                  "lineHeight": 1.62,
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "text",
+                  "id": "c8EZCx",
+                  "name": "Article paragraph two",
+                  "fill": "#4E4858",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "She carries that diagnosis wherever she goes and builds an identity around it. But this is not the life you imagined for your daughter.",
+                  "lineHeight": 1.62,
+                  "fontFamily": "Inter",
+                  "fontSize": 14,
+                  "fontWeight": "normal"
+                },
+                {
+                  "type": "frame",
+                  "id": "A25Wl",
+                  "name": "Continue reading",
+                  "gap": 9,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "bHvHT",
+                      "name": "Continue reading label",
+                      "fill": "#4F3D92",
+                      "content": "Continue reading",
+                      "fontFamily": "Inter",
+                      "fontSize": 13,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "icon",
+                      "id": "T17g3",
+                      "name": "Continue arrow",
+                      "width": 16,
+                      "height": 16,
+                      "icon": "arrow-right",
+                      "library": "lucide",
+                      "fill": "#4F3D92"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "k9Rgaw",
+          "x": 990,
+          "y": 350,
+          "name": "More from the journal",
+          "width": 290,
+          "height": 720,
+          "layout": "vertical",
+          "children": [
+            {
+              "type": "text",
+              "id": "eHf1A",
+              "name": "More articles heading",
+              "fill": "#2F293D",
+              "content": "More from the journal",
+              "fontFamily": "Cormorant Garamond",
+              "fontSize": 28,
+              "fontWeight": "600"
+            },
+            {
+              "type": "rectangle",
+              "id": "Z9wsT",
+              "name": "Heading underline",
+              "fill": "#CFC6DF",
+              "width": "fill_container",
+              "height": 1
+            },
+            {
+              "type": "frame",
+              "id": "w3f2T",
+              "name": "Journal article 01",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 10,
+              "padding": [
+                24,
+                0
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "tM5fD",
+                  "name": "Article 01 index row",
+                  "width": "fill_container",
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "dDVu5",
+                      "name": "Article 01 number",
+                      "fill": "#6B4EC1",
+                      "content": "01",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "700",
+                      "letterSpacing": 1.2
+                    },
+                    {
+                      "type": "text",
+                      "id": "s04skR",
+                      "name": "Article 01 read time",
+                      "fill": "#8A8197",
+                      "content": "6 MIN READ",
+                      "fontFamily": "Inter",
+                      "fontSize": 10,
+                      "fontWeight": "600",
+                      "letterSpacing": 0.7
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "Wucer",
+                  "name": "Article 01 title",
+                  "fill": "#332D40",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "How yoga helps children feel safe",
+                  "lineHeight": 1.12,
+                  "fontFamily": "Cormorant Garamond",
+                  "fontSize": 24,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "X8LNOe",
+                  "name": "Read article 01",
+                  "gap": 7,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "oaCW0",
+                      "name": "Read article 01 label",
+                      "fill": "#5C4A99",
+                      "content": "Read article",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "icon",
+                      "id": "EAJ8E",
+                      "name": "Read article 01 arrow",
+                      "width": 14,
+                      "height": 14,
+                      "icon": "arrow-up-right",
+                      "library": "lucide",
+                      "fill": "#5C4A99"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "rectangle",
+              "id": "PgvUW",
+              "name": "Article 01 divider",
+              "fill": "#D9D1E5",
+              "width": "fill_container",
+              "height": 1
+            },
+            {
+              "type": "frame",
+              "id": "OGOVR",
+              "name": "Journal article 02",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 10,
+              "padding": [
+                24,
+                0
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "h07EF",
+                  "name": "Article 02 index row",
+                  "width": "fill_container",
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "MlP8E",
+                      "name": "Article 02 number",
+                      "fill": "#6B4EC1",
+                      "content": "02",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "700",
+                      "letterSpacing": 1.2
+                    },
+                    {
+                      "type": "text",
+                      "id": "pHJPC",
+                      "name": "Article 02 read time",
+                      "fill": "#8A8197",
+                      "content": "4 MIN READ",
+                      "fontFamily": "Inter",
+                      "fontSize": 10,
+                      "fontWeight": "600",
+                      "letterSpacing": 0.7
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "rhJ5e",
+                  "name": "Article 02 title",
+                  "fill": "#332D40",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "Movement before words",
+                  "lineHeight": 1.12,
+                  "fontFamily": "Cormorant Garamond",
+                  "fontSize": 24,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "WK10s",
+                  "name": "Read article 02",
+                  "gap": 7,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "r8vYBX",
+                      "name": "Read article 02 label",
+                      "fill": "#5C4A99",
+                      "content": "Read article",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "icon",
+                      "id": "iJouG",
+                      "name": "Read article 02 arrow",
+                      "width": 14,
+                      "height": 14,
+                      "icon": "arrow-up-right",
+                      "library": "lucide",
+                      "fill": "#5C4A99"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "rectangle",
+              "id": "V9M6IJ",
+              "name": "Article 02 divider",
+              "fill": "#D9D1E5",
+              "width": "fill_container",
+              "height": 1
+            },
+            {
+              "type": "frame",
+              "id": "S7Qobw",
+              "name": "Journal article 03",
+              "width": "fill_container",
+              "layout": "vertical",
+              "gap": 10,
+              "padding": [
+                24,
+                0
+              ],
+              "children": [
+                {
+                  "type": "frame",
+                  "id": "NkgJr",
+                  "name": "Article 03 index row",
+                  "width": "fill_container",
+                  "justifyContent": "space_between",
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "jLlDG",
+                      "name": "Article 03 number",
+                      "fill": "#6B4EC1",
+                      "content": "03",
+                      "fontFamily": "Inter",
+                      "fontSize": 11,
+                      "fontWeight": "700",
+                      "letterSpacing": 1.2
+                    },
+                    {
+                      "type": "text",
+                      "id": "Yd5os",
+                      "name": "Article 03 read time",
+                      "fill": "#8A8197",
+                      "content": "5 MIN READ",
+                      "fontFamily": "Inter",
+                      "fontSize": 10,
+                      "fontWeight": "600",
+                      "letterSpacing": 0.7
+                    }
+                  ]
+                },
+                {
+                  "type": "text",
+                  "id": "j4JI4Z",
+                  "name": "Article 03 title",
+                  "fill": "#332D40",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "A calmer after-school rhythm",
+                  "lineHeight": 1.12,
+                  "fontFamily": "Cormorant Garamond",
+                  "fontSize": 24,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "Qi4DV",
+                  "name": "Read article 03",
+                  "gap": 7,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "NKxp6",
+                      "name": "Read article 03 label",
+                      "fill": "#5C4A99",
+                      "content": "Read article",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "icon",
+                      "id": "i0vIZX",
+                      "name": "Read article 03 arrow",
+                      "width": 14,
+                      "height": 14,
+                      "icon": "arrow-up-right",
+                      "library": "lucide",
+                      "fill": "#5C4A99"
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "type": "rectangle",
+              "id": "ib0xh",
+              "name": "Article 03 divider",
+              "fill": "#D9D1E5",
+              "width": "fill_container",
+              "height": 1
+            },
+            {
+              "type": "frame",
+              "id": "Hdes7",
+              "name": "Journal newsletter",
+              "width": "fill_container",
+              "fill": "#5D449D",
+              "cornerRadius": 20,
+              "layout": "vertical",
+              "gap": 12,
+              "padding": 24,
+              "children": [
+                {
+                  "type": "text",
+                  "id": "HUfYZ",
+                  "name": "Newsletter eyebrow",
+                  "fill": "#D9CEF5",
+                  "content": "A GENTLE NOTE, OCCASIONALLY",
+                  "fontFamily": "Inter",
+                  "fontSize": 10,
+                  "fontWeight": "700",
+                  "letterSpacing": 1.1
+                },
+                {
+                  "type": "text",
+                  "id": "Ggc42",
+                  "name": "Newsletter title",
+                  "fill": "#FFFFFF",
+                  "textGrowth": "fixed-width",
+                  "width": "fill_container",
+                  "content": "New reflections, straight to your inbox.",
+                  "lineHeight": 1.1,
+                  "fontFamily": "Cormorant Garamond",
+                  "fontSize": 23,
+                  "fontWeight": "600"
+                },
+                {
+                  "type": "frame",
+                  "id": "St9Be",
+                  "name": "Join the journal",
+                  "gap": 7,
+                  "alignItems": "center",
+                  "children": [
+                    {
+                      "type": "text",
+                      "id": "IoEky",
+                      "name": "Join label",
+                      "fill": "#FFFFFF",
+                      "content": "Join the journal",
+                      "fontFamily": "Inter",
+                      "fontSize": 12,
+                      "fontWeight": "700"
+                    },
+                    {
+                      "type": "icon",
+                      "id": "rrePo",
+                      "name": "Join arrow",
+                      "width": 14,
+                      "height": 14,
+                      "icon": "arrow-right",
+                      "library": "lucide",
+                      "fill": "#FFFFFF"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "frame",
+      "id": "nn9St",
+      "x": 0,
+      "y": 0,
+      "name": "Mobile Floating navigation",
+      "width": 388,
+      "height": 62,
+      "fill": "#FFFDF0B8",
+      "cornerRadius": 32,
+      "stroke": "#FFFFFFB3",
+      "strokeWidth": 1,
+      "effect": [
+        {
+          "type": "background_blur",
+          "radius": 14
+        },
+        {
+          "type": "shadow",
+          "shadowType": "outer",
+          "color": "#392C662B",
+          "offset": {
+            "x": 0,
+            "y": 7
+          },
+          "blur": 20
+        }
+      ],
+      "gap": 4,
+      "padding": 6,
+      "children": [
+        {
+          "type": "frame",
+          "id": "W9WuL2",
+          "name": "Yoga menu item",
+          "width": 122,
+          "height": "fill_container",
+          "fill": "#6B4EC1B8",
+          "cornerRadius": 26,
+          "stroke": "#FFFFFF73",
+          "strokeWidth": 1,
+          "layout": "vertical",
+          "gap": 3,
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "icon",
+              "id": "L2k8W",
+              "name": "Yoga icon",
+              "width": 15,
+              "height": 15,
+              "icon": "sparkles",
+              "library": "lucide",
+              "fill": "#FFFFFF"
+            },
+            {
+              "type": "text",
+              "id": "UJIak",
+              "name": "Yoga label",
+              "fill": "#FFFFFF",
+              "content": "Yoga",
+              "fontFamily": "Inter",
+              "fontSize": 11,
+              "fontWeight": "600"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "ukAUD",
+          "name": "Blog menu item",
+          "width": 122,
+          "height": "fill_container",
+          "cornerRadius": 26,
+          "layout": "vertical",
+          "gap": 3,
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "icon",
+              "id": "gx8m4",
+              "name": "Blog icon",
+              "width": 15,
+              "height": 15,
+              "icon": "newspaper",
+              "library": "lucide",
+              "fill": "#3E3551"
+            },
+            {
+              "type": "text",
+              "id": "u7AdTo",
+              "name": "Blog label",
+              "fill": "#3E3551",
+              "content": "Blog",
+              "fontFamily": "Inter",
+              "fontSize": 11,
+              "fontWeight": "600"
+            }
+          ]
+        },
+        {
+          "type": "frame",
+          "id": "yoARG",
+          "name": "Contact menu item",
+          "width": 122,
+          "height": "fill_container",
+          "cornerRadius": 26,
+          "layout": "vertical",
+          "gap": 3,
+          "justifyContent": "center",
+          "alignItems": "center",
+          "children": [
+            {
+              "type": "icon",
+              "id": "z83GGb",
+              "name": "Contact icon",
+              "width": 15,
+              "height": 15,
+              "icon": "mail",
+              "library": "lucide",
+              "fill": "#3E3551"
+            },
+            {
+              "type": "text",
+              "id": "qS6rZ",
+              "name": "Contact label",
+              "fill": "#3E3551",
+              "content": "Contact",
+              "fontFamily": "Inter",
+              "fontSize": 11,
+              "fontWeight": "600"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "fileToken": "17d40b44-1cb6-4c70-ae4e-c7bf6da4573b"
+}

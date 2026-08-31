@@ -1,96 +1,61 @@
 'use client';
 
-import LogoSimple from '@/app/_components/logo-simple';
 import { logoFont } from '@/styles/fonts';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useCallback, useEffect, useState } from 'react';
+
+const NAV_ITEMS = [
+	{ href: '/', label: 'Home' },
+	{ href: '/yoga', label: 'Yoga' },
+	{ href: '/blog', label: 'Blog' },
+	{ href: '/contact', label: 'Contact' }
+] as const;
+
+const BOOKING_URL = 'https://app.squareup.com/appointments/book/classes/bro8gvstcef3zz/L2Y5ECFR9ASJT/classes';
 
 export function DesktopNav() {
 	const pathname = usePathname();
-	const [scrolled, setScrolled] = useState(false);
-
-	const handleScroll = useCallback(() => {
-		setScrolled(window.scrollY > 50);
-	}, []);
-
-	useEffect(() => {
-		window?.addEventListener('scroll', handleScroll, { passive: true });
-		return () => {
-			window?.removeEventListener('scroll', handleScroll);
-		};
-	}, [handleScroll]);
-
-	const isHome = pathname === '/';
-	const transparentBg = !scrolled && isHome;
-	const staticHeight = !scrolled && pathname === '/blog';
-
-	const enableSignIn = false;
-
-	const getLinkClassName = (path: string) => {
-		const isActive = path === '/' ? pathname === path : pathname.startsWith(path);
-		return [
-			'hover:bg-bala-purple-dark px-4 py-1 font-medium whitespace-nowrap transition-all duration-300 hover:rounded-full',
-			isActive ? 'bg-bala-purple-dark rounded-full' : ''
-		].join(' ');
-	};
+	const isActive = (path: string) => (path === '/' ? pathname === path : pathname.startsWith(path));
 
 	return (
-		<header
-			className={[
-				'fixed top-0 left-0 z-[100] w-full',
-				'transition-[height,background-color,opacity,transform] duration-500 ease-out',
-				scrolled ? 'h-14 backdrop-blur-xs' : staticHeight ? 'h-14 backdrop-blur-xs' : 'h-20',
-				transparentBg ? 'bg-bala-purple/0' : 'bg-bala-purple/85'
-			].join(' ')}
-		>
-			<div className="mx-auto grid h-full max-w-[1200px] grid-cols-3 items-center px-6">
-				<div className="justify-self-start">
-					{(scrolled || !isHome || staticHeight) && (
-						<Link href="/" className={`${logoFont.className} text-2xl leading-none font-medium whitespace-nowrap text-white`}>
-							<div className="flex items-center gap-2">
-								<LogoSimple width={28} height={28} />
-								<span>BALA YOGA</span>
-							</div>
-						</Link>
-					)}
-				</div>
+		<header className="fixed top-3 left-1/2 z-[100] hidden w-[min(984px,calc(100%-48px))] -translate-x-1/2 lg:block">
+			<div className="flex h-[58px] items-center gap-3 rounded-[34px] bg-[#fffdf0]/72 py-1 pr-2 pl-6 shadow-[0_7px_20px_#392c662b] backdrop-blur-[14px]">
+				<Link
+					href="/"
+					className={`${logoFont.className} flex w-[178px] shrink-0 items-center gap-2 text-[19px] leading-none font-medium tracking-[0.08em] whitespace-nowrap text-[#3e3551] focus-visible:rounded-full focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#6b4ec1]`}
+				>
+					<span>BALA YOGA</span>
+				</Link>
 
-				<nav className="justify-self-center">
-					<ul className="flex items-center gap-2 text-base font-normal text-white">
-						<li>
-							<Link href="/" className={getLinkClassName('/')}>
-								Home
-							</Link>
-						</li>
-						<li>
-							<Link href="/yoga" className={getLinkClassName('/yoga')}>
-								Yoga
-							</Link>
-						</li>
-						<li>
-							<Link href="/blog" className={getLinkClassName('/blog')}>
-								Blog
-							</Link>
-						</li>
-						<li>
-							<Link href="/contact" className={getLinkClassName('/contact')}>
-								Contact
-							</Link>
-						</li>
+				<nav className="flex flex-1 justify-center" aria-label="Primary navigation">
+					<ul className="flex items-center gap-1">
+						{NAV_ITEMS.map(({ href, label }) => (
+							<li key={href}>
+								<Link
+									href={href}
+									aria-current={isActive(href) ? 'page' : undefined}
+									className={[
+										'inline-flex h-[38px] items-center rounded-full px-4 text-[13px] font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6b4ec1]',
+										isActive(href)
+											? 'border border-white/45 bg-[#6b4ec1]/72 text-white'
+											: 'text-[#3e3551] hover:bg-white/60'
+									].join(' ')}
+								>
+									{label}
+								</Link>
+							</li>
+						))}
 					</ul>
 				</nav>
 
-				<div className="justify-self-end">
-					{enableSignIn && (
-						<Link
-							href="/admin"
-							className="bg-bala-blue hover:bg-bala-blue/90 inline-flex items-center rounded-md px-4 py-2 text-base font-semibold text-white transition-colors focus-visible:ring-2 focus-visible:ring-white/60 focus-visible:outline-none"
-						>
-							Sign in
-						</Link>
-					)}
-				</div>
+				<a
+					href={BOOKING_URL}
+					target="_blank"
+					rel="noopener noreferrer"
+					className="inline-flex h-[46px] w-[146px] shrink-0 items-center justify-center rounded-full border border-white/45 bg-[#6b4ec1]/72 px-4 text-[13px] font-semibold text-white transition-colors hover:bg-[#6b4ec1] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6b4ec1]"
+				>
+					Book a class
+				</a>
 			</div>
 		</header>
 	);

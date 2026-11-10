@@ -1,9 +1,11 @@
-import { type ComponentProps, type FC } from 'react';
+import { type ComponentProps } from 'react';
 
-export const ContactIcon: FC<ComponentProps<'svg'>> = () => {
+// Phosphor Icons "envelope-simple" (duotone), MIT licence — https://phosphoricons.com
+export function ContactIcon(props: ComponentProps<'svg'>) {
 	return (
-		<svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="currentColor">
-			<path d="M160-160q-33 0-56.5-23.5T80-240v-480q0-33 23.5-56.5T160-800h640q33 0 56.5 23.5T880-720v480q0 33-23.5 56.5T800-160H160Zm320-280L160-640v400h640v-400L480-440Zm0-80 320-200H160l320 200ZM160-640v-80 480-400Z" />
+		<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true" {...props}>
+			<path d="M224,56l-96,88L32,56Z" opacity={0.2} />
+			<path d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48ZM203.43,64,128,133.15,52.57,64ZM216,192H40V74.19l82.59,75.71a8,8,0,0,0,10.82,0L216,74.19V192Z" />
 		</svg>
 	);
-};
+}

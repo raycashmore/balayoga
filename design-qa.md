@@ -6,7 +6,6 @@
 
 **Sources**
 
-- Navigation: `design/bala.pen` (`Desktop floating navigation`, `Mobile Floating navigation`).
 - Blog post: Paper file "Bala Yoga" (`Blog post — Desktop`, `Blog post — Mobile`).
 
 **Follow-up Polish**

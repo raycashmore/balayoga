@@ -335,6 +335,7 @@ export interface TestimonialsBlockProps {
  */
 export interface KidsYogaBlockProps {
   title?: string | null;
+  showKids?: boolean | null;
   kids?: {
     root: {
       type: string;
@@ -777,6 +778,7 @@ export interface TestimonialsBlockPropsSelect<T extends boolean = true> {
  */
 export interface KidsYogaBlockPropsSelect<T extends boolean = true> {
   title?: T;
+  showKids?: T;
   kids?: T;
   teens?: T;
   id?: T;

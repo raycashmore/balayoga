@@ -1,4 +1,5 @@
 import * as Sentry from '@sentry/nextjs';
+import { sentryDataCollection } from './sentry-data-collection';
 
 export const onRequestError = Sentry.captureRequestError;
 
@@ -9,7 +10,7 @@ export function register() {
 		dsn: process.env.SENTRY_DSN,
 		environment,
 		release: process.env.SENTRY_RELEASE ?? process.env.VERCEL_GIT_COMMIT_SHA,
-		sendDefaultPii: false,
+		dataCollection: sentryDataCollection,
 		tracesSampleRate: environment === 'production' ? 0.05 : environment === 'preview' ? 0.2 : 1,
 		beforeSend(event) {
 			if (event.request) {

@@ -2,16 +2,9 @@ import { ClassCard } from '@/app/_components/class-card';
 import { SectionTitle } from '@/app/_components/section-title';
 import type { KidsYogaBlockProps } from '@/payload-types';
 import { YogaClassRow } from '@/payload/blocks/KidsYoga/YogaClassRow';
-import { FEATURE_FLAGS, getBooleanFeatureFlag } from '@/server/feature-flags';
 import Image from 'next/image';
 
-export async function KidsYogaBlock(props: KidsYogaBlockProps) {
-	const isKidsEnabled = await getBooleanFeatureFlag(FEATURE_FLAGS.KIDS_YOGA_BLOCK, false);
-
-	return <KidsYogaBlockContent {...props} isKidsEnabled={isKidsEnabled} />;
-}
-
-function KidsYogaBlockContent({ kids, teens, title, isKidsEnabled }: KidsYogaBlockProps & { isKidsEnabled: boolean }) {
+export function KidsYogaBlock({ kids, teens, title, showKids }: KidsYogaBlockProps) {
 	return (
 		<ClassCard
 			id="kids-yoga"
@@ -29,7 +22,7 @@ function KidsYogaBlockContent({ kids, teens, title, isKidsEnabled }: KidsYogaBlo
 				</div>
 			}
 		>
-			{isKidsEnabled && kids && <YogaClassRow image="/kids-yoga.webp" content={kids} />}
+			{showKids && kids && <YogaClassRow image="/kids-yoga.webp" content={kids} />}
 			{teens && <YogaClassRow image="/teens-yoga.webp" content={teens} />}
 		</ClassCard>
 	);

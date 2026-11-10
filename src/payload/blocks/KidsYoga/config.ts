@@ -14,6 +14,12 @@ export const KidsYoga: Block = {
 			type: 'text'
 		},
 		{
+			name: 'showKids',
+			type: 'checkbox',
+			label: 'Show kids classes',
+			defaultValue: false
+		},
+		{
 			name: 'kids',
 			type: 'richText',
 			editor: lexicalEditor(),

@@ -1,13 +1,9 @@
-const BOOKING_URL = 'https://app.squareup.com/appointments/book/classes/bro8gvstcef3zz/L2Y5ECFR9ASJT/classes';
+import { PRIMARY_BUTTON_CLASS_NAME } from '@/app/_components/button-styles';
+import { BOOKING_URL } from '@/app/_components/navigation';
 
 export function BookNowButton() {
 	return (
-		<a
-			href={BOOKING_URL}
-			target="_blank"
-			rel="noopener"
-			className="hover:bg-bala-purple-dark inline-flex h-11 items-center justify-center rounded-full bg-[#6b4ec1] px-6 text-sm font-semibold text-white !no-underline transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6b4ec1]"
-		>
+		<a href={BOOKING_URL} target="_blank" rel="noopener" className={`${PRIMARY_BUTTON_CLASS_NAME} !no-underline`}>
 			Book now
 		</a>
 	);

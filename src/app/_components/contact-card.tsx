@@ -1,9 +1,9 @@
-import ContactForm from '@/app/_components/contact-form';
+import { ContactForm } from '@/app/_components/contact-form';
 import { SectionTitle } from '@/app/_components/section-title';
 
 export function ContactCard() {
 	return (
-		<div className="bg-sheet w-full rounded-[32px] p-6 pb-8 shadow-[0_7px_20px_#392c662b] md:p-10">
+		<div className="bg-sheet shadow-float w-full rounded-[32px] p-6 pb-8 md:p-10">
 			<SectionTitle as="h1" className="text-ink">
 				Get in touch
 			</SectionTitle>

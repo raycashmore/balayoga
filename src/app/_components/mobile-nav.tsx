@@ -2,40 +2,55 @@
 
 import { HamburgerIcon } from '@/app/_components/hamburger-icon';
 import LogoSimple from '@/app/_components/logo-simple';
-import Socials from '@/app/_components/socials';
+import { MobileNavBlogItem, type MobileNavPost } from '@/app/_components/mobile-nav-blog-item';
+import { isNavItemActive, mobileNavLinkClassName, NAV_ITEMS } from '@/app/_components/navigation';
+import { Socials } from '@/app/_components/socials';
 import { logoFont } from '@/styles/fonts';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { type CSSProperties, type MouseEvent, useEffect, useState } from 'react';
-
-export type MobileNavPost = {
-	title: string;
-	slug?: string | null;
-};
+import { type CSSProperties, type MouseEvent, useEffect, useRef, useState } from 'react';
 
 // The panel is revealed by a circle growing from the menu button's centre (panel-relative).
 const BUTTON_CENTRE = '33px 33px';
 
 export function MobileNav({ posts }: { posts: MobileNavPost[] }) {
 	const [isOpen, setIsOpen] = useState(false);
-	const [isBlogOpen, setIsBlogOpen] = useState(true);
 	const pathname = usePathname();
+	const buttonRef = useRef<HTMLButtonElement>(null);
+	const panelRef = useRef<HTMLDivElement>(null);
 
+	const close = () => {
+		// The panel goes inert when closed, so hand focus back to the button rather than lose it
+		if (panelRef.current?.contains(document.activeElement)) buttonRef.current?.focus();
+		setIsOpen(false);
+	};
+
+	// While open: focus the first link, lock page scroll, and close on Escape.
 	useEffect(() => {
 		if (!isOpen) return;
+
+		panelRef.current?.querySelector('a')?.focus({ preventScroll: true });
+
+		const root = document.documentElement;
+		const previousOverflow = root.style.overflow;
+		root.style.overflow = 'hidden';
+
 		const onKeyDown = (event: KeyboardEvent) => {
-			if (event.key === 'Escape') setIsOpen(false);
+			if (event.key !== 'Escape') return;
+			buttonRef.current?.focus();
+			setIsOpen(false);
 		};
 		window.addEventListener('keydown', onKeyDown);
-		return () => window.removeEventListener('keydown', onKeyDown);
-	}, [isOpen]);
 
-	const isActive = (path: string) => (path === '/' ? pathname === path : pathname.startsWith(path));
-	const linkClassName = (path: string) => `text-white transition-opacity ${isActive(path) ? 'font-bold' : 'font-normal opacity-85'}`;
+		return () => {
+			root.style.overflow = previousOverflow;
+			window.removeEventListener('keydown', onKeyDown);
+		};
+	}, [isOpen]);
 
 	// Any link inside the panel navigates, so close on click rather than watching the pathname.
 	const closeOnLinkClick = (event: MouseEvent<HTMLElement>) => {
-		if ((event.target as HTMLElement).closest('a')) setIsOpen(false);
+		if ((event.target as HTMLElement).closest('a')) close();
 	};
 
 	const panelStyle = {
@@ -45,8 +60,9 @@ export function MobileNav({ posts }: { posts: MobileNavPost[] }) {
 	return (
 		<div className="lg:hidden">
 			<button
+				ref={buttonRef}
 				type="button"
-				onClick={() => setIsOpen((open) => !open)}
+				onClick={() => (isOpen ? close() : setIsOpen(true))}
 				aria-expanded={isOpen}
 				aria-controls="mobile-nav-panel"
 				aria-label={isOpen ? 'Close menu' : 'Open menu'}
@@ -78,11 +94,12 @@ export function MobileNav({ posts }: { posts: MobileNavPost[] }) {
 
 			<div
 				aria-hidden="true"
-				onClick={() => setIsOpen(false)}
+				onClick={close}
 				className={`fixed inset-0 z-30 bg-black/20 transition-opacity duration-300 ease-out ${isOpen ? 'opacity-100' : 'pointer-events-none opacity-0'}`}
 			/>
 
 			<div
+				ref={panelRef}
 				id="mobile-nav-panel"
 				inert={!isOpen}
 				style={panelStyle}
@@ -100,14 +117,7 @@ export function MobileNav({ posts }: { posts: MobileNavPost[] }) {
 
 					<div className="flex flex-1 flex-col justify-between pt-14">
 						<ul className="flex flex-col gap-4 text-xl">
-							{(
-								[
-									['/', 'Home'],
-									['/yoga', 'Yoga'],
-									['/blog', 'Blog'],
-									['/contact', 'Contact']
-								] as const
-							).map(([href, label], index) => (
+							{NAV_ITEMS.map(({ href, label }, index) => (
 								<li
 									key={href}
 									style={{ transitionDelay: isOpen ? `${120 + index * 40}ms` : '0ms' }}
@@ -116,51 +126,9 @@ export function MobileNav({ posts }: { posts: MobileNavPost[] }) {
 									}`}
 								>
 									{href === '/blog' ? (
-										<>
-											<div className="flex items-center gap-3">
-												<Link href={href} className={linkClassName(href)}>
-													{label}
-												</Link>
-												<button
-													type="button"
-													onClick={() => setIsBlogOpen((open) => !open)}
-													aria-expanded={isBlogOpen}
-													aria-label={isBlogOpen ? 'Hide blog posts' : 'Show blog posts'}
-													className="-m-1 p-1 text-white/80"
-												>
-													<svg
-														xmlns="http://www.w3.org/2000/svg"
-														width="20"
-														height="20"
-														viewBox="0 0 24 24"
-														fill="none"
-														stroke="currentColor"
-														strokeWidth="2"
-														strokeLinecap="round"
-														strokeLinejoin="round"
-														className={`transition-transform duration-200 ease-out ${isBlogOpen ? 'rotate-180' : ''}`}
-													>
-														<polyline points="6 9 12 15 18 9" />
-													</svg>
-												</button>
-											</div>
-											{isBlogOpen && (
-												<ul className="mt-3 flex flex-col gap-2.5 border-l border-white/15 pl-4 text-sm">
-													{posts.map((post) => (
-														<li key={post.slug}>
-															<Link
-																href={`/blog/${post.slug}`}
-																className={linkClassName(`/blog/${post.slug}`)}
-															>
-																{post.title}
-															</Link>
-														</li>
-													))}
-												</ul>
-											)}
-										</>
+										<MobileNavBlogItem label={label} posts={posts} />
 									) : (
-										<Link href={href} className={linkClassName(href)}>
+										<Link href={href} className={mobileNavLinkClassName(isNavItemActive(pathname, href))}>
 											{label}
 										</Link>
 									)}

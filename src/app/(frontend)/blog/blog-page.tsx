@@ -7,7 +7,7 @@ import Image from 'next/image';
 import React from 'react';
 
 // Rich text arrives as raw HTML elements, so its reading rhythm is set from the wrapper.
-const bodyClassName = [
+const BODY_CLASS_NAME = [
 	'content text-ink text-[17px] leading-[29px] lg:text-lg lg:leading-[31px]',
 	'[&_p]:my-0 [&_p+p]:mt-5',
 	'[&_h2]:text-ink [&_h2]:mt-12 [&_h2]:mb-4 [&_h2]:text-[26px] [&_h2]:leading-[32px] lg:[&_h2]:text-[30px] lg:[&_h2]:leading-[38px]',
@@ -49,7 +49,7 @@ export function BlogPage({ post }: { post: Post }) {
 				</div>
 			)}
 
-			<RichText className={bodyClassName} data={content} enableGutter={false} />
+			<RichText className={BODY_CLASS_NAME} data={content} enableGutter={false} />
 		</>
 	);
 }

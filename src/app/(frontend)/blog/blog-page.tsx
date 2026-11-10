@@ -3,7 +3,6 @@ import type { Post } from '@/payload-types';
 import RichText from '@/payload/components/RichText';
 import { formatDateTime } from '@/payload/utils/formatDateTime';
 import { getMediaUrl } from '@/payload/utils/getMediaUrl';
-import { estimateReadingMinutes } from '@/payload/utils/estimateReadingMinutes';
 import Image from 'next/image';
 import React from 'react';
 
@@ -20,7 +19,6 @@ const bodyClassName = [
 export function BlogPage({ post }: { post: Post }) {
 	const { populatedAuthors, publishedAt, title, subtitle, content, heroImage } = post;
 
-	const readingMinutes = estimateReadingMinutes(content);
 	const heroImageUrl = heroImage && typeof heroImage === 'object' ? getMediaUrl(heroImage.url) : '';
 	const heroImageAlt = heroImage && typeof heroImage === 'object' ? (heroImage.alt ?? '') : '';
 	const author = populatedAuthors?.find(({ name }) => name);
@@ -28,11 +26,11 @@ export function BlogPage({ post }: { post: Post }) {
 	return (
 		<>
 			<header className="border-rule flex flex-col gap-4 border-b pb-7 lg:gap-5 lg:pb-9">
-				<p className="text-bala-purple m-0 text-xs font-semibold tracking-[0.14em] uppercase">
-					{publishedAt && <time dateTime={publishedAt}>{formatDateTime(publishedAt)}</time>}
-					{publishedAt && ' · '}
-					{readingMinutes} min read
-				</p>
+				{publishedAt && (
+					<p className="text-bala-purple m-0 text-xs font-semibold tracking-[0.14em] uppercase">
+						<time dateTime={publishedAt}>{formatDateTime(publishedAt)}</time>
+					</p>
+				)}
 				<h1 className="text-ink m-0 text-[36px] leading-[40px] tracking-[-0.01em] lg:text-[52px] lg:leading-[56px]">{title}</h1>
 				{subtitle && <p className="text-ink-soft m-0 text-lg leading-[27px] lg:text-xl lg:leading-[30px]">{subtitle}</p>}
 				{author && <Authors name={author.name} thumbnail={author.thumbnail} />}

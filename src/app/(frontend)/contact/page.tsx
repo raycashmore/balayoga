@@ -8,8 +8,8 @@ export const metadata: Metadata = {
 
 export default function Page() {
 	return (
-		<div className="flex h-screen min-w-[300px] w-full max-w-[600px] flex-col items-center justify-center px-2 py-4 pt-16 sm:px-4 lg:py-16">
-			<ContactCard visible={true} />
+		<div className="flex min-h-dvh w-[calc(100%-16px)] max-w-[480px] flex-col items-center justify-center pt-24 pb-8 lg:pt-[98px]">
+			<ContactCard />
 			<Socials />
 		</div>
 	);

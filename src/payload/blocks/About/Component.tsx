@@ -8,9 +8,8 @@ type Props = {
 
 export function AboutBlock({ richText }: Props) {
 	return (
-		<section className="px-2 pb-6 md:flex md:flex-row md:px-12">
-			<a id="about" />
-			<aside className="float-left pt-2 md:basis-1/3 md:pt-0">
+		<section id="about" className="flex scroll-mt-24 flex-col gap-6 px-6 md:flex-row md:gap-10 md:px-12">
+			<div className="md:shrink-0 md:basis-1/3">
 				<Image
 					src="/IMG_3751.webp"
 					alt="Romana in a yoga pose"
@@ -18,10 +17,10 @@ export function AboutBlock({ richText }: Props) {
 					height={200}
 					unoptimized={true}
 					priority
-					className="mr-6 mb-4 rounded-lg md:mr-0 md:mb-0 md:h-full md:w-full md:rounded-[32px] md:object-cover"
+					className="aspect-[4/3] w-full rounded-3xl object-cover object-[50%_30%] md:aspect-auto md:h-full md:rounded-[32px]"
 				/>
-			</aside>
-			<div className="text-[1rem] font-medium text-white md:basis-2/3 md:pl-8 md:text-white">
+			</div>
+			<div className="text-base leading-relaxed font-medium text-white md:basis-2/3">
 				{richText && <RichText data={richText} enableGutter={false} />}
 			</div>
 		</section>

@@ -16,12 +16,12 @@ export const metadata: Metadata = {
 export function HomePageContent({ layout }: { layout: NonNullable<Awaited<ReturnType<typeof fetchPageBySlug>>>['layout'] }) {
 	return (
 		<>
-			<div className="flex flex-col items-center gap-8 lg:gap-12">
+			<div className="flex flex-col items-center gap-14 lg:gap-20">
 				<div className="flex flex-col">
 					<Hero />
 					<MobileHomeNav />
 				</div>
-				<main className="m-2 flex max-w-[1000px] flex-col gap-8 px-2 md:m-4 lg:gap-12">
+				<main className="flex w-[calc(100%-16px)] max-w-[984px] flex-col gap-14 lg:w-[calc(100%-48px)] lg:gap-20">
 					<BlockRenderer layout={layout} />
 				</main>
 				<footer className="bg-bala-purple-dark flex w-full justify-center">

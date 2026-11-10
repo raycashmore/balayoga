@@ -1,33 +1,20 @@
-'use client';
-
-import { ContactDialog } from '@/app/_components/contact-dialog';
-import { headerFont } from '@/styles/fonts';
+import { SectionTitle } from '@/app/_components/section-title';
 import Link from 'next/link';
-import { useState } from 'react';
 
 export function GetInTouch() {
-	const [contactDialogVisible, setContactDialogVisible] = useState(false);
-
 	return (
-		<>
-			<div className="flex flex-col justify-center gap-2 pt-4 text-white md:justify-start">
-				<a id="contact" />
-				<h2 className={`headline ${headerFont.className} text-center text-[32px] md:text-left`}>Get in touch</h2>
-
-				<div className="max-w-[600px] text-center md:text-left">
-					<p>If you would like to find out more about what I offer, please send me a message.</p>
-					<p>I would love to be part of your yoga journey!</p>
-				</div>
-
-				<Link
-					href="/contact"
-					className="bg-bala-blue self-center rounded-md px-5 py-2.5 text-sm font-medium text-white focus:ring-4 focus:ring-blue-300 focus:outline-none disabled:opacity-50 sm:w-auto md:self-start"
-				>
-					Send a message
-				</Link>
+		<div id="contact" className="flex flex-col items-center text-center text-white md:items-start md:text-left">
+			<SectionTitle>Get in touch</SectionTitle>
+			<div className="mt-4 max-w-[420px] text-base leading-relaxed text-white/90 [&_p]:my-0 [&_p+p]:mt-2">
+				<p>If you would like to find out more about what I offer, please send me a message.</p>
+				<p>I would love to be part of your yoga journey!</p>
 			</div>
-
-			<ContactDialog visible={contactDialogVisible} onClose={() => setContactDialogVisible(false)} />
-		</>
+			<Link
+				href="/contact"
+				className="text-bala-purple-dark hover:bg-bala-purple-light mt-6 inline-flex h-11 items-center rounded-full bg-white px-6 text-sm font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
+			>
+				Send a message
+			</Link>
+		</div>
 	);
 }

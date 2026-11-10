@@ -2,10 +2,10 @@
 
 import { NavButton } from '@/app/_components/nav-button';
 import { PositionIndicator } from '@/app/_components/position-indicator';
+import { SectionTitle } from '@/app/_components/section-title';
 import { useSwipeGestures } from '@/app/_hooks/useSwipeGestures';
 import type { TestimonialsBlockProps } from '@/payload-types';
 import { TestimonialCard } from '@/payload/blocks/Testimonials/TestimonialCard';
-import { headerFont } from '@/styles/fonts';
 import React, { useEffect, useState } from 'react';
 
 type Props = {
@@ -60,16 +60,13 @@ export function TestimonialsBlock({ title, testimonials }: Props) {
 	if (!testimonials || testimonials.length === 0) return null;
 
 	return (
-		<section>
-			<a id="testimonials" />
-			<div className="pb-4 text-center text-white sm:text-left">
-				<h2 className={`headline ${headerFont.className} py-4 pb-2 leading-tight sm:pl-6 md:pl-12`}>{title}</h2>
-			</div>
+		<section id="testimonials" className="scroll-mt-24">
+			<SectionTitle className="mb-6 px-6 text-white md:mb-8 md:px-12">{title}</SectionTitle>
 			<div className="mx-auto max-w-7xl">
 				<div className="relative">
 					<div className="overflow-visible">
 						<div
-							className="transform-testimonial gap-8 transition-transform duration-500 ease-in-out md:flex"
+							className="transform-testimonial gap-8 transition-transform duration-[400ms] ease-in-out md:flex"
 							style={
 								{
 									'--active-index': activeIndex,

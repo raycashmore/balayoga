@@ -6,217 +6,171 @@ import Socials from '@/app/_components/socials';
 import { logoFont } from '@/styles/fonts';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { type CSSProperties, type MouseEvent, useEffect, useState } from 'react';
 
 export type MobileNavPost = {
 	title: string;
 	slug?: string | null;
 };
 
-type AnimationState = 'idle' | 'expanding' | 'opening' | 'open' | 'closing' | 'shrinking';
+// The panel is revealed by a circle growing from the menu button's centre (panel-relative).
+const BUTTON_CENTRE = '33px 33px';
 
 export function MobileNav({ posts }: { posts: MobileNavPost[] }) {
-	const [animationState, setAnimationState] = useState<AnimationState>('idle');
+	const [isOpen, setIsOpen] = useState(false);
 	const [isBlogOpen, setIsBlogOpen] = useState(true);
 	const pathname = usePathname();
 
-	// React 19 / Next 16 batching may delay state reset on pathname change;
-	// deferring via setTimeout(0) ensures the animation state clears after the render cycle.
 	useEffect(() => {
-		const timer = setTimeout(() => {
-			setAnimationState('idle');
-		}, 0);
-
-		return () => clearTimeout(timer);
-	}, [pathname]);
-
-	const getLinkClassName = (path: string) => {
-		const isActive = path === '/' ? pathname === path : pathname.startsWith(path);
-		return `text-white ${isActive ? 'font-bold' : 'font-normal'}`;
-	};
-
-	const toggleMenu = () => {
-		if (animationState === 'idle') {
-			setAnimationState('expanding');
-		} else if (animationState === 'open') {
-			setAnimationState('closing');
-		}
-	};
-
-	// Handle animation state transitions
-	useEffect(() => {
-		if (animationState === 'expanding') {
-			// Immediately trigger the opening animation
-			const timer = setTimeout(() => {
-				setAnimationState('opening');
-			}, 10); // Small delay to ensure initial render
-			return () => clearTimeout(timer);
-		} else if (animationState === 'opening') {
-			// Wait for size animation to complete, then show content
-			const timer = setTimeout(() => {
-				setAnimationState('open');
-			}, 500);
-			return () => clearTimeout(timer);
-		} else if (animationState === 'closing') {
-			// Wait for content fade out first, then shrink will happen automatically
-			// No timer needed - we'll use a new state
-		}
-	}, [animationState]);
-
-	const isVisible = animationState !== 'idle';
-	const showContent = animationState === 'open';
-
-	// Handle content fade-out completion, then trigger shrink
-	useEffect(() => {
-		if (animationState === 'closing') {
-			// Wait for content to fade out (250ms)
-			const timer = setTimeout(() => {
-				setAnimationState('shrinking');
-			}, 250);
-			return () => clearTimeout(timer);
-		} else if (animationState === 'shrinking') {
-			// Wait for shrink animation to complete (500ms)
-			const timer = setTimeout(() => {
-				setAnimationState('idle');
-			}, 500);
-			return () => clearTimeout(timer);
-		}
-	}, [animationState]);
-
-	// Calculate panel dimensions based on animation state
-	const getPanelStyle = () => {
-		const baseStyle = {
-			viewTransitionName: 'mobile-nav-panel'
+		if (!isOpen) return;
+		const onKeyDown = (event: KeyboardEvent) => {
+			if (event.key === 'Escape') setIsOpen(false);
 		};
+		window.addEventListener('keydown', onKeyDown);
+		return () => window.removeEventListener('keydown', onKeyDown);
+	}, [isOpen]);
 
-		if (animationState === 'idle' || animationState === 'closing') {
-			return baseStyle;
-		}
+	const isActive = (path: string) => (path === '/' ? pathname === path : pathname.startsWith(path));
+	const linkClassName = (path: string) => `text-white transition-opacity ${isActive(path) ? 'font-bold' : 'font-normal opacity-85'}`;
 
-		return baseStyle;
+	// Any link inside the panel navigates, so close on click rather than watching the pathname.
+	const closeOnLinkClick = (event: MouseEvent<HTMLElement>) => {
+		if ((event.target as HTMLElement).closest('a')) setIsOpen(false);
 	};
 
-	const closeMenu = () => {
-		if (animationState === 'open') {
-			setAnimationState('closing');
-		}
-	};
+	const panelStyle = {
+		clipPath: isOpen ? `circle(150% at ${BUTTON_CENTRE})` : `circle(24px at ${BUTTON_CENTRE})`
+	} satisfies CSSProperties;
 
 	return (
 		<div className="lg:hidden">
 			<button
-				onClick={toggleMenu}
-				className="border-bala-purple-dark fixed top-8 left-8 z-50 cursor-pointer rounded-full border-1 bg-black p-3 text-white"
-				aria-label={animationState === 'idle' ? 'Open menu' : 'Close menu'}
+				type="button"
+				onClick={() => setIsOpen((open) => !open)}
+				aria-expanded={isOpen}
+				aria-controls="mobile-nav-panel"
+				aria-label={isOpen ? 'Close menu' : 'Open menu'}
+				className={`fixed top-8 left-8 z-50 grid h-[50px] w-[50px] cursor-pointer place-items-center rounded-full border text-white transition-colors duration-200 ${
+					isOpen ? 'border-white/20 bg-white/10' : 'border-bala-purple-dark bg-black'
+				}`}
 			>
-				<HamburgerIcon />
+				<HamburgerIcon
+					className={`col-start-1 row-start-1 transition-[opacity,transform] duration-200 ease-out motion-reduce:transition-opacity ${
+						isOpen ? 'scale-75 -rotate-45 opacity-0' : 'opacity-100'
+					}`}
+				/>
+				<svg
+					viewBox="0 0 24 24"
+					width="22"
+					height="22"
+					fill="none"
+					stroke="currentColor"
+					strokeWidth="2"
+					strokeLinecap="round"
+					aria-hidden="true"
+					className={`col-start-1 row-start-1 transition-[opacity,transform] duration-200 ease-out motion-reduce:transition-opacity ${
+						isOpen ? 'opacity-100' : 'scale-75 rotate-45 opacity-0'
+					}`}
+				>
+					<path d="M6 6l12 12M18 6L6 18" />
+				</svg>
 			</button>
 
-			{isVisible && (
-				<div
-					className={`fixed top-0 left-0 z-30 h-full w-full bg-black/10 transition-opacity duration-1000 ${
-						animationState === 'open' ? 'opacity-100' : 'pointer-events-none opacity-0'
-					}`}
-					onClick={closeMenu}
-				></div>
-			)}
+			<div
+				aria-hidden="true"
+				onClick={() => setIsOpen(false)}
+				className={`fixed inset-0 z-30 bg-black/20 transition-opacity duration-300 ease-out ${isOpen ? 'opacity-100' : 'pointer-events-none opacity-0'}`}
+			/>
 
-			{isVisible && (
-				<div
-					className={`bg-bala-purple-dark fixed z-40 overflow-hidden rounded-[28px] text-white shadow-2xl transition-all duration-500 ${
-						animationState === 'expanding' || animationState === 'shrinking'
-							? 'top-6 left-6 h-12 w-12 opacity-0'
-							: 'top-6 left-6 h-[85dvh] w-[min(400px,calc(100vw-48px))] opacity-100'
-					}`}
-					style={{
-						...getPanelStyle(),
-						transitionTimingFunction: 'cubic-bezier(0.85, 0, 0.15, 1)'
-					}}
-				>
-					<div
-						className={`flex h-full flex-col p-6 transition-opacity duration-[250ms] ${showContent ? 'opacity-100' : 'opacity-0'}`}
-					>
-						<nav className="relative h-full overflow-y-visible">
-							<div className={`${logoFont.className} absolute top-[-6px] right-0 flex items-center gap-2 text-2xl`}>
-								<LogoSimple width={28} height={28} />
-								<span>BALA YOGA</span>
-							</div>
-
-							<div className="flex h-full flex-col justify-between pt-20">
-								<ul className="flex flex-col gap-4 text-xl">
-									<li>
-										<Link href="/" className={getLinkClassName('/')}>
-											Home
-										</Link>
-									</li>
-									<li>
-										<Link href="/yoga" className={getLinkClassName('/yoga')}>
-											Yoga
-										</Link>
-									</li>
-									<li>
-										<div className="flex items-center gap-4">
-											<Link href="/blog" className={getLinkClassName('/blog')}>
-												Blog
-											</Link>
-											<button onClick={() => setIsBlogOpen(!isBlogOpen)} className="text-white">
-												<svg
-													xmlns="http://www.w3.org/2000/svg"
-													width="20"
-													height="20"
-													viewBox="0 0 24 24"
-													fill="none"
-													stroke="currentColor"
-													strokeWidth="2"
-													strokeLinecap="round"
-													strokeLinejoin="round"
-													className={`transition-transform ${isBlogOpen ? 'rotate-180' : ''}`}
-												>
-													<polyline points="6 9 12 15 18 9" />
-												</svg>
-											</button>
-										</div>
-										{isBlogOpen && (
-											<ul className="mt-2 flex flex-col gap-2 pl-4 text-sm">
-												{posts.map((post) => (
-													<li key={post.slug}>
-														<Link
-															href={`/blog/${post.slug}`}
-															className={getLinkClassName(`/blog/${post.slug}`)}
-														>
-															{post.title}
-														</Link>
-													</li>
-												))}
-											</ul>
-										)}
-									</li>
-									<li>
-										<Link href="/contact" className={getLinkClassName('/contact')}>
-											Contact
-										</Link>
-									</li>
-								</ul>
-								<Socials />
-							</div>
-						</nav>
+			<div
+				id="mobile-nav-panel"
+				inert={!isOpen}
+				style={panelStyle}
+				className={`bg-bala-purple-dark fixed top-6 left-6 z-40 h-[85dvh] w-[min(400px,calc(100vw-48px))] overflow-hidden rounded-[28px] text-white shadow-2xl motion-reduce:[transition:opacity_200ms_var(--ease-out)] ${
+					isOpen
+						? 'opacity-100 [transition:clip-path_450ms_var(--ease-out),opacity_150ms_var(--ease-out)]'
+						: 'opacity-0 [transition:clip-path_300ms_var(--ease-out),opacity_300ms_var(--ease-out)]'
+				}`}
+			>
+				<nav className="flex h-full flex-col p-6" aria-label="Mobile navigation" onClick={closeOnLinkClick}>
+					<div className={`${logoFont.className} flex items-center justify-end gap-2 text-2xl`}>
+						<LogoSimple width={28} height={28} />
+						<span>BALA YOGA</span>
 					</div>
-				</div>
-			)}
 
-			<style jsx global>{`
-				@supports (view-transition-name: none) {
-					::view-transition-group(mobile-nav-panel) {
-						animation-duration: 0.7s;
-						animation-timing-function: cubic-bezier(0.85, 0, 0.15, 1);
-					}
-					::view-transition-old(mobile-nav-panel),
-					::view-transition-new(mobile-nav-panel) {
-						animation-duration: 0.7s;
-						animation-timing-function: cubic-bezier(0.85, 0, 0.15, 1);
-					}
-				}
-			`}</style>
+					<div className="flex flex-1 flex-col justify-between pt-14">
+						<ul className="flex flex-col gap-4 text-xl">
+							{(
+								[
+									['/', 'Home'],
+									['/yoga', 'Yoga'],
+									['/blog', 'Blog'],
+									['/contact', 'Contact']
+								] as const
+							).map(([href, label], index) => (
+								<li
+									key={href}
+									style={{ transitionDelay: isOpen ? `${120 + index * 40}ms` : '0ms' }}
+									className={`transition-[opacity,transform] duration-300 ease-out motion-reduce:translate-y-0 motion-reduce:transition-opacity ${
+										isOpen ? 'translate-y-0 opacity-100' : 'translate-y-2 opacity-0'
+									}`}
+								>
+									{href === '/blog' ? (
+										<>
+											<div className="flex items-center gap-3">
+												<Link href={href} className={linkClassName(href)}>
+													{label}
+												</Link>
+												<button
+													type="button"
+													onClick={() => setIsBlogOpen((open) => !open)}
+													aria-expanded={isBlogOpen}
+													aria-label={isBlogOpen ? 'Hide blog posts' : 'Show blog posts'}
+													className="-m-1 p-1 text-white/80"
+												>
+													<svg
+														xmlns="http://www.w3.org/2000/svg"
+														width="20"
+														height="20"
+														viewBox="0 0 24 24"
+														fill="none"
+														stroke="currentColor"
+														strokeWidth="2"
+														strokeLinecap="round"
+														strokeLinejoin="round"
+														className={`transition-transform duration-200 ease-out ${isBlogOpen ? 'rotate-180' : ''}`}
+													>
+														<polyline points="6 9 12 15 18 9" />
+													</svg>
+												</button>
+											</div>
+											{isBlogOpen && (
+												<ul className="mt-3 flex flex-col gap-2.5 border-l border-white/15 pl-4 text-sm">
+													{posts.map((post) => (
+														<li key={post.slug}>
+															<Link
+																href={`/blog/${post.slug}`}
+																className={linkClassName(`/blog/${post.slug}`)}
+															>
+																{post.title}
+															</Link>
+														</li>
+													))}
+												</ul>
+											)}
+										</>
+									) : (
+										<Link href={href} className={linkClassName(href)}>
+											{label}
+										</Link>
+									)}
+								</li>
+							))}
+						</ul>
+						<Socials />
+					</div>
+				</nav>
+			</div>
 		</div>
 	);
 }

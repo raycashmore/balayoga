@@ -1,16 +1,18 @@
 'use client';
 
 import { useFormspark } from '@formspark/use-formspark';
-import { type FormEvent, useEffect, useRef, useState } from 'react';
+import { type FormEvent, useState } from 'react';
 
 const FORMSPARK_FORM_ID = 'G9aAoos7Y';
 
-export default function ContactForm({ isOpen }: { isOpen: boolean }) {
+const labelClassName = 'text-ink mb-2 block text-sm font-semibold';
+const fieldClassName =
+	'border-rule text-ink focus:border-bala-purple focus:ring-bala-purple/20 block w-full rounded-xl border bg-white px-4 py-3 text-base transition-colors focus:ring-4 focus:outline-none';
+
+export default function ContactForm() {
 	const [submit, submitting] = useFormspark({
 		formId: FORMSPARK_FORM_ID
 	});
-
-	const nameRef = useRef<HTMLInputElement>(null);
 
 	const [name, setName] = useState('');
 	const [email, setEmail] = useState('');
@@ -23,39 +25,36 @@ export default function ContactForm({ isOpen }: { isOpen: boolean }) {
 		setSent(true);
 	};
 
-	useEffect(() => {
-		if (isOpen && nameRef.current) {
-			nameRef.current.focus();
-		}
-	}, [isOpen]);
-
 	return sent ? (
-		<div className="text-xl font-extralight text-black">Message sent, thank you.</div>
+		<p role="status" className="text-ink m-0 text-lg">
+			Message sent, thank you.
+		</p>
 	) : (
-		<form onSubmit={onSubmit} className="flex max-w-[400px] min-w-[200px] flex-col gap-4">
+		<form onSubmit={onSubmit} className="flex flex-col gap-5">
 			<div>
-				<label htmlFor="name" className="text-md mb-2 text-sm leading-8 text-black">
+				<label htmlFor="name" className={labelClassName}>
 					Your name
 				</label>
 				<input
 					type="text"
 					id="name"
-					className="focus:text-red-60 text-md block w-full rounded-md border border-gray-300 p-2.5 text-black focus:border-blue-500 focus:ring-blue-500"
+					autoComplete="name"
+					className={fieldClassName}
 					required
 					maxLength={100}
 					onChange={(e) => setName(e.target.value)}
-					ref={nameRef}
 				/>
 			</div>
 
 			<div>
-				<label htmlFor="email" className="text-md mb-2 text-sm leading-8 text-black">
+				<label htmlFor="email" className={labelClassName}>
 					Your email
 				</label>
 				<input
 					type="email"
 					id="email"
-					className="focus:text-red-60 text-md block w-full rounded-md border border-gray-300 p-2.5 text-black focus:border-blue-500 focus:ring-blue-500"
+					autoComplete="email"
+					className={fieldClassName}
 					required
 					maxLength={100}
 					onChange={(e) => setEmail(e.target.value)}
@@ -63,14 +62,14 @@ export default function ContactForm({ isOpen }: { isOpen: boolean }) {
 			</div>
 
 			<div>
-				<label htmlFor="message" className="text-md mb-2 text-sm leading-8 text-black">
+				<label htmlFor="message" className={labelClassName}>
 					Message
 				</label>
 				<textarea
 					id="message"
 					rows={5}
 					maxLength={500}
-					className="focus:text-red-60 text-md block w-full rounded-md border border-gray-300 p-2.5 text-black focus:border-blue-500 focus:ring-blue-500"
+					className={`${fieldClassName} resize-y`}
 					onChange={(e) => setMessage(e.target.value)}
 				/>
 			</div>
@@ -78,9 +77,9 @@ export default function ContactForm({ isOpen }: { isOpen: boolean }) {
 			<button
 				type="submit"
 				disabled={submitting}
-				className="bg-bala-blue rounded-md border-blue-300 px-5 py-2.5 text-center text-sm font-medium text-white opacity-90 hover:opacity-100 focus:ring-4 focus:ring-blue-300 focus:outline-none disabled:opacity-50 sm:w-auto"
+				className="hover:bg-bala-purple-dark mt-1 inline-flex h-12 items-center justify-center rounded-full bg-[#6b4ec1] px-6 text-sm font-semibold text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6b4ec1] disabled:opacity-60"
 			>
-				SEND
+				{submitting ? 'Sending…' : 'Send message'}
 			</button>
 		</form>
 	);

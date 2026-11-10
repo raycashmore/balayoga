@@ -15,7 +15,7 @@ export function MorePosts({ posts, currentSlug }: MorePostsProps) {
 	return (
 		<nav aria-labelledby="more-posts-heading" className="border-rule border-t pt-6">
 			<h2 id="more-posts-heading" className={`${bodyFont.className} text-ink-muted m-0 pb-2 text-xs font-semibold tracking-[0.14em] uppercase`}>
-				More from the journal
+				More from the blog
 			</h2>
 			<ul className="divide-bala-purple-light flex flex-col divide-y">
 				{otherPosts.map(({ id, slug, title, publishedAt }) => (

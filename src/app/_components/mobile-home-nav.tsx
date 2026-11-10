@@ -40,7 +40,7 @@ export function MobileHomeNav() {
 										: 'border-transparent text-[#3e3551] hover:bg-white/60'
 								].join(' ')}
 							>
-								<span className="h-[22px] w-[22px] [&_svg]:h-full [&_svg]:w-full">
+								<span className="h-[26px] w-[26px] [&_svg]:h-full [&_svg]:w-full">
 									<Icon />
 								</span>
 								{label}

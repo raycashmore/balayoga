@@ -47,3 +47,7 @@ yarn-error.log*
 
 # Payload files
 /media
+
+# Local design/QA artefacts (binary, not for the repo)
+.playwright-mcp/
+design/*.png

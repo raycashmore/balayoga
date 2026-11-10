@@ -1,32 +1,36 @@
+import type { BlogListPost } from '@/app/(frontend)/blog/blog-list-post';
 import { BlogPage } from '@/app/(frontend)/blog/blog-page';
-import PostsList from '@/app/(frontend)/blog/posts-list';
+import { MorePosts } from '@/app/(frontend)/blog/more-posts';
+import { PostsList } from '@/app/(frontend)/blog/posts-list';
 import type { Post as PostType } from '@/payload-types';
 import { LivePreviewPost } from '@/payload/components/LivePreviewPost';
-import { headerFont } from '@/styles/fonts';
-import type { PaginatedDocs } from 'payload';
 import React from 'react';
 
 type PostProps = {
-	allPosts: PaginatedDocs;
+	allPosts: BlogListPost[];
 	isPreview?: boolean;
 	post: PostType | null;
 };
 
 export default function Post({ allPosts, isPreview = false, post }: PostProps) {
+	const currentSlug = post?.slug;
+
 	return (
-		<div className="bg-bala-purple-light flex min-h-screen w-full justify-center overflow-hidden">
-			<div className="flex max-w-[1200px] px-2">
-				<aside className="hidden min-w-[240px] flex-col gap-4 p-4 pt-[100px] lg:flex">
-					<div className="fixed w-[220px] flex-col">
-						<h2 className={headerFont.className}>
-							<span className="text-[24pt]">Blog</span>
-						</h2>
-						<PostsList posts={allPosts} />
+		<div className="bg-bala-purple-light flex min-h-screen w-full justify-center pb-2 lg:pb-20">
+			{/* Shares the floating desktop nav's 984px track so both edges line up */}
+			<div className="flex w-[calc(100%-16px)] max-w-[984px] gap-10 pt-2 lg:w-[calc(100%-48px)] lg:pt-[98px]">
+				<aside className="hidden w-[200px] shrink-0 lg:block">
+					<div className="sticky top-[98px] flex flex-col gap-5 pt-16">
+						<h2 className="text-ink-muted m-0 font-[inherit] text-xs font-semibold tracking-[0.14em] uppercase">Journal</h2>
+						<PostsList posts={allPosts} currentSlug={currentSlug} />
 					</div>
 				</aside>
-				<article>
-					<div className="content px-0 pt-2 pb-2 md:px-2 lg:px-4 lg:pt-24 lg:pb-12">
+				<article className="min-w-0 flex-1">
+					<div className="bg-sheet flex flex-col gap-10 rounded-[28px] px-6 pt-28 pb-10 md:px-10 lg:rounded-[32px] lg:px-14 lg:pt-16 lg:pb-18">
 						{post && (isPreview ? <LivePreviewPost post={post} /> : <BlogPage post={post} />)}
+						<div className="lg:hidden">
+							<MorePosts posts={allPosts} currentSlug={currentSlug} />
+						</div>
 					</div>
 				</article>
 			</div>

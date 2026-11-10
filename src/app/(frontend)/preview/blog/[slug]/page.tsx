@@ -1,3 +1,4 @@
+import { blogListSelect } from '@/app/(frontend)/blog/blog-list-post';
 import Post from '@/app/(frontend)/blog/post';
 import configPromise from '@payload-config';
 import { draftMode } from 'next/headers';
@@ -40,16 +41,11 @@ export default async function PreviewBlogPostPage({ params: paramsPromise }: Arg
 
 	const allPosts = await payload.find({
 		collection: 'posts',
-		depth: 1,
 		limit: 12,
 		sort: '-publishedAt',
 		draft: false,
 		overrideAccess: false,
-		select: {
-			title: true,
-			slug: true,
-			meta: true
-		},
+		select: blogListSelect,
 		where: {
 			_status: {
 				equals: 'published'
@@ -57,5 +53,5 @@ export default async function PreviewBlogPostPage({ params: paramsPromise }: Arg
 		}
 	});
 
-	return <Post post={post} allPosts={allPosts} isPreview={true} />;
+	return <Post post={post} allPosts={allPosts.docs} isPreview={true} />;
 }

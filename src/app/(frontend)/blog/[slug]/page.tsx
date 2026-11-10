@@ -1,3 +1,4 @@
+import { blogListSelect } from '@/app/(frontend)/blog/blog-list-post';
 import Post from '@/app/(frontend)/blog/post';
 import configPromise from '@payload-config';
 import type { Metadata } from 'next/types';
@@ -79,16 +80,11 @@ export default async function Page({ params: paramsPromise }: Args) {
 
 	const allPosts = await payload.find({
 		collection: 'posts',
-		depth: 1,
 		limit: 12,
 		sort: '-publishedAt',
 		draft: false,
 		overrideAccess: false,
-		select: {
-			title: true,
-			slug: true,
-			meta: true
-		},
+		select: blogListSelect,
 		where: {
 			_status: {
 				equals: 'published'
@@ -96,5 +92,5 @@ export default async function Page({ params: paramsPromise }: Args) {
 		}
 	});
 
-	return <Post post={post} allPosts={allPosts} />;
+	return <Post post={post} allPosts={allPosts.docs} />;
 }

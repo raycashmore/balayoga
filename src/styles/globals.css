@@ -108,6 +108,13 @@
 	--color-bala-purple-light: #EEEBF7;
 	--color-bala-blue: #2B80E9;
 
+	/* Long-form reading surface (blog) */
+	--color-sheet: #FBF9F5;
+	--color-ink: #2A2438;
+	--color-ink-soft: #4A4258;
+	--color-ink-muted: #6A6178;
+	--color-rule: #E4DFEC;
+
 	--color-background: var(--color-brand-primary);
 
 	--color-button-primary: var(--color-interactive-primary);
@@ -119,7 +126,8 @@
 
 html,
 body {
-	overflow-x: hidden;
+	/* clip, not hidden: hidden makes body a scroll container and breaks position: sticky */
+	overflow-x: clip;
 }
 
 body {

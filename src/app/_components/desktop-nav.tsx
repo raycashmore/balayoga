@@ -1,28 +1,26 @@
 'use client';
 
+import {
+	BOOKING_URL,
+	isNavItemActive,
+	NAV_ITEMS,
+	NAV_PILL_ACTIVE_CLASS_NAME,
+	NAV_PILL_INACTIVE_CLASS_NAME
+} from '@/app/_components/navigation';
 import { logoFont } from '@/styles/fonts';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-const NAV_ITEMS = [
-	{ href: '/', label: 'Home' },
-	{ href: '/yoga', label: 'Yoga' },
-	{ href: '/blog', label: 'Blog' },
-	{ href: '/contact', label: 'Contact' }
-] as const;
-
-const BOOKING_URL = 'https://app.squareup.com/appointments/book/classes/bro8gvstcef3zz/L2Y5ECFR9ASJT/classes';
-
 export function DesktopNav() {
 	const pathname = usePathname();
-	const isActive = (path: string) => (path === '/' ? pathname === path : pathname.startsWith(path));
+	const isActive = (href: string) => isNavItemActive(pathname, href);
 
 	return (
-		<header className="fixed top-3 left-1/2 z-[100] hidden w-[min(984px,calc(100%-48px))] -translate-x-1/2 lg:block">
-			<div className="flex h-[58px] items-center gap-3 rounded-[34px] bg-[#fffdf0]/72 py-1 pr-2 pl-6 shadow-[0_7px_20px_#392c662b] backdrop-blur-[14px]">
+		<header className="page-track fixed top-3 left-1/2 z-[100] hidden -translate-x-1/2 lg:block">
+			<div className="bg-cream/72 shadow-float flex h-[58px] items-center gap-3 rounded-[34px] py-1 pr-2 pl-6 backdrop-blur-[14px]">
 				<Link
 					href="/"
-					className={`${logoFont.className} flex w-[178px] shrink-0 items-center gap-2 text-[19px] leading-none font-medium tracking-[0.08em] whitespace-nowrap text-[#3e3551] focus-visible:rounded-full focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#6b4ec1]`}
+					className={`${logoFont.className} text-nav-ink focus-visible:outline-accent flex w-[178px] shrink-0 items-center gap-2 text-[19px] leading-none font-medium tracking-[0.08em] whitespace-nowrap focus-visible:rounded-full focus-visible:outline-2 focus-visible:outline-offset-4`}
 				>
 					<span>BALA YOGA</span>
 				</Link>
@@ -35,10 +33,8 @@ export function DesktopNav() {
 									href={href}
 									aria-current={isActive(href) ? 'page' : undefined}
 									className={[
-										'inline-flex h-[38px] items-center rounded-full border px-4 text-[13px] font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6b4ec1]',
-										isActive(href)
-											? 'border-white/45 bg-[#6b4ec1]/72 text-white'
-											: 'border-transparent text-[#3e3551] hover:bg-white/60'
+										'focus-visible:outline-accent inline-flex h-[38px] items-center rounded-full border px-4 text-[13px] font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2',
+										isActive(href) ? NAV_PILL_ACTIVE_CLASS_NAME : NAV_PILL_INACTIVE_CLASS_NAME
 									].join(' ')}
 								>
 									{label}
@@ -52,7 +48,7 @@ export function DesktopNav() {
 					href={BOOKING_URL}
 					target="_blank"
 					rel="noopener noreferrer"
-					className="inline-flex h-[46px] w-[146px] shrink-0 items-center justify-center rounded-full border border-white/45 bg-[#6b4ec1]/72 px-4 text-[13px] font-semibold text-white transition-colors hover:bg-[#6b4ec1] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6b4ec1]"
+					className="bg-accent/72 hover:bg-accent focus-visible:outline-accent inline-flex h-[46px] w-[146px] shrink-0 items-center justify-center rounded-full border border-white/45 px-4 text-[13px] font-semibold text-white transition-colors focus-visible:outline-2 focus-visible:outline-offset-2"
 				>
 					Book a class
 				</a>

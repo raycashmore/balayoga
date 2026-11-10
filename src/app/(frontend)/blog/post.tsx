@@ -12,13 +12,12 @@ type PostProps = {
 	post: PostType | null;
 };
 
-export default function Post({ allPosts, isPreview = false, post }: PostProps) {
+export function Post({ allPosts, isPreview = false, post }: PostProps) {
 	const currentSlug = post?.slug;
 
 	return (
 		<div data-surface="light" className="flex min-h-screen w-full justify-center pb-2 lg:pb-20">
-			{/* Shares the floating desktop nav's 984px track so both edges line up */}
-			<div className="flex w-[calc(100%-16px)] max-w-[984px] gap-10 pt-2 lg:w-[calc(100%-48px)] lg:pt-[98px]">
+			<div className="page-track flex gap-10 pt-2 lg:pt-[98px]">
 				<aside className="hidden w-[200px] shrink-0 lg:block">
 					<div className="sticky top-[98px] flex flex-col gap-5 pt-16">
 						<h2 className="text-ink-muted m-0 font-[inherit] text-xs font-semibold tracking-[0.14em] uppercase">Blog</h2>

@@ -1,4 +1,4 @@
-import { type ComponentProps } from 'react';
+import type { ComponentProps } from 'react';
 
 // Phosphor Icons "envelope-simple" (duotone), MIT licence — https://phosphoricons.com
 export function ContactIcon(props: ComponentProps<'svg'>) {

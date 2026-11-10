@@ -1,10 +1,10 @@
 import Facebook from '@/app/_components/facebook';
 import Instagram from '@/app/_components/instagram';
 
-const linkClassName =
+const LINK_CLASS_NAME =
 	'text-white opacity-90 transition-opacity hover:opacity-100 focus-visible:rounded-full focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white';
 
-export default function Socials() {
+export function Socials() {
 	return (
 		<div className="mt-6 flex justify-center gap-3 md:justify-start">
 			<a
@@ -12,7 +12,7 @@ export default function Socials() {
 				target="_blank"
 				rel="noopener noreferrer"
 				aria-label="Bala Yoga on Facebook"
-				className={linkClassName}
+				className={LINK_CLASS_NAME}
 			>
 				<Facebook />
 			</a>
@@ -21,7 +21,7 @@ export default function Socials() {
 				target="_blank"
 				rel="noopener noreferrer"
 				aria-label="Bala Yoga on Instagram"
-				className={linkClassName}
+				className={LINK_CLASS_NAME}
 			>
 				<Instagram />
 			</a>

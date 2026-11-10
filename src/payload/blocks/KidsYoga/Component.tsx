@@ -1,8 +1,7 @@
-import { BookNowButton } from '@/app/_components/book-now-button';
 import { ClassCard } from '@/app/_components/class-card';
 import { SectionTitle } from '@/app/_components/section-title';
 import type { KidsYogaBlockProps } from '@/payload-types';
-import RichText from '@/payload/components/RichText';
+import { YogaClassRow } from '@/payload/blocks/KidsYoga/YogaClassRow';
 import { FEATURE_FLAGS, getBooleanFeatureFlag } from '@/server/feature-flags';
 import Image from 'next/image';
 
@@ -30,28 +29,8 @@ function KidsYogaBlockContent({ kids, teens, title, isKidsEnabled }: KidsYogaBlo
 				</div>
 			}
 		>
-			{isKidsEnabled && kids && <ClassRow image="/kids-yoga.webp" content={kids} />}
-			{teens && <ClassRow image="/teens-yoga.webp" content={teens} />}
+			{isKidsEnabled && kids && <YogaClassRow image="/kids-yoga.webp" content={kids} />}
+			{teens && <YogaClassRow image="/teens-yoga.webp" content={teens} />}
 		</ClassCard>
-	);
-}
-
-function ClassRow({ image, content }: { image: string; content: NonNullable<KidsYogaBlockProps['teens']> }) {
-	return (
-		<div className="flex flex-col gap-6 md:flex-row md:items-start md:gap-10">
-			<Image
-				src={image}
-				alt=""
-				width={350}
-				height={350}
-				className="h-auto w-full rounded-2xl md:order-last md:w-[350px] md:shrink-0"
-			/>
-			<div className="flex-1">
-				<RichText data={content} enableGutter={false} />
-				<div className="mt-6">
-					<BookNowButton />
-				</div>
-			</div>
-		</div>
 	);
 }

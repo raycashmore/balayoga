@@ -1,5 +1,5 @@
-import { blogListSelect } from '@/app/(frontend)/blog/blog-list-post';
-import Post from '@/app/(frontend)/blog/post';
+import { findBlogListPosts } from '@/app/(frontend)/blog/blog-list-post';
+import { Post } from '@/app/(frontend)/blog/post';
 import configPromise from '@payload-config';
 import { draftMode } from 'next/headers';
 import { notFound, redirect } from 'next/navigation';
@@ -39,19 +39,7 @@ export default async function PreviewBlogPostPage({ params: paramsPromise }: Arg
 		notFound();
 	}
 
-	const allPosts = await payload.find({
-		collection: 'posts',
-		limit: 12,
-		sort: '-publishedAt',
-		draft: false,
-		overrideAccess: false,
-		select: blogListSelect,
-		where: {
-			_status: {
-				equals: 'published'
-			}
-		}
-	});
+	const allPosts = await findBlogListPosts(payload);
 
-	return <Post post={post} allPosts={allPosts.docs} isPreview={true} />;
+	return <Post post={post} allPosts={allPosts} isPreview={true} />;
 }

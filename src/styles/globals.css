@@ -123,9 +123,25 @@
 	--color-button-secondary: var(--color-brand-secondary);
 	--color-button-secondary-hover: var(--color-olive-600);
 
+	/* Floating nav and pill controls */
+	--color-cream: #fffdf0;
+	--color-nav-ink: #3e3551;
+	--color-accent: #6b4ec1;
+	--shadow-float: 0 7px 20px #392c662b;
+
 	/* Stronger than Tailwind's defaults; built-in curves read as sluggish on UI */
 	--ease-out: cubic-bezier(0.23, 1, 0.32, 1);
 	--ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+/* The shared content width: matches the floating desktop nav so page edges line up */
+@utility page-track {
+	width: calc(100% - 16px);
+	max-width: 984px;
+
+	@variant lg {
+		width: calc(100% - 48px);
+	}
 }
 
 html,

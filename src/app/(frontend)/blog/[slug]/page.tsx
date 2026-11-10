@@ -1,5 +1,5 @@
-import { blogListSelect } from '@/app/(frontend)/blog/blog-list-post';
-import Post from '@/app/(frontend)/blog/post';
+import { findBlogListPosts } from '@/app/(frontend)/blog/blog-list-post';
+import { Post } from '@/app/(frontend)/blog/post';
 import configPromise from '@payload-config';
 import type { Metadata } from 'next/types';
 import { getPayload } from 'payload';
@@ -78,19 +78,7 @@ export default async function Page({ params: paramsPromise }: Args) {
 
 	const payload = await getPayload({ config: configPromise });
 
-	const allPosts = await payload.find({
-		collection: 'posts',
-		limit: 12,
-		sort: '-publishedAt',
-		draft: false,
-		overrideAccess: false,
-		select: blogListSelect,
-		where: {
-			_status: {
-				equals: 'published'
-			}
-		}
-	});
+	const allPosts = await findBlogListPosts(payload);
 
-	return <Post post={post} allPosts={allPosts.docs} />;
+	return <Post post={post} allPosts={allPosts} />;
 }

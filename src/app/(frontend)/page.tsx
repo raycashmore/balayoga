@@ -1,4 +1,4 @@
-import Footer from '@/app/_components/footer';
+import { Footer } from '@/app/_components/footer';
 import Glow from '@/app/_components/glow';
 import { Hero } from '@/app/_components/hero';
 import { MobileHomeNav } from '@/app/_components/mobile-home-nav';
@@ -21,7 +21,7 @@ export function HomePageContent({ layout }: { layout: NonNullable<Awaited<Return
 					<Hero />
 					<MobileHomeNav />
 				</div>
-				<main className="flex w-[calc(100%-16px)] max-w-[984px] flex-col gap-14 lg:w-[calc(100%-48px)] lg:gap-20">
+				<main className="page-track flex flex-col gap-14 lg:gap-20">
 					<BlockRenderer layout={layout} />
 				</main>
 				<footer className="bg-bala-purple-dark flex w-full justify-center">

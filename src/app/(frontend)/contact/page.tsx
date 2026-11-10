@@ -1,5 +1,5 @@
 import { ContactCard } from '@/app/_components/contact-card';
-import Socials from '@/app/_components/socials';
+import { Socials } from '@/app/_components/socials';
 import type { Metadata } from 'next/types';
 
 export const metadata: Metadata = {

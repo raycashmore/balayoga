@@ -1,4 +1,4 @@
-import { type ComponentProps } from 'react';
+import type { ComponentProps } from 'react';
 
 // Phosphor Icons "book-open-text" (duotone), MIT licence — https://phosphoricons.com
 export function BlogIcon(props: ComponentProps<'svg'>) {

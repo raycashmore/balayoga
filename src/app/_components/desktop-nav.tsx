@@ -35,10 +35,10 @@ export function DesktopNav() {
 									href={href}
 									aria-current={isActive(href) ? 'page' : undefined}
 									className={[
-										'inline-flex h-[38px] items-center rounded-full px-4 text-[13px] font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6b4ec1]',
+										'inline-flex h-[38px] items-center rounded-full border px-4 text-[13px] font-semibold transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#6b4ec1]',
 										isActive(href)
-											? 'border border-white/45 bg-[#6b4ec1]/72 text-white'
-											: 'text-[#3e3551] hover:bg-white/60'
+											? 'border-white/45 bg-[#6b4ec1]/72 text-white'
+											: 'border-transparent text-[#3e3551] hover:bg-white/60'
 									].join(' ')}
 								>
 									{label}

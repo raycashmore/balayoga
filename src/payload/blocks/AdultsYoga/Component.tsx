@@ -1,26 +1,24 @@
 import { BookNowButton } from '@/app/_components/book-now-button';
+import { ClassCard } from '@/app/_components/class-card';
+import { SectionTitle } from '@/app/_components/section-title';
 import type { AdultsYogaBlockProps } from '@/payload-types';
 import RichText from '@/payload/components/RichText';
-import { headerFont } from '@/styles/fonts';
 import Image from 'next/image';
 
 export function AdultsYogaBlock({ richText, title }: AdultsYogaBlockProps) {
 	return (
-		<section className="bg-opacity-80 flex flex-col gap-4 rounded-[32px] p-6 pb-12 md:px-12" style={{ backgroundColor: 'var(--color-blue-100)', color: 'var(--color-gray-900)' }}>
-			<a id="adults-yoga" />
-			<h2 className={`headline ${headerFont.className} pb-4 text-center leading-none md:text-left`}>{title}</h2>
-
-			<div className="flex flex-col gap-8 sm:flex-row">
-				<aside className="flex justify-center sm:justify-start">
-					<Image src="/s2.webp" alt="" width={200} height={200} className="h-auto w-48 rounded-xl object-cover" />
-				</aside>
-				<div className="flex-[1]">
+		<ClassCard id="adults-yoga" tone="blue" heading={<SectionTitle>{title}</SectionTitle>}>
+			<div className="flex flex-col gap-6 sm:flex-row sm:gap-10">
+				<div className="shrink-0">
+					<Image src="/s2.webp" alt="" width={200} height={200} className="h-auto w-48 rounded-2xl object-cover" />
+				</div>
+				<div className="flex-1">
 					{richText && <RichText data={richText} enableGutter={false} />}
-					<div className="flex justify-center">
+					<div className="mt-6">
 						<BookNowButton />
 					</div>
 				</div>
 			</div>
-		</section>
+		</ClassCard>
 	);
 }

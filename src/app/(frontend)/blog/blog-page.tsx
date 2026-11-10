@@ -40,11 +40,18 @@ export function BlogPage({ post }: { post: Post }) {
 
 			{heroImageUrl && (
 				<div className="relative -mt-2 aspect-[16/9] overflow-hidden rounded-2xl">
-					<Image src={heroImageUrl} alt={heroImageAlt} fill priority className="object-cover" sizes="(max-width: 1024px) 100vw, 680px" />
+					<Image
+						src={heroImageUrl}
+						alt={heroImageAlt}
+						fill
+						priority
+						className="object-cover"
+						sizes="(max-width: 1024px) 100vw, 680px"
+					/>
 				</div>
 			)}
 
-			<RichText className={bodyClassName} data={content} enableGutter={false} enableProse={false} />
+			<RichText className={bodyClassName} data={content} enableGutter={false} />
 		</>
 	);
 }

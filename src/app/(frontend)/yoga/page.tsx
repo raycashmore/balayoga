@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export function YogaPageContent({ layout }: { layout: NonNullable<Awaited<ReturnType<typeof fetchPageBySlug>>>['layout'] }) {
 	return (
-		<main className="content m-2 mx-auto flex max-w-[1000px] flex-col justify-center gap-8 px-2 pb-8 md:m-4 lg:gap-12 lg:pt-24">
+		<main className="content flex w-[calc(100%-16px)] max-w-[984px] flex-col gap-2 pt-24 pb-2 lg:w-[calc(100%-48px)] lg:gap-8 lg:pt-[98px] lg:pb-20">
 			<BlockRenderer layout={layout} />
 		</main>
 	);

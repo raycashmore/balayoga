@@ -16,7 +16,7 @@ export default function Post({ allPosts, isPreview = false, post }: PostProps) {
 	const currentSlug = post?.slug;
 
 	return (
-		<div className="bg-bala-purple-light flex min-h-screen w-full justify-center pb-2 lg:pb-20">
+		<div data-surface="light" className="flex min-h-screen w-full justify-center pb-2 lg:pb-20">
 			{/* Shares the floating desktop nav's 984px track so both edges line up */}
 			<div className="flex w-[calc(100%-16px)] max-w-[984px] gap-10 pt-2 lg:w-[calc(100%-48px)] lg:pt-[98px]">
 				<aside className="hidden w-[200px] shrink-0 lg:block">

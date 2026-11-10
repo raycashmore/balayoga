@@ -1,35 +1,31 @@
 import { BookNowButton } from '@/app/_components/book-now-button';
+import { ClassCard } from '@/app/_components/class-card';
+import { SectionTitle } from '@/app/_components/section-title';
 import type { FamilyYogaBlockProps } from '@/payload-types';
 import RichText from '@/payload/components/RichText';
-import { headerFont } from '@/styles/fonts';
 import Image from 'next/image';
 
 export function FamilyYogaBlock({ details, description, title }: FamilyYogaBlockProps) {
 	return (
-		<section className="bg-opacity-80 flex flex-col gap-4 rounded-[32px] p-6 pb-8 md:px-12" style={{ backgroundColor: 'var(--color-olive-50)', color: 'var(--color-gray-900)' }}>
-			<a id="adults-yoga" />
-			<h2 className={`headline ${headerFont.className} pb-4 text-center leading-none md:text-left`}>{title}</h2>
-
-			<div className="flex flex-col lg:flex-row lg:gap-8">
-				<div>
-					<div className="flex justify-center sm:justify-start">
-						<Image
-							src="/IMG_3554.webp"
-							alt=""
-							width={800}
-							height={402}
-							className="h-auto w-auto rounded-xl object-cover md:w-[420px]"
-						/>
-					</div>
-					<div>{details && <RichText data={details} enableGutter={false} />}</div>
+		<ClassCard id="family-yoga" tone="olive" heading={<SectionTitle>{title}</SectionTitle>}>
+			<div className="flex flex-col gap-6 lg:flex-row lg:gap-10">
+				<div className="flex flex-col gap-6 lg:w-[420px] lg:shrink-0">
+					<Image
+						src="/IMG_3554.webp"
+						alt=""
+						width={800}
+						height={402}
+						className="h-auto w-full rounded-2xl object-cover md:w-[420px]"
+					/>
+					{details && <RichText data={details} enableGutter={false} />}
 				</div>
-				<div className="flex-[1]">
+				<div className="flex-1">
 					{description && <RichText data={description} enableGutter={false} />}
-					<span className="flex justify-center">
+					<div className="mt-6">
 						<BookNowButton />
-					</span>
+					</div>
 				</div>
 			</div>
-		</section>
+		</ClassCard>
 	);
 }

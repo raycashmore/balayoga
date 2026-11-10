@@ -21,11 +21,10 @@ const jsxConverters: JSXConvertersFunction<NodeTypes> = ({ defaultConverters }) 
 type Props = {
 	data: DefaultTypedEditorState;
 	enableGutter?: boolean;
-	enableProse?: boolean;
 } & React.HTMLAttributes<HTMLDivElement>;
 
 export default function RichText(props: Props) {
-	const { className, enableProse = true, enableGutter = true, ...rest } = props;
+	const { className, enableGutter = true, ...rest } = props;
 	return (
 		<ConvertRichText
 			converters={jsxConverters}
@@ -33,8 +32,7 @@ export default function RichText(props: Props) {
 				'payload-richtext',
 				{
 					container: enableGutter,
-					'max-w-none': !enableGutter,
-					'prose md:prose-md dark:prose-invert mx-auto': enableProse
+					'max-w-none': !enableGutter
 				},
 				className
 			)}

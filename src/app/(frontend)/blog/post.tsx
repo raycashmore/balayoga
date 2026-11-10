@@ -21,7 +21,7 @@ export default function Post({ allPosts, isPreview = false, post }: PostProps) {
 			<div className="flex w-[calc(100%-16px)] max-w-[984px] gap-10 pt-2 lg:w-[calc(100%-48px)] lg:pt-[98px]">
 				<aside className="hidden w-[200px] shrink-0 lg:block">
 					<div className="sticky top-[98px] flex flex-col gap-5 pt-16">
-						<h2 className="text-ink-muted m-0 font-[inherit] text-xs font-semibold tracking-[0.14em] uppercase">Journal</h2>
+						<h2 className="text-ink-muted m-0 font-[inherit] text-xs font-semibold tracking-[0.14em] uppercase">Blog</h2>
 						<PostsList posts={allPosts} currentSlug={currentSlug} />
 					</div>
 				</aside>

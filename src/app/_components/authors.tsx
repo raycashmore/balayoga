@@ -1,27 +1,16 @@
-import { formatDateTime } from '@/payload/utils/formatDateTime';
 import Image from 'next/image';
 import React from 'react';
 
-type AuthorProps = {
-	publishedAt?: string | null;
-	authors?: string | null;
+type AuthorsProps = {
+	name?: string | null;
 	thumbnail?: string | null;
 };
 
-export function Authors({ publishedAt, authors, thumbnail }: AuthorProps) {
+export function Authors({ name, thumbnail }: AuthorsProps) {
 	return (
-		<div className="flex items-center gap-4">
-			<div className="h-[60px] w-[60px]">
-				{thumbnail && <Image src={thumbnail} alt="Author profile picture" width="60" height="60" />}
-			</div>
-			<div className="flex flex-col gap-1">
-				<div className="text-sm font-bold whitespace-nowrap text-black">{authors}</div>
-				{publishedAt && (
-					<div className="text-sm font-normal whitespace-nowrap text-black">
-						<time dateTime={publishedAt}>{formatDateTime(publishedAt)}</time>
-					</div>
-				)}
-			</div>
+		<div className="flex items-center gap-3 pt-1 lg:pt-2">
+			{thumbnail && <Image src={thumbnail} alt="" width={40} height={40} className="h-9 w-9 rounded-full object-cover lg:h-10 lg:w-10" />}
+			<span className="text-ink text-sm font-semibold">{name}</span>
 		</div>
 	);
 }

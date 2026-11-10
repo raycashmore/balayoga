@@ -1,35 +1,39 @@
-'use client';
-
-import type { Post } from '@/payload-types';
+import type { BlogListPost } from '@/app/(frontend)/blog/blog-list-post';
+import { formatDateTime } from '@/payload/utils/formatDateTime';
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import type { PaginatedDocs } from 'payload';
-import React from 'react';
 
-export default function PostsList({ posts }: { posts: PaginatedDocs }) {
-	const pathname = usePathname();
+type PostsListProps = {
+	posts: BlogListPost[];
+	currentSlug?: string | null;
+};
+
+export function PostsList({ posts, currentSlug }: PostsListProps) {
 	return (
-		<div className="flex flex-col gap-2">
-			{posts?.docs?.map((result, index) => {
-				if (typeof result === 'object' && result !== null) {
-					const doc = result as Pick<Post, 'slug' | 'meta' | 'title' | 'id'>;
-					const href = `/blog/${doc.slug}`;
-					const isSelected = pathname === href || (pathname === '/blog' && index === 0);
-					return (
-						<div
-							key={doc.id}
-							className={`cursor-pointer border-l-2 py-1 pl-4 text-base transition-colors ${
-								isSelected ? 'border-bala-purple text-bala-purple' : 'hover:text-bala-purple border-transparent text-black'
-							}`}
+		<ul className="flex flex-col gap-0.5">
+			{posts.map(({ id, slug, title, publishedAt }) => {
+				const isCurrent = slug === currentSlug;
+				return (
+					<li key={id}>
+						<Link
+							href={`/blog/${slug}`}
+							aria-current={isCurrent ? 'page' : undefined}
+							className={[
+								'flex flex-col gap-1 border-l-2 py-2.5 pl-3.5 transition-colors focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-bala-purple',
+								isCurrent ? 'border-bala-purple' : 'border-transparent hover:border-rule'
+							].join(' ')}
 						>
-							<Link href={href} className="mb-0 text-sm">
-								{doc.title}
-							</Link>
-						</div>
-					);
-				}
-				return null;
+							<span className={`text-sm leading-5 ${isCurrent ? 'text-ink font-semibold' : 'text-ink-soft font-medium'}`}>
+								{title}
+							</span>
+							{publishedAt && (
+								<time dateTime={publishedAt} className="text-ink-muted text-xs">
+									{formatDateTime(publishedAt)}
+								</time>
+							)}
+						</Link>
+					</li>
+				);
 			})}
-		</div>
+		</ul>
 	);
 }

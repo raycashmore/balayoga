@@ -1,3 +1,4 @@
+import { blogListSelect } from '@/app/(frontend)/blog/blog-list-post';
 import Post from '@/app/(frontend)/blog/post';
 import configPromise from '@payload-config';
 import type { Metadata } from 'next/types';
@@ -16,33 +17,26 @@ export function generateMetadata(): Metadata {
 export default async function Page() {
 	const payload = await getPayload({ config: configPromise });
 
-	const posts = await payload.find({
-		collection: 'posts',
-		depth: 1,
-		limit: 12,
-		sort: '-publishedAt',
-		draft: false,
-		overrideAccess: false,
-		select: {
-			title: true,
-			subtitle: true,
-			slug: true,
-			heroImage: true,
-			meta: true,
-			content: true,
-			updatedAt: true,
-			createdAt: true,
-			publishedAt: true,
-			authors: true
-		},
-		where: {
-			_status: {
-				equals: 'published'
-			}
-		}
-	});
+	const [latest, allPosts] = await Promise.all([
+		payload.find({
+			collection: 'posts',
+			depth: 1,
+			limit: 1,
+			sort: '-publishedAt',
+			draft: false,
+			overrideAccess: false,
+			where: { _status: { equals: 'published' } }
+		}),
+		payload.find({
+			collection: 'posts',
+			limit: 12,
+			sort: '-publishedAt',
+			draft: false,
+			overrideAccess: false,
+			select: blogListSelect,
+			where: { _status: { equals: 'published' } }
+		})
+	]);
 
-	const latestPostBody = posts.docs?.[0] ?? null;
-
-	return <Post post={latestPostBody} allPosts={posts} />;
+	return <Post post={latest.docs[0] ?? null} allPosts={allPosts.docs} />;
 }

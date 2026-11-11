@@ -14,6 +14,7 @@ const COLLAPSED_LINES = 7;
 export function TestimonialCard({ testimony }: TestimonialCardProps) {
 	const [isExpanded, setIsExpanded] = useState(false);
 	const bodyId = useId();
+	const quoteId = useId();
 	const bodyRef = useRef<HTMLDivElement>(null);
 	// Height can't transition to `auto`, so the wrapper height is computed from the body's measurements.
 	const [measurements, setMeasurements] = useState<{ full: number; collapsed: number }>();
@@ -35,7 +36,7 @@ export function TestimonialCard({ testimony }: TestimonialCardProps) {
 
 	return (
 		<div className="relative flex h-full flex-col overflow-hidden rounded-[32px] bg-gradient-to-bl from-transparent from-25% via-[#DBE2F0]/10 to-[#DBE2F0]/20 p-6 backdrop-blur-sm md:p-10">
-			<h3 className={`${headerFont.className} mt-0 mb-4 text-[22px] leading-[1.25] font-normal text-white`}>
+			<h3 id={quoteId} className={`${headerFont.className} mt-0 mb-4 text-[22px] leading-[1.25] font-normal text-white`}>
 				&ldquo;{testimony.quote}&rdquo;
 			</h3>
 
@@ -52,15 +53,32 @@ export function TestimonialCard({ testimony }: TestimonialCardProps) {
 			</div>
 
 			{isClippable && (
-				<div className="mt-auto flex justify-end pt-4">
+				<div className="mt-auto pt-4">
 					<button
 						type="button"
 						onClick={() => setIsExpanded((value) => !value)}
 						aria-expanded={isExpanded}
 						aria-controls={bodyId}
-						className="-mr-2 rounded-md px-2 py-1 font-semibold text-white transition-colors hover:text-white/80 focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:outline-none"
+						aria-describedby={quoteId}
+						className="-ml-2 inline-flex items-center gap-1 rounded-md px-2 py-1 font-semibold text-white transition-colors hover:text-white/80 focus-visible:ring-2 focus-visible:ring-white/50 focus-visible:outline-none"
 					>
 						{isExpanded ? 'Read less' : 'Read more'}
+						<svg
+							aria-hidden="true"
+							width="16"
+							height="16"
+							viewBox="0 0 24 24"
+							fill="none"
+							stroke="currentColor"
+							strokeWidth="2.5"
+							strokeLinecap="round"
+							strokeLinejoin="round"
+							className={`transition-transform duration-250 ease-out motion-reduce:transition-none ${
+								isExpanded ? 'rotate-180' : ''
+							}`}
+						>
+							<path d="m6 9 6 6 6-6" />
+						</svg>
 					</button>
 				</div>
 			)}

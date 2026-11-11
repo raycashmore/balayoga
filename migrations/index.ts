@@ -6,6 +6,7 @@ import * as migration_20260221_094938 from './20260221_094938';
 import * as migration_20260425_074212 from './20260425_074212';
 import * as migration_20261110_103035_payload_3_93 from './20261110_103035_payload_3_93';
 import * as migration_20261110_110343_kids_yoga_show_kids from './20261110_110343_kids_yoga_show_kids';
+import * as migration_20261111_024940_testimonials_drop_short_body from './20261111_024940_testimonials_drop_short_body';
 
 export const migrations = [
   {
@@ -46,6 +47,11 @@ export const migrations = [
   {
     up: migration_20261110_110343_kids_yoga_show_kids.up,
     down: migration_20261110_110343_kids_yoga_show_kids.down,
-    name: '20261110_110343_kids_yoga_show_kids'
+    name: '20261110_110343_kids_yoga_show_kids',
+  },
+  {
+    up: migration_20261111_024940_testimonials_drop_short_body.up,
+    down: migration_20261111_024940_testimonials_drop_short_body.down,
+    name: '20261111_024940_testimonials_drop_short_body'
   },
 ];

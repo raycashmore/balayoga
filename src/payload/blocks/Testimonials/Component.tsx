@@ -66,7 +66,7 @@ export function TestimonialsBlock({ title, testimonials }: Props) {
 				<div className="relative">
 					<div className="overflow-visible">
 						<div
-							className="transform-testimonial gap-8 transition-transform duration-[400ms] ease-in-out md:flex"
+							className="transform-testimonial gap-8 transition-transform duration-[400ms] ease-in-out md:flex md:has-[[aria-expanded=true]]:items-start"
 							style={
 								{
 									'--active-index': activeIndex,

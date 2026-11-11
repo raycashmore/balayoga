@@ -287,25 +287,7 @@ export interface TestimonialsBlockProps {
     | {
         quote: string;
         /**
-         * Short testimonial
-         */
-        shortBody: {
-          root: {
-            type: string;
-            children: {
-              type: any;
-              version: number;
-              [k: string]: unknown;
-            }[];
-            direction: ('ltr' | 'rtl') | null;
-            format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-            indent: number;
-            version: number;
-          };
-          [k: string]: unknown;
-        };
-        /**
-         * Expanded testimonial
+         * Shown clipped on the card until the visitor selects Read more
          */
         body: {
           root: {
@@ -765,7 +747,6 @@ export interface TestimonialsBlockPropsSelect<T extends boolean = true> {
     | T
     | {
         quote?: T;
-        shortBody?: T;
         body?: T;
         id?: T;
       };
